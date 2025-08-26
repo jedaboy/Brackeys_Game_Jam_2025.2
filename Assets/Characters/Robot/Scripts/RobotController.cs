@@ -1,5 +1,6 @@
 using GRD.FSM;
 using UnityEngine;
+using static UnityEditor.VersionControl.Asset;
 
 namespace BGJ14
 {
@@ -12,76 +13,187 @@ namespace BGJ14
         public FSM_Manager fsmManager;
         public int ammo;
         public Camera m_Cam;
-        public Transform alvo;
         private Vector3 moveInput;
+        public GameObject robotArm;
 
-        [SerializeField] private float distance = 5f;
+
+        [SerializeField] private float distance = 2f;
         [SerializeField] private float sensitivity = 3f;
-        [SerializeField] private float minY = 10f;
-        [SerializeField] private float maxY = 60f;
-
+        [SerializeField] private float minY = -10f;
+        [SerializeField] private float maxY = 80f;
+        [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
+        [SerializeField] private Transform debugTransform;
+        [SerializeField] private Transform bulletProjectile;
+        [SerializeField] private Transform spawnBulletPosition;
 
         private float yaw;  
         private float pitch; 
 
 
         public void Update()
-        {
+        { 
+        //{
+        //    Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        //    Ray ray = new Ray(robotArm.transform.position, robotArm.transform.forward);
+        //    if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
+        //    {
+        //        debugTransform.position = raycastHit.point;
+        //    }
             CamMove();
+            Shoot();
         }
 
         public void FixedUpdate()
         {
+            Debug.Log(ChecKGroundStatus());
+            if(ChecKGroundStatus())
             Move();
+            
         }
 
         public void MoveInput()
         {
-            moveInput = robotIC.move.x * m_Cam.transform.right + robotIC.move.y * Vector3.ProjectOnPlane(m_Cam.transform.forward, Vector3.up).normalized;
+            // Calcula dire��o de movimento relativa � c�mera
+            Vector3 moveDir = robotIC.move.x * m_Cam.transform.right
+                            + robotIC.move.y * Vector3.ProjectOnPlane(m_Cam.transform.forward, Vector3.up).normalized;
+
+            if (robotIC.sprint)
+                moveDir *= 3f;
+
+            moveInput = moveDir;
+
+            // Se houver movimento, rotaciona corpo para dire��o
+            if (moveDir.sqrMagnitude > 0.001f)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+            }
         }
 
         public void JumpInput()
         {
             if (robotIC.jump)
             {
-                Debug.Log("robotIC.Jump True:");
                 fsmManager.SetBool("Jump", true);
             }
         }
 
+        public void CancelJumpInput()
+        {
+            fsmManager.SetBool("Jump", false);
+        }
+
         private void Move()
-        {           
-            rigidbody.velocity = new Vector3(moveInput.x, rigidbody.velocity.y, moveInput.z);         
+        {
+            GetComponent<Rigidbody>().velocity = new Vector3(moveInput.x, GetComponent<Rigidbody>().velocity.y, moveInput.z);
+         
+        }
+        private void Shoot()
+        {
+            if (robotIC.shoot)
+            {
+                Vector3 aimDir = spawnBulletPosition.forward;
+
+                Transform bullet = Instantiate(
+                    bulletProjectile,
+                    spawnBulletPosition.position,
+                    Quaternion.LookRotation(aimDir, Vector3.up)
+                );
+
+                Collider bulletCol = bullet.GetComponent<Collider>();
+                Collider playerCol = GetComponent<Collider>(); // ou pegue os colliders do corpo todo
+
+                if (bulletCol != null && playerCol != null)
+                {
+                    Physics.IgnoreCollision(bulletCol, playerCol);
+                }
+            }
         }
         public void CamMove()
         {
-
-            Debug.Log("robotIC.camMove: " + robotIC.camMove);
-
+            // --- Input da câmera ---
             yaw += robotIC.camMove.x * sensitivity;
             pitch -= robotIC.camMove.y * sensitivity;
             pitch = Mathf.Clamp(pitch, minY, maxY);
 
             Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
 
-            Vector3 desiredPosition = transform.position + Vector3.up * 0.5f + rotation * new Vector3(0f, 0f, -distance);
+            // offset configurável (X = lado, Y = altura, Z = distância atrás)
+            Vector3 cameraOffset = new Vector3(3f, 3f, -distance);
 
-            Vector3 finalPosition = desiredPosition;
+            // Calcula posição da câmera
+            Vector3 desiredPosition = transform.position + Vector3.up * 0.5f + rotation * new Vector3(0f, 2f, -distance);
+            m_Cam.transform.position = desiredPosition;
 
+            // Colisão com paredes
             RaycastHit hit;
+            Vector3 finalPosition = desiredPosition;
             if (Physics.Linecast(transform.position + Vector3.up * 0.5f, desiredPosition, out hit))
             {
-                finalPosition = hit.point + hit.normal * 0.2f; // empurra um pouco pra fora da parede
+                finalPosition = hit.point + hit.normal * 0.2f;
             }
-
             m_Cam.transform.position = finalPosition;
 
+            // Rotação da câmera olhando para o player
             m_Cam.transform.rotation = Quaternion.LookRotation(
                 (transform.position + Vector3.up * 0.5f) - m_Cam.transform.position,
                 Vector3.up
             );
 
+            // --- Rotação do braço seguindo o mouse ---
+            Ray ray = m_Cam.ScreenPointToRay(Input.mousePosition);
+            Vector3 aimPoint = ray.GetPoint(50f); // Ponto distante (50 unidades à frente)
+            Vector3 aimDir = (aimPoint - robotArm.transform.position).normalized;
 
+            // Rotação desejada do braço
+            Quaternion targetArmRot = Quaternion.LookRotation(aimDir, Vector3.up);
+
+            // ---- Limitação da rotação do braço ----
+            float maxAngle = 60f;
+            float angle = Quaternion.Angle(transform.rotation, targetArmRot);
+
+            if (angle > maxAngle)
+            {
+                targetArmRot = Quaternion.RotateTowards(transform.rotation, targetArmRot, maxAngle);
+            }
+
+            // Aplica no braço
+            robotArm.transform.rotation = targetArmRot;
+
+            // --- Rotação do corpo só quando atirando ---
+            if (robotIC.shoot)
+            {
+                transform.rotation = Quaternion.LookRotation(
+                    Vector3.ProjectOnPlane(aimDir, Vector3.up),
+                    Vector3.up
+                );
+            }
+
+        }
+        public bool ChecKGroundStatus()
+        {
+            float radius = 0.5f;
+            float distance = 0.6f;
+            int ignoreLayer = 6; int layerMask = ~(1 << ignoreLayer);
+
+            bool grounded = Physics.CheckSphere(
+                transform.position + Vector3.down * distance,
+                radius,
+                layerMask
+                ); 
+            return grounded;
+        }
+
+        void OnDrawGizmosSelected()
+        {
+            // Cor  esfera
+            Gizmos.color = Color.red;
+            float radius = 0.5f;
+            float distance = 0.6f;
+            Vector3 pos = transform.position + Vector3.down * distance;
+
+            // Desenha a esfera
+            Gizmos.DrawWireSphere(pos, radius);
         }
     }
 }

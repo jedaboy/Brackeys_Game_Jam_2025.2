@@ -23,8 +23,8 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: -7036
-      y: -273
+      x: 646
+      y: 277
       width: 200
       height: 50
   - _name: jump
@@ -37,8 +37,17 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: -7037
-      y: -181
+      x: 645
+      y: 198
+      width: 200
+      height: 50
+  - _name: death
+    _behaviour: {fileID: 0}
+    _transitions: []
+    editorRect:
+      serializedVersion: 2
+      x: 383
+      y: 108
       width: 200
       height: 50
   _parameters:
@@ -47,12 +56,22 @@ MonoBehaviour:
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
-  _defaultState: 0
-  _anyStateTransitions: []
+  - _name: isDead
+    _parameterType: 0
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
+  _defaultState: 1
+  _anyStateTransitions:
+  - _toStateIndex: 2
+    _conditions:
+    - _parameterIndex: 1
+      _conditionOperator: 0
+      _referenceValue: 0
   anyStateEditorRect:
     serializedVersion: 2
-    x: -7505
-    y: -847
+    x: 639
+    y: 108
     width: 200
     height: 50
   anyStateIsDragged: 0

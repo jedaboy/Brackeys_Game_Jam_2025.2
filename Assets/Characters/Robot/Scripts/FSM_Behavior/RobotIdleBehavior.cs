@@ -18,7 +18,11 @@ public class RobotIdleBehavior : FSM_StateBehaviour
     public override void OnUpdate()
     {
         base.OnUpdate();
-        robotController.MoveInput();
-        robotController.JumpInput();
+        if (robotController.ChecKGroundStatus())
+        {
+            Debug.Log(robotController.ChecKGroundStatus());
+            robotController.MoveInput();
+            robotController.JumpInput();
+        }
     }
 }
