@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37181845646e55d4d853bc36e142ac32, type: 3}
+  m_Name: SentinelFSM
+  m_EditorClassIdentifier: 
+  _states:
+  - _name: Idle
+    _behaviour: {fileID: 0}
+    _transitions:
+    - _toStateIndex: 1
+      _conditions:
+      - _parameterIndex: 0
+        _conditionOperator: 0
+        _referenceValue: 0
+    - _toStateIndex: 2
+      _conditions:
+      - _parameterIndex: 1
+        _conditionOperator: 2
+        _referenceValue: 0
+    editorRect:
+      serializedVersion: 2
+      x: 490
+      y: 199.7998
+      width: 200
+      height: 50
+  - _name: Pursuit
+    _behaviour: {fileID: 0}
+    _transitions:
+    - _toStateIndex: 0
+      _conditions:
+      - _parameterIndex: 0
+        _conditionOperator: 1
+        _referenceValue: 0
+    editorRect:
+      serializedVersion: 2
+      x: 489
+      y: 339.7998
+      width: 200
+      height: 50
+  - _name: Died
+    _behaviour: {fileID: 11400000, guid: 020008cbbe3a27b42849e44d44570008, type: 2}
+    _transitions: []
+    editorRect:
+      serializedVersion: 2
+      x: 756
+      y: 270.7998
+      width: 200
+      height: 50
+  _parameters:
+  - _name: Target
+    _parameterType: 0
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
+  - _name: Battery
+    _parameterType: 1
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
+  _defaultState: 0
+  _anyStateTransitions: []
+  anyStateEditorRect:
+    serializedVersion: 2
+    x: 521
+    y: 83
+    width: 200
+    height: 50
+  anyStateIsDragged: 0
+  anyStateIsSelected: 0
