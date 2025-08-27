@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletProjectile : MonoBehaviour
 {
    private Rigidbody bulletRb;
+    [SerializeField] Transform vfx;
     private void Awake()
     {
         bulletRb = GetComponent<Rigidbody>();
@@ -13,10 +14,12 @@ public class BulletProjectile : MonoBehaviour
     {
         float speed = 10f;
         bulletRb.velocity = transform.forward * speed;
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Instantiate(vfx,transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

@@ -123,38 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &296337160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4655830031637597966, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
+--- !u!4 &296337166 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
   m_PrefabInstance: {fileID: 879230962}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &296337161
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296337160}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 2
 --- !u!1 &348174247
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +723,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1846384605065056776, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559585528827827326, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a2e5835f0018144db290b6af83111fb, type: 2}
     - target: {fileID: 4655830031637597966, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
       propertyPath: m_Name
       value: bullet
@@ -795,16 +776,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9045623231720865351, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4655830031637597966, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 296337161}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
 --- !u!1 &1094363004
 GameObject:
@@ -1419,7 +1397,6 @@ MonoBehaviour:
   ammo: 0
   m_Cam: {fileID: 5855236136628820150}
   robotArm: {fileID: 1973767613}
-  m_TurnAmount: 0
   distance: 5
   sensitivity: 3
   minY: -20
@@ -1428,7 +1405,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   debugTransform: {fileID: 618887079}
-  bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
+  bulletProjectile: {fileID: 296337166}
   spawnBulletPosition: {fileID: 1094363005}
 --- !u!1 &8721998053840425394
 GameObject:
