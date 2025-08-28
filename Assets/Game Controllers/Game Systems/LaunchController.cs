@@ -14,19 +14,12 @@ namespace BGJ_14
             GameManager gameManager = gameManagerGO.AddComponent<GameManager>();
             gameManager.Initialize();
 
-            //LoadTitle();
-            LoadExpeditionTestScene();
+            LoadTitle();
         }
 
         private void LoadTitle()
         {
-            //TODO: Chamar Title Screen
-            //SceneOrchestrator.LoadScene();
-        }
-
-        private void LoadExpeditionTestScene()
-        {
-            SceneOrchestrator.LoadScene(new ExpeditionTestSceneData());
+            SceneOrchestrator.LoadScene(new TitleSceneData());
         }
     }
 }

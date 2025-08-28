@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +9,8 @@ namespace BGJ_14
     {
         private static GameManager _instance;
         public static GameManager instance => _instance;
+
+        private Dictionary<Type, IService> _services;
 
         public void Initialize()
         {
@@ -19,6 +23,7 @@ namespace BGJ_14
             _instance = this;
             DontDestroyOnLoad(gameObject);
             CreateManagers();
+            InstallServices();
         }
 
         #region Managers
@@ -44,6 +49,20 @@ namespace BGJ_14
                 typeof(EventSystem), typeof(StandaloneInputModule));
             eventSystem.GetComponent<EventSystem>().sendNavigationEvents = false;
             DontDestroyOnLoad(eventSystem);
+        }
+        #endregion
+
+        #region Services
+        private void InstallServices() 
+        {
+            _services = new Dictionary<Type, IService>();
+
+            _services.Add(typeof(GameSessionService), new GameSessionService());
+        }
+
+        public T GetService<T>()
+        {
+            return (T)_services[typeof(T)];
         }
         #endregion
     }

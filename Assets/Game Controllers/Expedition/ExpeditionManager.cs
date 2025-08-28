@@ -8,6 +8,8 @@ namespace BGJ_14
         private static ExpeditionManager _instance;
         public static ExpeditionManager instance => _instance;
 
+        private PlayerProgress _playerProgress;
+
         [SerializeField] private ExpeditionProperties _expeditionProperties;
         private int _currentExpeditionNumber;
 
@@ -26,6 +28,9 @@ namespace BGJ_14
         private void Awake()
         {
             _instance = this;
+
+            _playerProgress = GameManager.instance.GetService<GameSessionService>().
+                playerProgress;
         }
 
         private void Update()
@@ -49,6 +54,8 @@ namespace BGJ_14
             if (_expeditionRunning)
                 return;
 
+            _playerProgress.OnExpeditionStart();
+
             _currentExpeditionNumber++;
 
             SpawnRobotEnenies();
@@ -65,6 +72,11 @@ namespace BGJ_14
         [EButton]
         public void EndExpedition()
         {
+            if (!_expeditionRunning)
+                return;
+
+            _playerProgress.OnExpeditionEnd();
+
             _expeditionRunning = false;
             DeleteRobotEnemies();
             DeleteScrap();
