@@ -23,8 +23,8 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 646
-      y: 277
+      x: 670
+      y: 189
       width: 200
       height: 50
   - _name: jump
@@ -37,17 +37,17 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 645
-      y: 198
+      x: 670
+      y: 260
       width: 200
       height: 50
   - _name: death
-    _behaviour: {fileID: 0}
+    _behaviour: {fileID: 11400000, guid: 42cd4c7685ff2eb43840a285fb96e8b5, type: 2}
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 383
-      y: 108
+      x: 341
+      y: 30
       width: 200
       height: 50
   _parameters:
@@ -56,7 +56,7 @@ MonoBehaviour:
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
-  - _name: isDead
+  - _name: IsDead
     _parameterType: 0
     _boolValue: 0
     _intValue: 0
@@ -70,9 +70,9 @@ MonoBehaviour:
       _referenceValue: 0
   anyStateEditorRect:
     serializedVersion: 2
-    x: 639
-    y: 108
+    x: 654
+    y: 31
     width: 200
     height: 50
   anyStateIsDragged: 0
-  anyStateIsSelected: 0
+  anyStateIsSelected: 1

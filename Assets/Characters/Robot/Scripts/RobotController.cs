@@ -15,6 +15,7 @@ namespace BGJ14
         public Camera m_Cam;
         private Vector3 moveInput;
         public GameObject robotArm;
+        [SerializeField] Transform vfxExplosion;
 
 
         [SerializeField] private float distance = 2f;
@@ -40,7 +41,7 @@ namespace BGJ14
         //        debugTransform.position = raycastHit.point;
         //    }
             CamMove();
-            Shoot();
+          
         }
 
         public void FixedUpdate()
@@ -48,7 +49,9 @@ namespace BGJ14
             Debug.Log(ChecKGroundStatus());
             if(ChecKGroundStatus())
             Move();
-            
+            Shoot();
+            battery.DrainOverTime();
+
         }
 
         public void MoveInput()
@@ -58,9 +61,16 @@ namespace BGJ14
                             + robotIC.move.y * Vector3.ProjectOnPlane(m_Cam.transform.forward, Vector3.up).normalized;
 
             if (robotIC.sprint)
+            {
                 moveDir *= 3f;
+                battery.drainRate = 2f;
+            }
+            else
+                battery.drainRate = 0.1f;
 
-            moveInput = moveDir;
+
+
+              moveInput = moveDir;
 
             // Se houver movimento, rotaciona corpo para dire��o
             if (moveDir.sqrMagnitude > 0.001f)
@@ -82,7 +92,12 @@ namespace BGJ14
         {
             fsmManager.SetBool("Jump", false);
         }
+        public void DestroyCharacter()
+        {
+            Instantiate(vfxExplosion, transform.position, Quaternion.identity);
+            Destroy(gameObject, 0.45f);
 
+        }
         private void Move()
         {
             GetComponent<Rigidbody>().velocity = new Vector3(moveInput.x, GetComponent<Rigidbody>().velocity.y, moveInput.z);

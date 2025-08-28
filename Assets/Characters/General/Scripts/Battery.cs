@@ -1,61 +1,70 @@
+using GRD.FSM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Battery : MonoBehaviour
+namespace  BGJ14
 {
-    [SerializeField, Range(0f, 100f)]
-    private float maxCharge = 100f;   
 
-    [SerializeField]
-    private float currentCharge;      
 
-    public float CurrentCharge => currentCharge;
-
-    [SerializeField, Range(0f, 10f)]
-    private float drainRate = 1f; // quanto drena por segundo
-
-    public bool IsEmpty => currentCharge <= 0;
-   
-
-    void Awake()
+    public class Battery : MonoBehaviour
     {
-        currentCharge = maxCharge;
-    }
+        [SerializeField, Range(0f, 100f)]
+        private float maxCharge = 100f;
+        private FSM_Manager fsm_Manager;
+        private RobotController robotController;
+        [SerializeField]
+        private float currentCharge;
 
-    public void Drain(float amount)
-    {
-        currentCharge -= amount;
-        currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
+        public float CurrentCharge => currentCharge;
 
-        if (IsEmpty)
+        [SerializeField, Range(0f, 10f)]
+        public float drainRate = 0.1f; // quanto drena por segundo
+
+        public bool IsEmpty => currentCharge <= 0;
+
+
+        void Awake()
         {
-            //morte
+            currentCharge = maxCharge;
+            robotController = this.GetComponent<RobotController>();
+            fsm_Manager = robotController.fsmManager;
         }
-    }
 
-    public void Recharge(float amount)
-    {
-        currentCharge += amount;
-        currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
-    }
-
-    private void DrainOverTime()
-    {
-        if (!IsEmpty )
+        public void Drain(float amount)
         {
-            currentCharge -= drainRate * Time.deltaTime;
+            currentCharge -= amount;
             currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
 
             if (IsEmpty)
             {
-               //morte
+                fsm_Manager.SetBool("IsDead", true);
             }
         }
-    }
 
-    public void FullRecharge()
-    {
-        currentCharge = maxCharge;
+        public void Recharge(float amount)
+        {
+            currentCharge += amount;
+            currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
+        }
+
+        public void DrainOverTime()
+        {
+            if (!IsEmpty)
+            {
+                currentCharge -= drainRate * Time.deltaTime;
+                currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
+
+                if (IsEmpty)
+                {
+                    fsm_Manager.SetBool("IsDead", true);
+                }
+            }
+        }
+
+        public void FullRecharge()
+        {
+            currentCharge = maxCharge;
+        }
     }
 }
