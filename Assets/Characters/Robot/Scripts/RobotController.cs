@@ -2,15 +2,18 @@ using GRD.FSM;
 using UnityEngine;
 using static UnityEditor.VersionControl.Asset;
 
+
 namespace BGJ14
 {
+    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(CapsuleCollider))]
     public class RobotController : CharacterController
     {
         public PlayerInputController robotIC;
         public float weight;
         public float velocity;
         public bool gearsAffectWeight;
-        public FSM_Manager fsmManager;
+        
         public int ammo;
         public Camera m_Cam;
         private Vector3 moveInput;
@@ -68,9 +71,13 @@ namespace BGJ14
             else
                 battery.drainRate = 0.1f;
 
+            float fowardAmount = Mathf.Abs(moveDir.z);
+
+            anim.SetFloat("Running", fowardAmount);
+            anim.SetFloat("MovingSpeed", fowardAmount);
 
 
-              moveInput = moveDir;
+            moveInput = moveDir;
 
             // Se houver movimento, rotaciona corpo para dire��o
             if (moveDir.sqrMagnitude > 0.001f)
@@ -195,7 +202,8 @@ namespace BGJ14
                 transform.position + Vector3.down * distance,
                 radius,
                 layerMask
-                ); 
+                );
+            anim.SetBool("OnGround", grounded);
             return grounded;
         }
 

@@ -33,6 +33,16 @@ namespace BGJ14
                     battery.Drain(1f);
                 }
             }
+            else if (other.CompareTag("Sentinel"))
+            {
+                // Tenta pegar o componente Battery no objeto atingido
+                Battery battery = other.GetComponent<CharacterController>()?.GetComponent<Battery>();
+
+                if (battery != null)
+                {
+                    battery.Drain(1f);
+                }
+            }
 
             Destroy(gameObject);
         }

@@ -12,7 +12,7 @@ namespace  BGJ14
         [SerializeField, Range(0f, 100f)]
         private float maxCharge = 100f;
         private FSM_Manager fsm_Manager;
-        private RobotController robotController;
+        private CharacterController characterController;
         [SerializeField]
         private float currentCharge;
 
@@ -27,8 +27,8 @@ namespace  BGJ14
         void Awake()
         {
             currentCharge = maxCharge;
-            robotController = this.GetComponent<RobotController>();
-            fsm_Manager = robotController.fsmManager;
+            characterController = this.GetComponent<CharacterController>();
+            fsm_Manager = characterController.fsmManager;
         }
 
         public void Drain(float amount)

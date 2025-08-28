@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using GRD.FSM;
 using UnityEngine;
 
 namespace BGJ14
 {
-    [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(CapsuleCollider))]
-    [RequireComponent(typeof(Animator))]
+    
     public class CharacterController : MonoBehaviour
     {
 
       public Animator anim;
       public new Rigidbody rigidbody;
       public CapsuleCollider capsuleCollider;
+      public SphereCollider sphereCollider;
       public Battery battery;
+      public FSM_Manager fsmManager;
 
     }
 }

@@ -21,15 +21,10 @@ MonoBehaviour:
       - _parameterIndex: 0
         _conditionOperator: 0
         _referenceValue: 0
-    - _toStateIndex: 2
-      _conditions:
-      - _parameterIndex: 1
-        _conditionOperator: 2
-        _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 490
-      y: 199.7998
+      x: 472
+      y: 229.7998
       width: 200
       height: 50
   - _name: Pursuit
@@ -42,17 +37,17 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 489
-      y: 339.7998
+      x: 471
+      y: 369.7998
       width: 200
       height: 50
   - _name: Died
-    _behaviour: {fileID: 11400000, guid: 020008cbbe3a27b42849e44d44570008, type: 2}
+    _behaviour: {fileID: 11400000, guid: a56f367f1b675e949b22c42939ecf706, type: 2}
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 756
-      y: 270.7998
+      x: 822
+      y: 111.799805
       width: 200
       height: 50
   _parameters:
@@ -66,12 +61,22 @@ MonoBehaviour:
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
+  - _name: IsDead
+    _parameterType: 0
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
   _defaultState: 0
-  _anyStateTransitions: []
+  _anyStateTransitions:
+  - _toStateIndex: 2
+    _conditions:
+    - _parameterIndex: 2
+      _conditionOperator: 0
+      _referenceValue: 0
   anyStateEditorRect:
     serializedVersion: 2
-    x: 521
-    y: 83
+    x: 465
+    y: 112
     width: 200
     height: 50
   anyStateIsDragged: 0

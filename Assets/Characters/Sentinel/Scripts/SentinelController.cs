@@ -4,10 +4,11 @@ using UnityEngine.AI;
 namespace BGJ14
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class SentinelController : MonoBehaviour
+    public class SentinelController : CharacterController
     {
         public float hoverHeight = 5f;
         public LayerMask groundMask;
+        [SerializeField] Transform vfxExplosion;
 
         private NavMeshAgent agent;
 
@@ -45,6 +46,13 @@ namespace BGJ14
         {
             if (agent != null)
                 agent.SetDestination(destination);
+        }
+
+        public void DestroyCharacter()
+        {
+            Instantiate(vfxExplosion, transform.position, Quaternion.identity);
+            Destroy(gameObject, 0.45f);
+
         }
     }
 }
