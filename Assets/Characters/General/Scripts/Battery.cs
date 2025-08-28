@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Battery : MonoBehaviour
@@ -11,6 +9,7 @@ public class Battery : MonoBehaviour
     private float currentCharge;      
 
     public float CurrentCharge => currentCharge;
+    public float NormalizedCurrentCharge => currentCharge / maxCharge;
 
     [SerializeField, Range(0f, 10f)]
     private float drainRate = 1f; // quanto drena por segundo

@@ -1,3 +1,4 @@
+using BGJ14;
 using GRD.SceneManagement;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace BGJ_14
         private HudSceneController _hud;
 
         [SerializeField] private ExpeditionManager _expeditionManager;
+        [SerializeField] private RobotController _playerRobot;
 
         public override Task OnLoad()
         {
@@ -23,7 +25,7 @@ namespace BGJ_14
 
         public override async Task OnPostLoad()
         {
-            _hud = await SceneOrchestrator.LoadSceneAdditive(new HudSceneData(_playerBag));
+            _hud = await SceneOrchestrator.LoadSceneAdditive(new HudSceneData(_playerBag, _playerRobot));
             await base.OnPostLoad();
         }
 
