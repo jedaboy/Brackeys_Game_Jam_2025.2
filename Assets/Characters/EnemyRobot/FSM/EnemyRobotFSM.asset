@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37181845646e55d4d853bc36e142ac32, type: 3}
+  m_Name: EnemyRobotFSM
+  m_EditorClassIdentifier: 
+  _states:
+  - _name: Idle
+    _behaviour: {fileID: 11400000, guid: 2d78a0628176a4c4d9224ce7d645c421, type: 2}
+    _transitions:
+    - _toStateIndex: 2
+      _conditions:
+      - _parameterIndex: 1
+        _conditionOperator: 0
+        _referenceValue: 0
+    - _toStateIndex: 1
+      _conditions:
+      - _parameterIndex: 0
+        _conditionOperator: 0
+        _referenceValue: 0
+    - _toStateIndex: 3
+      _conditions:
+      - _parameterIndex: 3
+        _conditionOperator: 2
+        _referenceValue: 0
+    - _toStateIndex: 2
+      _conditions:
+      - _parameterIndex: 2
+        _conditionOperator: 0
+        _referenceValue: 0
+    editorRect:
+      serializedVersion: 2
+      x: 650
+      y: 192.79999
+      width: 200
+      height: 50
+  - _name: Attack
+    _behaviour: {fileID: 11400000, guid: 9ad1cd89814f5da42838f4e3ba6b4092, type: 2}
+    _transitions:
+    - _toStateIndex: 0
+      _conditions: []
+    editorRect:
+      serializedVersion: 2
+      x: 419
+      y: 327.8
+      width: 200
+      height: 50
+  - _name: Flee
+    _behaviour: {fileID: 11400000, guid: 71cdf677c2aabd2419759c338890ac35, type: 2}
+    _transitions: []
+    editorRect:
+      serializedVersion: 2
+      x: 650
+      y: 330.8
+      width: 200
+      height: 50
+  - _name: Died
+    _behaviour: {fileID: 11400000, guid: c1be88f196c5d8d43ba114a19ffb4c83, type: 2}
+    _transitions: []
+    editorRect:
+      serializedVersion: 2
+      x: 923
+      y: 328.8
+      width: 200
+      height: 50
+  _parameters:
+  - _name: Target
+    _parameterType: 0
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
+  - _name: Dying
+    _parameterType: 0
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
+  - _name: SentinelHour
+    _parameterType: 0
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
+  - _name: Battery
+    _parameterType: 1
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
+  _defaultState: 0
+  _anyStateTransitions: []
+  anyStateEditorRect:
+    serializedVersion: 2
+    x: 650
+    y: -6.9999847
+    width: 200
+    height: 50
+  anyStateIsDragged: 0
+  anyStateIsSelected: 0

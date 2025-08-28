@@ -18,5 +18,6 @@ public class SentinelDiedBehavior : FSM_StateBehaviour
     public override void OnUpdate()
     {
         base.OnUpdate();
+        Destroy(sentinelController.gameObject);
     }
 }
