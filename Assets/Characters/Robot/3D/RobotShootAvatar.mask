@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RobotShootAvatar
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: "antebra\xE7o"
+    m_Weight: 0
+  - m_Path: "antebra\xE7o.001"
+    m_Weight: 0
+  - m_Path: "antebra\xE7o.002"
+    m_Weight: 0
+  - m_Path: "cabe\xE7a"
+    m_Weight: 0
+  - m_Path: canhao
+    m_Weight: 0
+  - m_Path: Cinto
+    m_Weight: 0
+  - m_Path: cinto2
+    m_Weight: 0
+  - m_Path: garra
+    m_Weight: 0
+  - m_Path: olho
+    m_Weight: 0
+  - m_Path: pe
+    m_Weight: 0
+  - m_Path: peito
+    m_Weight: 0
+  - m_Path: Pelve
+    m_Weight: 0
+  - m_Path: perna
+    m_Weight: 0
+  - m_Path: RobotRig
+    m_Weight: 0
+  - m_Path: RobotRig/Master
+    m_Weight: 0
+  - m_Path: RobotRig/Master/KneeIk_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/KneeIk_L/KneeIk_L_end
+    m_Weight: 0
+  - m_Path: RobotRig/Master/KneeIk_R
+    m_Weight: 0
+  - m_Path: RobotRig/Master/KneeIk_R/KneeIk_R_end
+    m_Weight: 0
+  - m_Path: RobotRig/Master/LegIk_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/LegIk_L/FootRotationController_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/LegIk_L/FootRotationController_L/FootRotationController_L_end
+    m_Weight: 0
+  - m_Path: RobotRig/Master/LegIk_R
+    m_Weight: 0
+  - m_Path: RobotRig/Master/LegIk_R/FootRotationController_R
+    m_Weight: 0
+  - m_Path: RobotRig/Master/LegIk_R/FootRotationController_R/FootRotationController_R_end
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Leg1_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Leg1_L/Leg2_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Leg1_L/Leg2_L/Foot_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Leg1_L/Leg2_L/Foot_L/Foot_L_end
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Leg1_R
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Leg1_R/Leg2_R
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Leg1_R/Leg2_R/Foot_R
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Leg1_R/Leg2_R/Foot_R/Foot_R_end
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2
+    m_Weight: 1
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest
+    m_Weight: 1
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_L/Arm2_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_L/Arm2_L/Arm3_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_L/Arm2_L/Arm3_L/Hand_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_L/Arm2_L/Arm3_L/Hand_L/Claw1_L
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_L/Arm2_L/Arm3_L/Hand_L/Claw1_L/Claw1_L_end
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_L/Arm2_L/Arm3_L/Hand_L/Claw1_L.001
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_L/Arm2_L/Arm3_L/Hand_L/Claw1_L.001/Claw1_L.001_end
+    m_Weight: 0
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_R
+    m_Weight: 1
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_R/Arm2_R
+    m_Weight: 1
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_R/Arm2_R/Arm3_R
+    m_Weight: 1
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Arm1_R/Arm2_R/Arm3_R/Arm3_R_end
+    m_Weight: 1
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Neck
+    m_Weight: 1
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Neck/Head
+    m_Weight: 1
+  - m_Path: RobotRig/Master/Spine1/Spine2/Chest/Neck/Head/Head_end
+    m_Weight: 1
