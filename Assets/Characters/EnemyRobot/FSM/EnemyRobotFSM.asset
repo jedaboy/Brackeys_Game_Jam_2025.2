@@ -26,11 +26,6 @@ MonoBehaviour:
       - _parameterIndex: 0
         _conditionOperator: 0
         _referenceValue: 0
-    - _toStateIndex: 3
-      _conditions:
-      - _parameterIndex: 3
-        _conditionOperator: 2
-        _referenceValue: 0
     - _toStateIndex: 2
       _conditions:
       - _parameterIndex: 2
@@ -38,8 +33,8 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 650
-      y: 192.79999
+      x: 640
+      y: 262.8
       width: 200
       height: 50
   - _name: Attack
@@ -49,8 +44,8 @@ MonoBehaviour:
       _conditions: []
     editorRect:
       serializedVersion: 2
-      x: 419
-      y: 327.8
+      x: 409
+      y: 397.8
       width: 200
       height: 50
   - _name: Flee
@@ -58,8 +53,8 @@ MonoBehaviour:
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 650
-      y: 330.8
+      x: 640
+      y: 400.8
       width: 200
       height: 50
   - _name: Died
@@ -67,8 +62,8 @@ MonoBehaviour:
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 923
-      y: 328.8
+      x: 886
+      y: 61.799988
       width: 200
       height: 50
   _parameters:
@@ -87,17 +82,22 @@ MonoBehaviour:
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
-  - _name: Battery
-    _parameterType: 1
+  - _name: isDead
+    _parameterType: 0
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
   _defaultState: 0
-  _anyStateTransitions: []
+  _anyStateTransitions:
+  - _toStateIndex: 3
+    _conditions:
+    - _parameterIndex: 3
+      _conditionOperator: 0
+      _referenceValue: 0
   anyStateEditorRect:
     serializedVersion: 2
-    x: 650
-    y: -6.9999847
+    x: 639
+    y: 63.000015
     width: 200
     height: 50
   anyStateIsDragged: 0

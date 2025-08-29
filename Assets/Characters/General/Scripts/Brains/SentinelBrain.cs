@@ -50,7 +50,11 @@ namespace BGJ14
             if (fsmManager != null)
                 fsmManager.SetBool("Target", attacking);
         }
-
+        protected override void AttackTarget()
+        {
+            base.AttackTarget();
+            sentinelController.Shoot();
+        }
         // Usa o AttackTarget do AIBrain (instancia o projétil apontando pro target).
         // Se quiser customizar, descomente e sobrescreva aqui.
 
@@ -107,7 +111,7 @@ namespace BGJ14
             base.Update();
             
             if (battery.IsEmpty)
-            fsmManager.SetBool("Dead", true);
+            fsmManager.SetBool("isDead", true);
             
         }
     }

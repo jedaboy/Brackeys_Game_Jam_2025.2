@@ -70,24 +70,12 @@ namespace BGJ14
             // direção até o alvo
             Vector3 aimDir = (target.position - spawnBulletPosition.position).normalized;
 
-            Transform bullet = Instantiate(
-                bulletProjectile,
-                spawnBulletPosition.position,
-                Quaternion.LookRotation(aimDir, Vector3.up)
-            );
-
             // ignora colisão com o próprio corpo
-            Collider bulletCol = bullet.GetComponent<Collider>();
-            Collider selfCol = GetComponent<Collider>();
-            if (bulletCol != null && selfCol != null)
-                Physics.IgnoreCollision(bulletCol, selfCol);
+            //Collider bulletCol = bullet.GetComponent<Collider>();
+            //Collider selfCol = GetComponent<Collider>();
+            //if (bulletCol != null && selfCol != null)
+            //    Physics.IgnoreCollision(bulletCol, selfCol);
 
-            // verifica se o alvo tem Battery
-            Battery battery = target.GetComponent<Battery>();
-            if (battery != null)
-            {
-                battery.Drain(bulletDamage);
-            }
         }
 
 

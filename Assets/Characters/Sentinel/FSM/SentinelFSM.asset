@@ -23,8 +23,8 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 472
-      y: 229.7998
+      x: 366
+      y: 277.7998
       width: 200
       height: 50
   - _name: Pursuit
@@ -37,8 +37,8 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 471
-      y: 369.7998
+      x: 365
+      y: 417.7998
       width: 200
       height: 50
   - _name: Died
@@ -46,8 +46,8 @@ MonoBehaviour:
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 822
-      y: 111.799805
+      x: 716
+      y: 159.7998
       width: 200
       height: 50
   _parameters:
@@ -75,8 +75,8 @@ MonoBehaviour:
       _referenceValue: 0
   anyStateEditorRect:
     serializedVersion: 2
-    x: 465
-    y: 112
+    x: 359
+    y: 161
     width: 200
     height: 50
   anyStateIsDragged: 0

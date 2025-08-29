@@ -47,13 +47,19 @@ namespace BGJ14
                 fsmManager.SetBool("Target", attacking);
         }
 
+        protected override void AttackTarget()
+        {
+            base.AttackTarget();
+            enemyRobotController.Shoot();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Safe Zone"))
             {
                 // Seta o state Died na FSM
                 if (fsmManager != null)
-                    fsmManager.SetBool("Dead", true);
+                    fsmManager.SetBool("IsDead", true);
             }
         }
 
@@ -64,7 +70,7 @@ namespace BGJ14
             if (battery.IsEmpty)
             {
                 Debug.Log("Morto");
-                fsmManager.SetBool("Dead", true);
+                fsmManager.SetBool("IsDead", true);
             }
             // Se a vida estiver baixa, ativa Flee
             else if (battery != null && battery.CurrentCharge / battery.maxCharge <= 0.25f)

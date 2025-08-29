@@ -25,10 +25,7 @@ namespace BGJ14
         [SerializeField] private float sensitivity = 3f;
         [SerializeField] private float minY = -10f;
         [SerializeField] private float maxY = 80f;
-        [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
-        [SerializeField] private Transform debugTransform;
-        [SerializeField] private Transform bulletProjectile;
-        [SerializeField] private Transform spawnBulletPosition;
+
 
         private float yaw;  
         private float pitch; 
@@ -36,13 +33,7 @@ namespace BGJ14
 
         public void Update()
         { 
-        //{
-        //    Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
-        //    Ray ray = new Ray(robotArm.transform.position, robotArm.transform.forward);
-        //    if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
-        //    {
-        //        debugTransform.position = raycastHit.point;
-        //    }
+  
             CamMove();
           
         }
@@ -102,33 +93,18 @@ namespace BGJ14
         public void DestroyCharacter()
         {
             Instantiate(vfxExplosion, transform.position, Quaternion.identity);
-            Destroy(gameObject, 0.45f);
-
+            gameObject.SetActive(false);
         }
         private void Move()
         {
             GetComponent<Rigidbody>().velocity = new Vector3(moveInput.x, GetComponent<Rigidbody>().velocity.y, moveInput.z);
          
         }
-        private void Shoot()
+        private void ShootInput()
         {
             if (robotIC.shoot)
             {
-                Vector3 aimDir = spawnBulletPosition.forward;
-
-                Transform bullet = Instantiate(
-                    bulletProjectile,
-                    spawnBulletPosition.position,
-                    Quaternion.LookRotation(aimDir, Vector3.up)
-                );
-
-                Collider bulletCol = bullet.GetComponent<Collider>();
-                Collider playerCol = GetComponent<Collider>(); // ou pegue os colliders do corpo todo
-
-                if (bulletCol != null && playerCol != null)
-                {
-                    Physics.IgnoreCollision(bulletCol, playerCol);
-                }
+                Shoot();
             }
         }
         public void CamMove()

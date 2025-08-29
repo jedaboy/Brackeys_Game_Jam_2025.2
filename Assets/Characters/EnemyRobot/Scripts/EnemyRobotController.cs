@@ -5,9 +5,10 @@ using GRD.FSM;
 namespace BGJ14
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class EnemyRobotController : MonoBehaviour
+    public class EnemyRobotController : CharacterController
     {
         private NavMeshAgent agent;
+        [SerializeField] Transform vfxExplosion;
 
         private void Awake()
         {
@@ -33,6 +34,12 @@ namespace BGJ14
         {
             if (agent != null)
                 agent.isStopped = true;
+        }
+
+        public void DestroyCharacter()
+        {
+            Instantiate(vfxExplosion, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
         }
 
         /// <summary>
