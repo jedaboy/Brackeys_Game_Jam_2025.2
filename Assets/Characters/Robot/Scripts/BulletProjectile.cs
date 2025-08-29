@@ -15,7 +15,7 @@ namespace BGJ14
         {
             bulletRb = GetComponent<Rigidbody>();
         }
-        private void Start()
+        private void OnEnable()
         {
             float speed = 25f;
             bulletRb.velocity = transform.forward * speed;
