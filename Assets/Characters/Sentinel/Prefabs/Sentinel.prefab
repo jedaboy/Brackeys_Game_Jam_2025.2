@@ -16,11 +16,14 @@ GameObject:
   - component: {fileID: -515272637248359405}
   - component: {fileID: 8914281528952946627}
   - component: {fileID: 630830112328556194}
-  - component: {fileID: 4758410200971036088}
   - component: {fileID: 6736499467532196881}
+  - component: {fileID: 6540076388181491794}
+  - component: {fileID: 5894488375902149829}
+  - component: {fileID: 5833982033878959452}
+  - component: {fileID: 4126874201613668065}
   m_Layer: 0
   m_Name: Sentinel
-  m_TagString: Enemy
+  m_TagString: Sentinel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +108,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -125,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCharge: 100
   currentCharge: 0
-  drainRate: 0
+  drainRate: 2.32
 --- !u!114 &-515272637248359405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,10 +141,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f03cd12aa717c044911bdc7787dec14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  rigidbody: {fileID: 0}
+  Collider: {fileID: 5897256375076104354}
+  battery: {fileID: -6509090044150858387}
+  fsmManager: {fileID: 6540076388181491794}
+  bulletProjectile: {fileID: 8906108966322608483}
+  spawnBulletPosition: {fileID: 8906108966322608483}
+  bulletPower: 0
   hoverHeight: 5
   groundMask:
     serializedVersion: 2
     m_Bits: 1
+  vfxExplosion: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!114 &8914281528952946627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +192,57 @@ MonoBehaviour:
   fsmManager: {fileID: 8914281528952946627}
   sentinelController: {fileID: -515272637248359405}
   patrolRadius: 20
---- !u!195 &4758410200971036088
+--- !u!114 &6736499467532196881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276483571090806828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38dd10af7f63dad4c99a9e0702ab7192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6540076388181491794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276483571090806828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90492001c229a7e44a536f96e360d20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FSM_Name: fsm_Sentinel
+  FSM_Data: {fileID: 11400000, guid: b4ce368ea819d314c81714cf6f4c5f83, type: 2}
+  _startFSMMethod: 0
+  _transitionExecutionMethod: 1
+  _currentState: 0
+--- !u!114 &5894488375902149829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276483571090806828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d34d6973a8a3204a821ad0451e6241e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 10
+  stopDistance: 5
+  fireRate: 0.5
+  bulletDamage: 10
+  bulletProjectile: {fileID: 0}
+  spawnBulletPosition: {fileID: 0}
+  fsmManager: {fileID: 6540076388181491794}
+  sentinelController: {fileID: -515272637248359405}
+  patrolRadius: 20
+--- !u!195 &5833982033878959452
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +264,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6736499467532196881
+--- !u!114 &4126874201613668065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
