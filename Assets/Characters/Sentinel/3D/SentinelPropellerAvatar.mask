@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SentinelPropellerAvatar
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: SentinelArm_L
+    m_Weight: 0
+  - m_Path: SentinelArm_R
+    m_Weight: 0
+  - m_Path: SentinelBody
+    m_Weight: 0
+  - m_Path: SentinelBodyBase
+    m_Weight: 0
+  - m_Path: SentinelEye
+    m_Weight: 0
+  - m_Path: SentinelGun
+    m_Weight: 0
+  - m_Path: SentinelGunRotation
+    m_Weight: 0
+  - m_Path: SentinelPropeller
+    m_Weight: 0
+  - m_Path: SentinelRig
+    m_Weight: 0
+  - m_Path: SentinelRig/Master
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_L
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_L/Arm2_L
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_L/Arm2_L/Hand_L
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_L/Arm2_L/Hand_L/Claw1_L
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_L/Arm2_L/Hand_L/Claw1_L/Claw1_L_end
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_L/Arm2_L/Hand_L/Claw2_L
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_L/Arm2_L/Hand_L/Claw2_L/Claw2_L_end
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_R
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_R/Arm2_R
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_R/Arm2_R/Hand_R
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_R/Arm2_R/Hand_R/Claw1_R
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_R/Arm2_R/Hand_R/Claw1_R/Claw1_R_end
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_R/Arm2_R/Hand_R/Claw2_R
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Arm1_R/Arm2_R/Hand_R/Claw2_R/Claw2_R_end
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/GunRotation
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/GunRotation/Gun
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/GunRotation/Gun/Gun_end
+    m_Weight: 0
+  - m_Path: SentinelRig/Master/Body/Propeller
+    m_Weight: 1
+  - m_Path: SentinelRig/Master/Body/Propeller/Propeller_end
+    m_Weight: 1
+  - m_Path: SentinelWire_L
+    m_Weight: 0
+  - m_Path: SentinelWire_R
+    m_Weight: 0
