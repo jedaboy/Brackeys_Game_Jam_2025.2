@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7763009044677376434}
   - component: {fileID: 8849778222994800512}
   - component: {fileID: 7811102358943127074}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: robotArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2389898718583543417}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: spawnBulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 664933927672049257}
   - component: {fileID: 2088696918430425409}
   - component: {fileID: 3535687092866376896}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Robot
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 4856082005788571027}
   - component: {fileID: 3101381286021473000}
   - component: {fileID: 7744359456428965941}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: robotHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}

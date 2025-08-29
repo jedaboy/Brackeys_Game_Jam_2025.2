@@ -20,6 +20,7 @@ namespace BGJ14
             base.Awake();
             battery = GetComponent<Battery>();
             MoveToRandomPatrolPoint();
+            useFieldOfView = true;
         }
 
         protected override void MoveTo(Vector3 position)
@@ -52,11 +53,16 @@ namespace BGJ14
         }
         protected override void AttackTarget()
         {
-            base.AttackTarget();
+            if (target == null) return;
+
+            // Gira a sentinela para mirar
+            Vector3 dir = (target.position - transform.position).normalized;
+            Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5f);
+
+            // Atira
             sentinelController.Shoot();
         }
-        // Usa o AttackTarget do AIBrain (instancia o projétil apontando pro target).
-        // Se quiser customizar, descomente e sobrescreva aqui.
 
         private void MoveToRandomPatrolPoint()
         {
@@ -96,6 +102,12 @@ namespace BGJ14
 
             return closest;
         }
+
+        protected override void DetectTarget()
+        {
+            target = FindTarget(); // usa a nossa lógica do SentinelBrain
+        }
+
 
 
         private Vector3 GetRandomPointOnNavMesh(Vector3 center, float radius)

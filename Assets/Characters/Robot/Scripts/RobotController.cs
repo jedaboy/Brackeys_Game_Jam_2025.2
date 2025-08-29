@@ -41,7 +41,6 @@ namespace BGJ14
 
         public void FixedUpdate()
         {
-            Debug.Log(ChecKGroundStatus());
             if(ChecKGroundStatus())
             Move();          
             battery.DrainOverTime();
