@@ -1,3 +1,4 @@
+using BGJ14;
 using GRD.SceneManagement;
 using System.Threading.Tasks;
 using TMPro;
@@ -10,7 +11,7 @@ namespace BGJ_14
     {
         [SerializeField] private GameObject _hudParent;
 
-        [SerializeField] private Image _batteryBarFill;
+        [SerializeField] private Transform _batteryBarFill;
         [SerializeField] private TextMeshProUGUI _batteryText;
         [SerializeField] private TextMeshProUGUI _ammoText;
         [SerializeField] private TextMeshProUGUI _gearsText;
@@ -41,7 +42,11 @@ namespace BGJ_14
 
         public void UpdateBattery() 
         {
-            //TODO: receber vida do robô
+            _batteryText.text = Mathf.Ceil(sceneData.playerRobot.battery.CurrentCharge).ToString();
+            _batteryBarFill.localScale = new Vector3(
+                sceneData.playerRobot.battery.NormalizedCurrentCharge,
+                1,
+                1);
         }
 
         public void UpdateAmmo() 
@@ -65,11 +70,12 @@ namespace BGJ_14
         public string SceneName => "HudScene";
 
         public PlayerBag playerBag { get; }
+        public RobotController playerRobot { get; }
 
-        public HudSceneData(PlayerBag playerBag) 
+        public HudSceneData(PlayerBag playerBag, RobotController playerRobot) 
         {
-            //TODO: receber o Controller do robô para obter a vida
             this.playerBag = playerBag;
+            this.playerRobot = playerRobot;
         }
     }
 }

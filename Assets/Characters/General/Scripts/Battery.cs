@@ -17,6 +17,7 @@ namespace  BGJ14
         public float currentCharge;
 
         public float CurrentCharge => currentCharge;
+    	public float NormalizedCurrentCharge => currentCharge / maxCharge;
 
         [SerializeField, Range(0f, 10f)]
         public float drainRate = 0.1f; // quanto drena por segundo

@@ -25,6 +25,8 @@ namespace BGJ_14
 
         private List<GameObject> _spawnedRobotEnemies = new List<GameObject>();
 
+        public bool expeditionRunning => _expeditionRunning;
+
         private void Awake()
         {
             _instance = this;
