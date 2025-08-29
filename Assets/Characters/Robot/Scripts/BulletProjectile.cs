@@ -2,22 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletProjectile : MonoBehaviour
+namespace BGJ14
 {
-   private Rigidbody bulletRb;
-    private void Awake()
+    public class BulletProjectile : MonoBehaviour
     {
-        bulletRb = GetComponent<Rigidbody>();
-    }
-    private void Start()
-    {
-        float speed = 10f;
-        bulletRb.velocity = transform.forward * speed;
-    }
+        private Rigidbody bulletRb;
+        [SerializeField] Transform vfx;
+        private void Awake()
+        {
+            bulletRb = GetComponent<Rigidbody>();
+        }
+        private void Start()
+        {
+            float speed = 25f;
+            bulletRb.velocity = transform.forward * speed;
+            Destroy(gameObject, 4f);
+        }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(gameObject);
-    }
+        private void OnTriggerEnter(Collider other)
+        {
+            Instantiate(vfx, transform.position, Quaternion.identity);
 
+            if (other.CompareTag("Robot"))
+            {
+                // Tenta pegar o componente Battery no objeto atingido
+                Battery battery = other.GetComponent<RobotController>()?.GetComponent<Battery>();
+
+                if (battery != null)
+                {
+                    battery.Drain(1f);
+                }
+            }
+            else if (other.CompareTag("Sentinel"))
+            {
+                // Tenta pegar o componente Battery no objeto atingido
+                Battery battery = other.GetComponent<CharacterController>()?.GetComponent<Battery>();
+
+                if (battery != null)
+                {
+                    battery.Drain(1f);
+                }
+            }
+
+            Destroy(gameObject);
+        }
+
+    }
 }

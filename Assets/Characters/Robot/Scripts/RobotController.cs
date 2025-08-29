@@ -2,19 +2,23 @@ using GRD.FSM;
 using UnityEngine;
 using static UnityEditor.VersionControl.Asset;
 
+
 namespace BGJ14
 {
+    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(CapsuleCollider))]
     public class RobotController : CharacterController
     {
         public PlayerInputController robotIC;
         public float weight;
         public float velocity;
         public bool gearsAffectWeight;
-        public FSM_Manager fsmManager;
+        
         public int ammo;
         public Camera m_Cam;
         private Vector3 moveInput;
         public GameObject robotArm;
+        [SerializeField] Transform vfxExplosion;
 
 
         [SerializeField] private float distance = 2f;
@@ -40,7 +44,7 @@ namespace BGJ14
         //        debugTransform.position = raycastHit.point;
         //    }
             CamMove();
-            Shoot();
+          
         }
 
         public void FixedUpdate()
@@ -48,7 +52,9 @@ namespace BGJ14
             Debug.Log(ChecKGroundStatus());
             if(ChecKGroundStatus())
             Move();
-            
+            Shoot();
+            battery.DrainOverTime();
+
         }
 
         public void MoveInput()
@@ -58,7 +64,18 @@ namespace BGJ14
                             + robotIC.move.y * Vector3.ProjectOnPlane(m_Cam.transform.forward, Vector3.up).normalized;
 
             if (robotIC.sprint)
+            {
                 moveDir *= 3f;
+                battery.drainRate = 2f;
+            }
+            else
+                battery.drainRate = 0.1f;
+
+            float fowardAmount = Mathf.Abs(moveDir.z);
+
+            anim.SetFloat("Running", fowardAmount);
+            anim.SetFloat("MovingSpeed", fowardAmount);
+
 
             moveInput = moveDir;
 
@@ -82,7 +99,12 @@ namespace BGJ14
         {
             fsmManager.SetBool("Jump", false);
         }
+        public void DestroyCharacter()
+        {
+            Instantiate(vfxExplosion, transform.position, Quaternion.identity);
+            Destroy(gameObject, 0.45f);
 
+        }
         private void Move()
         {
             GetComponent<Rigidbody>().velocity = new Vector3(moveInput.x, GetComponent<Rigidbody>().velocity.y, moveInput.z);
@@ -180,7 +202,8 @@ namespace BGJ14
                 transform.position + Vector3.down * distance,
                 radius,
                 layerMask
-                ); 
+                );
+            anim.SetBool("OnGround", grounded);
             return grounded;
         }
 
