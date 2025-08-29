@@ -1,4 +1,5 @@
 using GRD.FSM;
+using System;
 using UnityEngine;
 using static UnityEditor.VersionControl.Asset;
 
@@ -13,7 +14,7 @@ namespace BGJ14
         public float weight;
         public float velocity;
         public bool gearsAffectWeight;
-        
+
         public int ammo;
         public Camera m_Cam;
         private Vector3 moveInput;
@@ -35,15 +36,14 @@ namespace BGJ14
         { 
   
             CamMove();
-          
+            ShootInput();
         }
 
         public void FixedUpdate()
         {
             Debug.Log(ChecKGroundStatus());
             if(ChecKGroundStatus())
-            Move();
-            Shoot();
+            Move();          
             battery.DrainOverTime();
 
         }

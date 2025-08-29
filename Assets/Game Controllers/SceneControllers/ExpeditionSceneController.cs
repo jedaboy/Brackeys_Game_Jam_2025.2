@@ -27,6 +27,7 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
     public override async Task OnPostLoad()
     {
         _hud = await SceneOrchestrator.LoadSceneAdditive(new HudSceneData(_playerBag, _playerRobot));
+        _playerRobot.battery.onBatteryUpdate += _hud.UpdateBattery;
         await base.OnPostLoad();
     }
 

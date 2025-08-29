@@ -9,8 +9,7 @@ namespace BGJ14
 
         public Animator anim;
         public new Rigidbody rigidbody;
-        public CapsuleCollider capsuleCollider;
-        public SphereCollider sphereCollider;
+        public Collider Collider;       
         public Battery battery;
         public FSM_Manager fsmManager;
         [SerializeField] private Transform bulletProjectile;

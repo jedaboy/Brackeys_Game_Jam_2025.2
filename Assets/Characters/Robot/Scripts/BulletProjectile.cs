@@ -19,7 +19,7 @@ namespace BGJ14
         {
             float speed = 25f;
             bulletRb.velocity = transform.forward * speed;
-            Destroy(gameObject, 4f); //implementar timer para desativar 
+            //Destroy(gameObject, 4f); //implementar timer para desativar 
         }
 
         private void OnTriggerEnter(Collider other)

@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Sentinel
   - Target
-   - Robot
+  - Robot
+  - Enemy
+  - Safe Zone
   layers:
   - Default
   - TransparentFX

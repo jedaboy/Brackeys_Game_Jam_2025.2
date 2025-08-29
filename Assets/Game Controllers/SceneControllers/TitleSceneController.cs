@@ -26,7 +26,7 @@ namespace BGJ_14
 
             gameSessionService.StartNewGameSession();
 
-            SceneOrchestrator.LoadScene(new ExpeditionTestSceneData());
+            SceneOrchestrator.LoadScene(new ExpeditionSceneData());
         }
 
         private void OnClickCredits()

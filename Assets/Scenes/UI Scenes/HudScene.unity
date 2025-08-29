@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hudParent: {fileID: 1923841816}
-  _batteryBarFill: {fileID: 1155036604}
+  _batteryBarFill: {fileID: 1155036603}
   _batteryText: {fileID: 1907042472}
   _ammoText: {fileID: 2020709103}
   _gearsText: {fileID: 507901097}

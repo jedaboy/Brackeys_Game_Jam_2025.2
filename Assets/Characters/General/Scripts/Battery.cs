@@ -1,6 +1,5 @@
 using GRD.FSM;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace  BGJ14
@@ -15,6 +14,8 @@ namespace  BGJ14
         private CharacterController characterController;
         [SerializeField]
         public float currentCharge;
+        public Action onBatteryUpdate;
+
 
         public float CurrentCharge => currentCharge;
     	public float NormalizedCurrentCharge => currentCharge / maxCharge;
@@ -36,7 +37,7 @@ namespace  BGJ14
         {
             currentCharge -= amount;
             currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
-
+            onBatteryUpdate?.Invoke();
             if (IsEmpty)
             {
                 fsm_Manager.SetBool("IsDead", true);
