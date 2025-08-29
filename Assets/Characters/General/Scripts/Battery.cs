@@ -10,11 +10,11 @@ namespace  BGJ14
     public class Battery : MonoBehaviour
     {
         [SerializeField, Range(0f, 100f)]
-        private float maxCharge = 100f;
+        public float maxCharge = 100f;
         private FSM_Manager fsm_Manager;
         private CharacterController characterController;
         [SerializeField]
-        private float currentCharge;
+        public float currentCharge;
 
         public float CurrentCharge => currentCharge;
 
