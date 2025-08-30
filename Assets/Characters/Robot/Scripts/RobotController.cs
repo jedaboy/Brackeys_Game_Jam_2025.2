@@ -220,9 +220,9 @@ namespace BGJ14
         }
         public bool ChecKGroundStatus()
         {
-            float radius = 0.5f;
-            float distance = 0.6f;
-            int ignoreLayer = 6; int layerMask = ~(1 << ignoreLayer);
+            float radius = 0.4f;
+            float distance = 0.7f;
+            int ignoreLayer = 3; int layerMask = ~(1 << ignoreLayer);
 
             bool grounded = Physics.CheckSphere(
                 transform.position + Vector3.down * distance,
@@ -237,8 +237,8 @@ namespace BGJ14
         {
             // Cor  esfera
             Gizmos.color = Color.red;
-            float radius = 0.5f;
-            float distance = 0.6f;
+            float radius = 0.4f;
+            float distance = 0.7f;
             Vector3 pos = transform.position + Vector3.down * distance;
 
             // Desenha a esfera
