@@ -101,7 +101,7 @@ namespace BGJ14
         }
         private void ShootInput()
         {
-            if (robotIC.shoot)
+            if (robotIC.shoot && armAimRig.weight == 1)
             {
                 Shoot();
             }
@@ -163,6 +163,7 @@ namespace BGJ14
                 );
 
                 // --- Rotação do braço seguindo o mouse ---
+
                 Ray ray = m_Cam.ScreenPointToRay(Input.mousePosition);
                 Vector3 aimPoint = ray.GetPoint(50f); // Ponto distante (50 unidades à frente)
                 Vector3 aimDir = (aimPoint - spawnBulletPosition.transform.position).normalized;

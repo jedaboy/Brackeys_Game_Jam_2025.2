@@ -9,8 +9,7 @@ namespace BGJ14
 
         public Animator anim;
         public new Rigidbody rigidbody;
-        public CapsuleCollider capsuleCollider;
-        public SphereCollider sphereCollider;
+        public Collider Collider;
         public Battery battery;
         public FSM_Manager fsmManager;
         [SerializeField] private Transform bulletProjectile;
@@ -36,6 +35,7 @@ namespace BGJ14
                 Quaternion.LookRotation(aimDir, Vector3.up)
             ).transform;
             bullet.GetComponent<BulletProjectile>().SetPower(bulletPower);
+            bullet.GetComponent<BulletProjectile>().SetCollider(Collider);
 
             Collider bulletCol = bullet.GetComponent<Collider>();
             Collider playerCol = GetComponent<Collider>(); // ou pegue os colliders do corpo todo

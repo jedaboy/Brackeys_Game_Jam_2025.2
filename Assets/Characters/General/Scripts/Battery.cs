@@ -46,8 +46,11 @@ namespace  BGJ14
 
         public void Recharge(float amount)
         {
+
             currentCharge += amount;
             currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
+            onBatteryUpdate?.Invoke();
+
         }
 
         public void DrainOverTime()
@@ -56,6 +59,7 @@ namespace  BGJ14
             {
                 currentCharge -= drainRate * Time.deltaTime;
                 currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
+                onBatteryUpdate?.Invoke();
 
                 if (IsEmpty)
                 {
