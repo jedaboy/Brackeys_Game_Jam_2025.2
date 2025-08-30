@@ -9,6 +9,7 @@ TagManager:
   - Robot
   - Enemy
   - Safe Zone
+  - Boss
   layers:
   - Default
   - TransparentFX

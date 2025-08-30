@@ -13,6 +13,11 @@ namespace BGJ14
 
         [SerializeField] protected Transform bulletProjectile;
         [SerializeField] protected Transform spawnBulletPosition;
+        [SerializeField] protected Transform targetPositionReference;
+        [SerializeField] protected bool useFieldOfView = true;
+        [SerializeField] protected float fieldOfView = 90f;
+        [SerializeField] protected LayerMask targetMask;
+        [SerializeField] protected LayerMask obstacleMask;
 
         protected Transform target;
 
@@ -31,6 +36,8 @@ namespace BGJ14
             Think();
         }
 
+// dentro de AIBrain
+
         public virtual void Think()
         {
             if (target != null)
@@ -41,7 +48,7 @@ namespace BGJ14
                 if (dist > stopDistance)
                     MoveTo(target.position);
                 else
-                    MoveTo(transform.position); // fica parado, não cola no alvo
+                    StopMovement(); // <-- foi MoveTo(transform.position); agora para o movimento
 
                 // atacar se dentro do range
                 if (dist <= detectionRange)
@@ -63,18 +70,17 @@ namespace BGJ14
             }
         }
 
+        // novo método para subclasses sobrescreverem
+        protected virtual void StopMovement()
+        {
+            // por padrão não faz nada; subclasses (com NavMeshAgent) sobrescrevem
+        }
+
+
        protected virtual void AttackTarget()
         {
             if (target == null || bulletProjectile == null || spawnBulletPosition == null) return;
 
-            // direção até o alvo
-            Vector3 aimDir = (target.position - spawnBulletPosition.position).normalized;
-
-            // ignora colisão com o próprio corpo
-            //Collider bulletCol = bullet.GetComponent<Collider>();
-            //Collider selfCol = GetComponent<Collider>();
-            //if (bulletCol != null && selfCol != null)
-            //    Physics.IgnoreCollision(bulletCol, selfCol);
 
         }
 
@@ -86,35 +92,31 @@ namespace BGJ14
 
         protected virtual void DetectTarget()
         {
-            target = null;
-
-            // Primeiro verifica players
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            foreach (var p in players)
+            Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRange, targetMask);
+            foreach (var col in colliders)
             {
-                if (p == this.gameObject) continue; // não atacar a si mesmo
-                if (Vector3.Distance(transform.position, p.transform.position) <= detectionRange)
+                Transform candidate = col.transform;
+                Vector3 dirToTarget = (candidate.position - transform.position).normalized;
+
+                // Aplica o cone de visão só se useFieldOfView == true
+                if (useFieldOfView)
                 {
-                    target = p.transform;
+                    float angleToTarget = Vector3.Angle(transform.forward, dirToTarget);
+                    if (angleToTarget > fieldOfView * 0.5f) 
+                        continue;
+                }
+
+                // Checa se não tem obstáculos no meio
+                if (!Physics.Raycast(transform.position, dirToTarget, out RaycastHit hit, detectionRange, obstacleMask))
+                {
+                    target = candidate;
                     return;
                 }
             }
 
-            // Se for sentinela, verifica inimigos (tag "Enemy"), exceto ela mesma
-            if (sentinelInputController != null)
-            {
-                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                foreach (var e in enemies)
-                {
-                    if (e == this.gameObject) continue; // não atacar a si mesma
-                    if (Vector3.Distance(transform.position, e.transform.position) <= detectionRange)
-                    {
-                        target = e.transform;
-                        return;
-                    }
-                }
-            }
+            target = null;
         }
+
 
         protected void ClearTarget()
         {

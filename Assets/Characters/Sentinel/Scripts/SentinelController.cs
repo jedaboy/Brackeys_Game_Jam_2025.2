@@ -51,7 +51,7 @@ namespace BGJ14
         public void DestroyCharacter()
         {
             Instantiate(vfxExplosion, transform.position, Quaternion.identity);
-            Destroy(gameObject, 0.45f);
+            gameObject.SetActive(false);
 
         }
     }

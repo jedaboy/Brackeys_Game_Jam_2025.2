@@ -24,17 +24,22 @@ namespace BGJ14
         public void MoveTo(Vector3 destination)
         {
             if (agent != null && agent.isOnNavMesh)
+            {
+                agent.isStopped = false;   // reativa movimento/rotação do NavMeshAgent
                 agent.SetDestination(destination);
+            }
         }
 
-        /// <summary>
-        /// Para completamente o movimento do robô.
-        /// </summary>
         public void Stop()
         {
             if (agent != null)
+            {
                 agent.isStopped = true;
+                agent.ResetPath(); // evita pequenas correções de rotação baseadas no path
+            }
         }
+
+
 
         public void DestroyCharacter()
         {

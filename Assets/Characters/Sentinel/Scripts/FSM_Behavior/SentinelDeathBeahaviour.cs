@@ -17,9 +17,13 @@ public class SentinelDeathBeahaviour : FSM_StateBehaviour
     }
     public override void OnEnter()
     {
+        sentinelController.anim.SetBool("Death", true);
         sentinelController.DestroyCharacter();
         base.OnEnter();
     }
 
-
+    public override void OnExit()
+    {
+        sentinelController.anim.SetBool("Death", false);
+    }
 }

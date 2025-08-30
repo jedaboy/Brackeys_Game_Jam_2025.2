@@ -101,7 +101,7 @@ MonoBehaviour:
   fsmManager: {fileID: 4208279385740000839}
   bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
   spawnBulletPosition: {fileID: 3648678900880022287}
-  bulletPower: 0
+  bulletPower: 10
   vfxExplosion: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!114 &6563980030958486717
 MonoBehaviour:
@@ -129,10 +129,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 20
   stopDistance: 10
-  fireRate: 1.5
-  bulletDamage: 10
+  fireRate: 1
+  bulletDamage: 20
   bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
-  spawnBulletPosition: {fileID: 50598335173446374}
+  spawnBulletPosition: {fileID: 3648678900880022287}
+  useFieldOfView: 0
+  fieldOfView: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   fsmManager: {fileID: 4208279385740000839}
   enemyRobotController: {fileID: 7342082228631990122}
 --- !u!114 &4208279385740000839
@@ -168,7 +176,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 0.5
   m_BaseOffset: 0.5
