@@ -10,7 +10,6 @@ using TMPro;
 public class InteractionManager : MonoBehaviour
 {
     public float interactRange = 3f;
-    public Camera playerCamera;
     public GameObject interactionUI; // Arraste o Canvas aqui
     public TextMeshProUGUI interactionText;
 
@@ -28,7 +27,7 @@ public class InteractionManager : MonoBehaviour
 
     void CheckForInteractable()
     {
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, interactRange))

@@ -7,6 +7,5 @@ public class Interactable : MonoBehaviour
     public virtual void Interact()
     {
         Debug.Log("Interacted with " + gameObject.name);
-        // Aqui entra a lógica do objeto: abrir porta, coletar item, etc.
     }
 }
