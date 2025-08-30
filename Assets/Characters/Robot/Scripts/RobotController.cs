@@ -11,8 +11,11 @@ namespace BGJ14
     {
         public PlayerInputController robotIC;
         public float weight;
-        public float velocity;
-        public bool gearsAffectWeight;
+        public float currentVelocity;
+        public float maxVelocity;
+        public float minVelocity;
+
+        public bool isOverWeight;
         private UnityEngine.Animations.Rigging.Rig armAimRig;
         private UnityEngine.Animations.Rigging.Rig headAimRig;
         public int ammo;
@@ -21,6 +24,7 @@ namespace BGJ14
         public GameObject robotArm;
         public Action<int> OnCollectGear;
         [SerializeField] Transform vfxExplosion;
+
 
 
         [SerializeField] private float distance = 2f;
@@ -50,26 +54,32 @@ namespace BGJ14
 
         }
 
-    public bool CanReceiveInput() {
-        if (IsStoreOpen)
-            return false;
+        public bool CanReceiveInput()
+        {
+            if (IsStoreOpen)
+                return false;
 
-        return true;
-    }
+            return true;
+        }
 
         public void MoveInput()
         {
-
-            if (CanReceiveInput() == false){
+            if (CanReceiveInput() == false)
+            {
                 moveInput = Vector3.zero;
                 anim.SetFloat("Running", 0);
                 anim.SetFloat("MovingSpeed", 0);
+
+                anim.SetFloat("ForwardMoveSpeed", 0);
+                anim.SetFloat("RightMoveSpeed", 0);
+
                 return;
             }
-
+            if (isOverWeight)
+                currentVelocity = 1f;
             // Calcula dire��o de movimento relativa � c�mera
-                Vector3 moveDir = robotIC.move.x * m_Cam.transform.right
-                            + robotIC.move.y * Vector3.ProjectOnPlane(m_Cam.transform.forward, Vector3.up).normalized;
+            Vector3 moveDir = (robotIC.move.x * currentVelocity) * m_Cam.transform.right
+                            + (robotIC.move.y * currentVelocity) * Vector3.ProjectOnPlane(m_Cam.transform.forward, Vector3.up).normalized;
 
             if (robotIC.sprint)
             {
@@ -79,19 +89,31 @@ namespace BGJ14
             else
                 battery.drainRate = 0.1f;
 
-            float fowardAmount = Mathf.Abs(moveDir.z);
+            float movementAmount = moveDir.magnitude; // Magnitude pega frente+lado
 
-            anim.SetFloat("Running", fowardAmount);
-            anim.SetFloat("MovingSpeed", fowardAmount);
 
 
             moveInput = moveDir;
+            anim.SetFloat("MovingSpeed", movementAmount);
 
             // Se houver movimento, rotaciona corpo para dire��o
-            if (moveDir.sqrMagnitude > 0.001f)
+            if (moveDir.sqrMagnitude > 0.001f && !robotIC.shoot)
             {
+                anim.SetFloat("Running", movementAmount);
+
+
                 Quaternion targetRotation = Quaternion.LookRotation(moveDir, Vector3.up);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+            }
+            else if (robotIC.shoot)
+            {
+                // Converte moveDir para o espaço local do jogador
+                Vector3 localMove = transform.InverseTransformDirection(moveDir);
+
+                // LocalMove.z => frente/tras (ForwardMoveSpeed)
+                // LocalMove.x => lateral (RightMoveSpeed)
+                anim.SetFloat("ForwardMoveSpeed", localMove.z);
+                anim.SetFloat("RightMoveSpeed", localMove.x);
             }
         }
 
@@ -99,7 +121,6 @@ namespace BGJ14
         {
             if (CanReceiveInput() == false)
                 return;
-
             if (robotIC.jump)
             {
                 fsmManager.SetBool("Jump", true);
@@ -123,12 +144,17 @@ namespace BGJ14
         private void ShootInput()
         {
             if (CanReceiveInput() == false)
+            {
+                anim.SetBool("IsShooting", false);
                 return;
-
+            }
             if (robotIC.shoot && armAimRig.weight == 1)
             {
+                anim.SetBool("IsShooting", true);
                 Shoot();
             }
+            else anim.SetBool("IsShooting", false);
+
         }
         public void CamMove()
         {
@@ -175,8 +201,6 @@ namespace BGJ14
             // --- Rotação do corpo só quando atirando ---
             if (robotIC.shoot)
             {
-
-
                 armAimRig.weight = Mathf.MoveTowards(
                     armAimRig.weight, // valor atual
                     1f,               // alvo
@@ -272,7 +296,5 @@ namespace BGJ14
             // Desenha a esfera
             Gizmos.DrawWireSphere(pos, radius);
         }
-        
-        
     }
 }

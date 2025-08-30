@@ -17,7 +17,7 @@ namespace BGJ14
         [SerializeField] private Transform bulletProjectile;
         [SerializeField] private Transform gearSpawn;
         [SerializeField] public Transform spawnBulletPosition;
-        [SerializeField] float bulletPower;
+        [SerializeField] private float bulletPower;
 
         public virtual void Setup(float? bulletPower = null)
         {

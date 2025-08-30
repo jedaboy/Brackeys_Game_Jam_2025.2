@@ -34,7 +34,7 @@ namespace BGJ14
        
                if (battery != null)
                {
-                   battery.Drain(1f);
+                   battery.Drain(1f * power);
                }
        
                gameObject.SetActive(false);
