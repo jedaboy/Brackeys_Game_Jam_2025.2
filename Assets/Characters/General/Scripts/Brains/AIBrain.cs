@@ -13,6 +13,7 @@ namespace BGJ14
 
         [SerializeField] protected Transform bulletProjectile;
         [SerializeField] protected Transform spawnBulletPosition;
+        [SerializeField] protected Transform targetPositionReference;
         [SerializeField] protected bool useFieldOfView = true;
         [SerializeField] protected float fieldOfView = 90f;
         [SerializeField] protected LayerMask targetMask;

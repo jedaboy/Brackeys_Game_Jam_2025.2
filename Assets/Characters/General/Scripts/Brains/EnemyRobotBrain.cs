@@ -58,13 +58,6 @@ namespace BGJ14
 
         protected override void AttackTarget()
         {
-            if (target == null) return;
-
-            // Gira a sentinela para mirar
-            Vector3 dir = (target.position - transform.position).normalized;
-            Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5f);
-
             // Atira
             enemyRobotController.Shoot();
         }
@@ -78,8 +71,22 @@ namespace BGJ14
             }
         }
 
+        private void FaceTarget()
+        {
+            if (target == null) return;
+
+            Vector3 dir = (target.position - transform.position).normalized;
+            Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5f);
+
+            targetPositionReference.position = target.position;
+        }
+
         protected override void Update()
         {
+
+            FaceTarget();
+
             if (battery.IsEmpty)
             {
                 fsmManager.SetBool("IsDead", true);

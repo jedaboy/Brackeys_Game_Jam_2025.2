@@ -60,6 +60,8 @@ namespace BGJ14
             Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5f);
 
+            targetPositionReference.position = target.position;
+
             // Atira
             sentinelController.Shoot();
         }
