@@ -2936,7 +2936,9 @@ MonoBehaviour:
   Collider: {fileID: 8948447294576906668}
   battery: {fileID: 664933927672049257}
   fsmManager: {fileID: 3535687092866376896}
+  gearsAmount: 0
   bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
+  gearSpawn: {fileID: 0}
   spawnBulletPosition: {fileID: 2389898718583543417}
   bulletPower: 0
   robotIC: {fileID: 2282143296687664596}

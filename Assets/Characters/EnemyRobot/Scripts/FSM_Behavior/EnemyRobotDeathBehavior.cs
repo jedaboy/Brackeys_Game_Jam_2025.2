@@ -19,5 +19,6 @@ public class EnemyRobotDeathBehavior : FSM_StateBehaviour
     {
         base.OnUpdate();
         enemyRobotController.DestroyCharacter();
+        enemyRobotController.DropGears();
     }
 }

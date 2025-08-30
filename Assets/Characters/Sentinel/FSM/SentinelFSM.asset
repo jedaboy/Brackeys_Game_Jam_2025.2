@@ -56,11 +56,6 @@ MonoBehaviour:
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
-  - _name: Battery
-    _parameterType: 1
-    _boolValue: 0
-    _intValue: 0
-    _floatValue: 0
   - _name: IsDead
     _parameterType: 0
     _boolValue: 0
@@ -70,7 +65,7 @@ MonoBehaviour:
   _anyStateTransitions:
   - _toStateIndex: 2
     _conditions:
-    - _parameterIndex: 2
+    - _parameterIndex: 1
       _conditionOperator: 0
       _referenceValue: 0
   anyStateEditorRect:
