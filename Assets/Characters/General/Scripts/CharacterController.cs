@@ -9,11 +9,12 @@ namespace BGJ14
 
         public Animator anim;
         public new Rigidbody rigidbody;
-        public Collider Collider;       
+        public CapsuleCollider capsuleCollider;
+        public SphereCollider sphereCollider;
         public Battery battery;
         public FSM_Manager fsmManager;
         [SerializeField] private Transform bulletProjectile;
-        [SerializeField] private Transform spawnBulletPosition;
+        [SerializeField] public Transform spawnBulletPosition;
         [SerializeField] float bulletPower;
 
         public virtual void Setup (float? bulletPower = null)

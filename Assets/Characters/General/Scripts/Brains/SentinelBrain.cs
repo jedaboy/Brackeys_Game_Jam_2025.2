@@ -111,7 +111,7 @@ namespace BGJ14
             base.Update();
             
             if (battery.IsEmpty)
-            fsmManager.SetBool("isDead", true);
+            fsmManager.SetBool("IsDead", true);
             
         }
     }

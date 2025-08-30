@@ -1,7 +1,6 @@
 using GRD.FSM;
 using System;
 using UnityEngine;
-using static UnityEditor.VersionControl.Asset;
 
 
 namespace BGJ14
@@ -14,7 +13,8 @@ namespace BGJ14
         public float weight;
         public float velocity;
         public bool gearsAffectWeight;
-
+        private UnityEngine.Animations.Rigging.Rig armAimRig;
+        private UnityEngine.Animations.Rigging.Rig headAimRig; 
         public int ammo;
         public Camera m_Cam;
         private Vector3 moveInput;
@@ -138,32 +138,83 @@ namespace BGJ14
                 Vector3.up
             );
 
-            // --- Rotação do braço seguindo o mouse ---
-            Ray ray = m_Cam.ScreenPointToRay(Input.mousePosition);
-            Vector3 aimPoint = ray.GetPoint(50f); // Ponto distante (50 unidades à frente)
-            Vector3 aimDir = (aimPoint - robotArm.transform.position).normalized;
-
-            // Rotação desejada do braço
-            Quaternion targetArmRot = Quaternion.LookRotation(aimDir, Vector3.up);
-
-            // ---- Limitação da rotação do braço ----
-            float maxAngle = 60f;
-            float angle = Quaternion.Angle(transform.rotation, targetArmRot);
-
-            if (angle > maxAngle)
+            float weightSpeed = 2f;
+            Transform armAimTransform = transform.Find("RobotRenderer/AnimationRiggings/ArmAim");
+            Transform headAimTransform = transform.Find("RobotRenderer/AnimationRiggings/BodyAim");
+            if (armAimTransform != null)
             {
-                targetArmRot = Quaternion.RotateTowards(transform.rotation, targetArmRot, maxAngle);
+                armAimRig = armAimTransform.GetComponent<UnityEngine.Animations.Rigging.Rig>();
+                headAimRig = headAimTransform.GetComponent<UnityEngine.Animations.Rigging.Rig>();
             }
-
-            // Aplica no braço
-            robotArm.transform.rotation = targetArmRot;
-
             // --- Rotação do corpo só quando atirando ---
             if (robotIC.shoot)
             {
+               
+             
+                armAimRig.weight = Mathf.MoveTowards(
+                    armAimRig.weight, // valor atual
+                    1f,               // alvo
+                    weightSpeed * Time.deltaTime // velocidade
+                );
+
+                headAimRig.weight = Mathf.MoveTowards(
+                    armAimRig.weight, // valor atual
+                    1f,               // alvo
+                    weightSpeed * Time.deltaTime // velocidade
+                );
+
+                // --- Rotação do braço seguindo o mouse ---
+                Ray ray = m_Cam.ScreenPointToRay(Input.mousePosition);
+                Vector3 aimPoint = ray.GetPoint(50f); // Ponto distante (50 unidades à frente)
+                Vector3 aimDir = (aimPoint - spawnBulletPosition.transform.position).normalized;
+
+                // Rotação desejada do braço
+                Quaternion targetArmRot = Quaternion.LookRotation(aimDir, Vector3.up);
+
+                // ---- Limitação da rotação do braço ----
+                float maxAngle = 60f;
+                float angle = Quaternion.Angle(transform.rotation, targetArmRot);
+
+                if (angle > maxAngle)
+                {
+                    targetArmRot = Quaternion.RotateTowards(transform.rotation, targetArmRot, maxAngle);
+                }
+
+                // Aplica no braço
+                spawnBulletPosition.transform.rotation = targetArmRot;
+
+
+
+                // Distância máxima que o braço pode estender
+                float maxReach = 5f;
+
+                // Direção e distância entre braço e ponto
+                aimDir = aimPoint - transform.position; // transform = corpo do robô
+                float dis = Mathf.Min(aimDir.magnitude, maxReach); // limita o alcance
+                aimDir.Normalize();
+
+                // Posição alvo da ponta do braço
+                Vector3 targetArmPos = transform.position + aimDir * dis;
+
+                // Move o braço até a posição alvo
+                robotArm.transform.position = targetArmPos;
+
                 transform.rotation = Quaternion.LookRotation(
                     Vector3.ProjectOnPlane(aimDir, Vector3.up),
                     Vector3.up
+                );
+            }
+            else
+            {
+                armAimRig.weight = Mathf.MoveTowards(
+                    armAimRig.weight, // valor atual
+                    0f,               // alvo
+                    weightSpeed * Time.deltaTime // velocidade
+                );
+                headAimRig.weight = Mathf.MoveTowards(
+                    armAimRig.weight, // valor atual
+                    0f,               // alvo
+                    weightSpeed * Time.deltaTime // velocidade
                 );
             }
 
