@@ -32,6 +32,7 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
     {
         _hud = await SceneOrchestrator.LoadSceneAdditive(new HudSceneData(_playerBag, _playerRobot));
         _playerRobot.battery.onBatteryUpdate += _hud.UpdateBattery;
+        _playerRobot.OnCollectGear += OnPlayerCollectGear;
         await base.OnPostLoad();
     }
 
@@ -58,26 +59,32 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
     {
         _hud.HideHud();
 
-        //TODO: bloquear ações do jogador
+        //TODO: bloquear aï¿½ï¿½es do jogador
 
         UpgradeMenuSceneController upgradeMenu =
             await SceneOrchestrator.LoadSceneAdditive(new UpgradeMenuSceneData());
         await upgradeMenu.WaitForExit;
         _hud.ShowHud();
 
-        //TODO: reabilitar ações do jogador
+        //TODO: reabilitar aï¿½ï¿½es do jogador
     }
 
-    public async void DetectPlayerDied() 
+    public async void DetectPlayerDied()
     {
         if (_gameOverStarted)
             return;
 
-        if (_playerRobot.battery.currentCharge <= 0) 
+        if (_playerRobot.battery.currentCharge <= 0)
         {
             _gameOverStarted = true;
             _gameOverMenu = await SceneOrchestrator.LoadSceneAdditive(new GameOverSceneData());
         }
+    }
+
+    private void OnPlayerCollectGear(int gearAmount)
+    {
+        _playerBag.AddGear(gearAmount);
+        _hud.UpdateGears();
     }
 }
 

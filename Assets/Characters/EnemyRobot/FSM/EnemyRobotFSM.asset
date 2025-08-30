@@ -33,19 +33,22 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 640
-      y: 262.8
+      x: 662
+      y: 280.8
       width: 200
       height: 50
   - _name: Attack
     _behaviour: {fileID: 11400000, guid: 9ad1cd89814f5da42838f4e3ba6b4092, type: 2}
     _transitions:
     - _toStateIndex: 0
-      _conditions: []
+      _conditions:
+      - _parameterIndex: 0
+        _conditionOperator: 1
+        _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 409
-      y: 397.8
+      x: 431
+      y: 415.8
       width: 200
       height: 50
   - _name: Flee
@@ -53,17 +56,17 @@ MonoBehaviour:
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 640
-      y: 400.8
+      x: 662
+      y: 418.8
       width: 200
       height: 50
   - _name: Died
-    _behaviour: {fileID: 11400000, guid: c1be88f196c5d8d43ba114a19ffb4c83, type: 2}
+    _behaviour: {fileID: 11400000, guid: f69e7fe6a6e7a8f40bac619de7633792, type: 2}
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 886
-      y: 61.799988
+      x: 908
+      y: 79.79999
       width: 200
       height: 50
   _parameters:
@@ -96,8 +99,8 @@ MonoBehaviour:
       _referenceValue: 0
   anyStateEditorRect:
     serializedVersion: 2
-    x: 639
-    y: 63.000015
+    x: 661
+    y: 81.000015
     width: 200
     height: 50
   anyStateIsDragged: 0

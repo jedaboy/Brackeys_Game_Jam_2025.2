@@ -14,11 +14,12 @@ namespace BGJ14
         public float velocity;
         public bool gearsAffectWeight;
         private UnityEngine.Animations.Rigging.Rig armAimRig;
-        private UnityEngine.Animations.Rigging.Rig headAimRig; 
+        private UnityEngine.Animations.Rigging.Rig headAimRig;
         public int ammo;
         public Camera m_Cam;
         private Vector3 moveInput;
         public GameObject robotArm;
+        public Action<int> OnCollectGear;
         [SerializeField] Transform vfxExplosion;
 
 
@@ -28,21 +29,21 @@ namespace BGJ14
         [SerializeField] private float maxY = 80f;
 
 
-        private float yaw;  
-        private float pitch; 
+        private float yaw;
+        private float pitch;
 
 
         public void Update()
-        { 
-  
+        {
+
             CamMove();
             ShootInput();
         }
 
         public void FixedUpdate()
         {
-            if(ChecKGroundStatus())
-            Move();          
+            if (ChecKGroundStatus())
+                Move();
             battery.DrainOverTime();
 
         }
@@ -97,7 +98,7 @@ namespace BGJ14
         private void Move()
         {
             GetComponent<Rigidbody>().velocity = new Vector3(moveInput.x, GetComponent<Rigidbody>().velocity.y, moveInput.z);
-         
+
         }
         private void ShootInput()
         {
@@ -148,8 +149,8 @@ namespace BGJ14
             // --- Rotação do corpo só quando atirando ---
             if (robotIC.shoot)
             {
-               
-             
+
+
                 armAimRig.weight = Mathf.MoveTowards(
                     armAimRig.weight, // valor atual
                     1f,               // alvo
@@ -245,5 +246,7 @@ namespace BGJ14
             // Desenha a esfera
             Gizmos.DrawWireSphere(pos, radius);
         }
+        
+        
     }
 }

@@ -46,7 +46,7 @@ namespace BGJ14
             Instantiate(vfxExplosion, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
         }
-
+        
         /// <summary>
         /// Retoma o movimento após ter sido parado.
         /// </summary>

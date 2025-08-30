@@ -66,8 +66,10 @@ namespace BGJ14
         {
             if (other.CompareTag("Safe Zone"))
             {
+                gameObject.SetActive(false);
                 if (fsmManager != null)
-                    fsmManager.SetBool("IsDead", true);
+                    fsmManager.SetBool("isDead", true);
+                
             }
         }
 
