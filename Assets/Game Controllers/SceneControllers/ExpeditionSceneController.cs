@@ -59,14 +59,14 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
     {
         _hud.HideHud();
 
-        //TODO: bloquear a��es do jogador
+        _playerRobot.IsStoreOpen = true;
 
         UpgradeMenuSceneController upgradeMenu =
             await SceneOrchestrator.LoadSceneAdditive(new UpgradeMenuSceneData());
         await upgradeMenu.WaitForExit;
         _hud.ShowHud();
 
-        //TODO: reabilitar a��es do jogador
+        _playerRobot.IsStoreOpen = false;
     }
 
     public async void DetectPlayerDied()

@@ -28,6 +28,8 @@ namespace BGJ14
         [SerializeField] private float minY = -10f;
         [SerializeField] private float maxY = 80f;
 
+        [HideInInspector]
+        public bool IsStoreOpen = false;
 
         private float yaw;
         private float pitch;
@@ -48,10 +50,25 @@ namespace BGJ14
 
         }
 
+    public bool CanReceiveInput() {
+        if (IsStoreOpen)
+            return false;
+
+        return true;
+    }
+
         public void MoveInput()
         {
+
+            if (CanReceiveInput() == false){
+                moveInput = Vector3.zero;
+                anim.SetFloat("Running", 0);
+                anim.SetFloat("MovingSpeed", 0);
+                return;
+            }
+
             // Calcula dire��o de movimento relativa � c�mera
-            Vector3 moveDir = robotIC.move.x * m_Cam.transform.right
+                Vector3 moveDir = robotIC.move.x * m_Cam.transform.right
                             + robotIC.move.y * Vector3.ProjectOnPlane(m_Cam.transform.forward, Vector3.up).normalized;
 
             if (robotIC.sprint)
@@ -80,6 +97,9 @@ namespace BGJ14
 
         public void JumpInput()
         {
+            if (CanReceiveInput() == false)
+                return;
+
             if (robotIC.jump)
             {
                 fsmManager.SetBool("Jump", true);
@@ -102,6 +122,9 @@ namespace BGJ14
         }
         private void ShootInput()
         {
+            if (CanReceiveInput() == false)
+                return;
+
             if (robotIC.shoot && armAimRig.weight == 1)
             {
                 Shoot();
@@ -109,6 +132,9 @@ namespace BGJ14
         }
         public void CamMove()
         {
+            if (CanReceiveInput() == false)
+                return;
+
             // --- Input da câmera ---
             yaw += robotIC.camMove.x * sensitivity;
             pitch -= robotIC.camMove.y * sensitivity;
