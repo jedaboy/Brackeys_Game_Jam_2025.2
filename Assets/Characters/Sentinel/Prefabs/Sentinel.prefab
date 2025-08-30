@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975074722809191725}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7644258104213117891}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &5276483571090806828
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,16 +40,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8906108966322608483}
-  - component: {fileID: 5897256375076104354}
   - component: {fileID: -6509090044150858387}
   - component: {fileID: -515272637248359405}
   - component: {fileID: 8914281528952946627}
   - component: {fileID: 630830112328556194}
   - component: {fileID: 6736499467532196881}
   - component: {fileID: 6540076388181491794}
-  - component: {fileID: 5894488375902149829}
   - component: {fileID: 5833982033878959452}
-  - component: {fileID: 4126874201613668065}
   m_Layer: 0
   m_Name: Sentinel
   m_TagString: Sentinel
@@ -73,27 +70,6 @@ Transform:
   - {fileID: 1335191852733028196}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5897256375076104354
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5276483571090806828}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: -5, z: 4}
 --- !u!114 &-6509090044150858387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,9 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f03cd12aa717c044911bdc7787dec14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 3344988538578564649}
   rigidbody: {fileID: 0}
-  Collider: {fileID: 5897256375076104354}
+  Collider: {fileID: 0}
   battery: {fileID: -6509090044150858387}
   fsmManager: {fileID: 6540076388181491794}
   bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
@@ -163,12 +139,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d34d6973a8a3204a821ad0451e6241e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRange: 10
+  detectionRange: 20
   stopDistance: 5
-  fireRate: 3
-  bulletDamage: 10
+  fireRate: 0.5
+  bulletDamage: 40
   bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
   spawnBulletPosition: {fileID: 8906108966322608483}
+  useFieldOfView: 1
+  fieldOfView: 90
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   fsmManager: {fileID: 8914281528952946627}
   sentinelController: {fileID: -515272637248359405}
   patrolRadius: 20
@@ -201,27 +185,6 @@ MonoBehaviour:
   _startFSMMethod: 0
   _transitionExecutionMethod: 1
   _currentState: 0
---- !u!114 &5894488375902149829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5276483571090806828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d34d6973a8a3204a821ad0451e6241e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 10
-  stopDistance: 5
-  fireRate: 0.5
-  bulletDamage: 10
-  bulletProjectile: {fileID: 0}
-  spawnBulletPosition: {fileID: 0}
-  fsmManager: {fileID: 6540076388181491794}
-  sentinelController: {fileID: -515272637248359405}
-  patrolRadius: 20
 --- !u!195 &5833982033878959452
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -244,18 +207,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4126874201613668065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5276483571090806828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38dd10af7f63dad4c99a9e0702ab7192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &880802295071946656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319,6 +270,11 @@ PrefabInstance:
 --- !u!4 &1335191852733028196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2215402608099156164, guid: 07fdcdf6d7435424bba9cc02b02ecb59, type: 3}
+  m_PrefabInstance: {fileID: 880802295071946656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3344988538578564649 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2473307835189346697, guid: 07fdcdf6d7435424bba9cc02b02ecb59, type: 3}
   m_PrefabInstance: {fileID: 880802295071946656}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7644258104213117891 stripped

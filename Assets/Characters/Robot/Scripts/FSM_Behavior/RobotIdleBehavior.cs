@@ -20,7 +20,6 @@ public class RobotIdleBehavior : FSM_StateBehaviour
         base.OnUpdate();
         if (robotController.ChecKGroundStatus())
         {
-            Debug.Log(robotController.ChecKGroundStatus());
             robotController.MoveInput();
             robotController.JumpInput();
         }

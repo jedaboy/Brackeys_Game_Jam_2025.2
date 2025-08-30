@@ -16,6 +16,7 @@ namespace BGJ14
         {
             base.Awake();
             battery = GetComponent<Battery>();
+            useFieldOfView = false;
         }
 
         protected override void MoveTo(Vector3 position)
@@ -23,21 +24,29 @@ namespace BGJ14
             if (enemyRobotController != null)
                 enemyRobotController.MoveTo(position);
         }
-
-        protected override void Patrol()
-        {
-            if (fsmManager != null)
-                fsmManager.SetBool("Target", false);
-        }
-
         protected override Transform FindTarget()
         {
-            // Sempre prioriza Player
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null && Vector3.Distance(transform.position, player.transform.position) <= detectionRange)
-                return player.transform;
+            Transform closest = null;
+            float minDist = detectionRange;
 
-            return null;
+            // Busca Player
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                float dist = Vector3.Distance(transform.position, player.transform.position);
+                if (dist <= minDist)
+                {
+                    closest = player.transform;
+                    minDist = dist;
+                }
+            }
+
+            return closest;
+        }
+
+        protected override void DetectTarget()
+        {
+            target = FindTarget(); // usa a nossa lógica do SentinelBrain
         }
 
         protected override void SetAttack(bool attacking)
@@ -49,7 +58,14 @@ namespace BGJ14
 
         protected override void AttackTarget()
         {
-            base.AttackTarget();
+            if (target == null) return;
+
+            // Gira a sentinela para mirar
+            Vector3 dir = (target.position - transform.position).normalized;
+            Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5f);
+
+            // Atira
             enemyRobotController.Shoot();
         }
 
@@ -57,7 +73,6 @@ namespace BGJ14
         {
             if (other.CompareTag("Safe Zone"))
             {
-                // Seta o state Died na FSM
                 if (fsmManager != null)
                     fsmManager.SetBool("IsDead", true);
             }
@@ -65,24 +80,25 @@ namespace BGJ14
 
         protected override void Update()
         {
-            base.Update();
-
             if (battery.IsEmpty)
             {
-                Debug.Log("Morto");
                 fsmManager.SetBool("IsDead", true);
             }
-            // Se a vida estiver baixa, ativa Flee
             else if (battery != null && battery.CurrentCharge / battery.maxCharge <= 0.25f)
             {
+                // ativa estado Flee
                 if (fsmManager != null)
-                    fsmManager.SetBool("Dying", true); // bool da FSM que ativa Flee
+                    fsmManager.SetBool("Dying", true);
+                SetAttack(false);
+                return;
             }
             else
             {
                 if (fsmManager != null)
                     fsmManager.SetBool("Dying", false);
             }
+
+            base.Update();
         }
     }
 }
