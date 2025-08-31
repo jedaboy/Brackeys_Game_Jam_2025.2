@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -353,8 +353,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1275565
@@ -3890,6 +3890,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &29499660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29499661}
+  m_Layer: 0
+  m_Name: Respawn (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29499661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29499660}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.5, y: 0, z: 60.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &30148734
 GameObject:
   m_ObjectHideFlags: 0
@@ -6298,8 +6329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &48419902
@@ -6365,7 +6396,7 @@ Transform:
   m_GameObject: {fileID: 50753287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalPosition: {x: 65.34, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14591,8 +14622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &91098888
@@ -15226,6 +15257,7 @@ Transform:
   - {fileID: 1908060119}
   - {fileID: 1829230185}
   - {fileID: 276170540}
+  - {fileID: 1475074185}
   - {fileID: 1468387391}
   - {fileID: 975398238}
   - {fileID: 1962422873}
@@ -17449,8 +17481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &107277687
@@ -26793,8 +26825,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &171527184
@@ -27626,8 +27658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &177473352
@@ -30934,8 +30966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &195928207
@@ -32829,8 +32861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &205599763
@@ -35738,8 +35770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &226726005
@@ -40444,8 +40476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &253595857
@@ -40584,8 +40616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &254049218
@@ -41221,6 +41253,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &259407691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259407692}
+  m_Layer: 0
+  m_Name: Respawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259407692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259407691}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 67.3, y: 0, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &260116325
 GameObject:
   m_ObjectHideFlags: 0
@@ -41914,6 +41977,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &262151775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 262151777}
+  - component: {fileID: 262151776}
+  m_Layer: 0
+  m_Name: SentinelsSpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &262151776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262151775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a27b1a22a349d94da057451872ef469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sentinelPrefab: {fileID: 5276483571090806828, guid: 11aee034263557843af442233693d7d4, type: 3}
+  _sentinelCount: 4
+  _spawnAreaRadius: 100
+  _respawnDeadSentinelTime: 10
+  _deadSentinelRespawnPoints:
+  - {fileID: 259407692}
+  - {fileID: 2028300973}
+  - {fileID: 512676721}
+  - {fileID: 446030163}
+--- !u!4 &262151777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262151775}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -282, y: 4.75, z: 152}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 259407692}
+  - {fileID: 2028300973}
+  - {fileID: 512676721}
+  - {fileID: 446030163}
+  - {fileID: 1129748038}
+  - {fileID: 1697671099}
+  - {fileID: 1793973855}
+  - {fileID: 1219638537}
+  - {fileID: 1580142069}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &262478487
 GameObject:
   m_ObjectHideFlags: 0
@@ -42309,8 +42434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &263607859
@@ -50313,8 +50438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &303225871
@@ -54743,8 +54868,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &327659427
@@ -57023,6 +57148,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &340235701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340235702}
+  m_Layer: 0
+  m_Name: Respawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340235702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340235701}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.98, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &341258341
 Mesh:
   m_ObjectHideFlags: 0
@@ -63659,14 +63815,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sentinelPrefab: {fileID: 5276483571090806828, guid: 11aee034263557843af442233693d7d4, type: 3}
-  _sentinelCount: 20
-  _spawnAreaRadius: 20
+  _sentinelCount: 6
+  _spawnAreaRadius: 100
   _respawnDeadSentinelTime: 10
   _deadSentinelRespawnPoints:
   - {fileID: 50753288}
   - {fileID: 1091724393}
   - {fileID: 1702015760}
   - {fileID: 915773220}
+  - {fileID: 1702889067}
+  - {fileID: 568233950}
 --- !u!4 &385516938
 Transform:
   m_ObjectHideFlags: 0
@@ -63684,6 +63842,11 @@ Transform:
   - {fileID: 1091724393}
   - {fileID: 1702015760}
   - {fileID: 915773220}
+  - {fileID: 1702889067}
+  - {fileID: 568233950}
+  - {fileID: 687359398}
+  - {fileID: 1011998357}
+  - {fileID: 1927729052}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &386454795
@@ -67057,8 +67220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &407578016
@@ -74073,6 +74236,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1583733262}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &446030162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446030163}
+  m_Layer: 0
+  m_Name: Respawn (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446030163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446030162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &446246011
 Mesh:
   m_ObjectHideFlags: 0
@@ -74468,8 +74662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &448241548
@@ -74939,6 +75133,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &452533499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 452533500}
+  m_Layer: 0
+  m_Name: Respawn (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &452533500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452533499}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.7, y: 0, z: 1.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &454714126
 Mesh:
   m_ObjectHideFlags: 0
@@ -75466,8 +75691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &455293924
@@ -79071,8 +79296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &484053375
@@ -79508,8 +79733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &485279651
@@ -81437,6 +81662,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &496965966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496965967}
+  m_Layer: 0
+  m_Name: Respawn (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496965967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496965966}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.5, y: 0, z: 30.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &497059915
 GameObject:
   m_ObjectHideFlags: 0
@@ -82294,8 +82550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &502102288
@@ -84852,6 +85108,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &512676720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512676721}
+  m_Layer: 0
+  m_Name: Respawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512676721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512676720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &512688346
 Mesh:
   m_ObjectHideFlags: 0
@@ -85577,8 +85864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &516398418
@@ -88126,8 +88413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &533667747
@@ -89124,8 +89411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &538166037
@@ -90881,8 +91168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &545621974
@@ -94460,6 +94747,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &568233949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568233950}
+  m_Layer: 0
+  m_Name: Respawn (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568233950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568233949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 188.8, y: 0, z: -49.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 385516938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &569256069
 GameObject:
   m_ObjectHideFlags: 0
@@ -97541,6 +97859,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595224899}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &595477507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595477508}
+  m_Layer: 0
+  m_Name: Respawn (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &595477508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595477507}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &595653836
 Mesh:
   m_ObjectHideFlags: 0
@@ -98266,8 +98615,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &602093697
@@ -112027,6 +112376,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &687359397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687359398}
+  m_Layer: 0
+  m_Name: Respawn (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &687359398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687359397}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 151.2, y: 0, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 385516938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &688878824
 Mesh:
   m_ObjectHideFlags: 0
@@ -121350,8 +121730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &737050085
@@ -125087,8 +125467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &757838566
@@ -126378,6 +126758,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &769567244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769567245}
+  m_Layer: 0
+  m_Name: Respawn (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769567245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769567244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -14.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &769976591
 GameObject:
   m_ObjectHideFlags: 0
@@ -131948,8 +132359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &802462045
@@ -135547,8 +135958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &822648656
@@ -136551,8 +136962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &825212957
@@ -138710,8 +139121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &832867628
@@ -140203,8 +140614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &838075472
@@ -145662,8 +146073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &865795343
@@ -146798,8 +147209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &868255629
@@ -147070,8 +147481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &869458600
@@ -147541,6 +147952,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &874264577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874264578}
+  m_Layer: 0
+  m_Name: Respawn (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874264578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874264577}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -151, y: 0, z: 60.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &875471607
 GameObject:
   m_ObjectHideFlags: 0
@@ -149323,6 +149765,68 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &892601380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 892601382}
+  - component: {fileID: 892601381}
+  m_Layer: 0
+  m_Name: SentinelsSpawner (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &892601381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892601380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a27b1a22a349d94da057451872ef469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sentinelPrefab: {fileID: 5276483571090806828, guid: 11aee034263557843af442233693d7d4, type: 3}
+  _sentinelCount: 4
+  _spawnAreaRadius: 100
+  _respawnDeadSentinelTime: 10
+  _deadSentinelRespawnPoints:
+  - {fileID: 960718816}
+  - {fileID: 1796190338}
+  - {fileID: 595477508}
+  - {fileID: 2143892356}
+--- !u!4 &892601382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892601380}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -49.7, y: 4.75, z: 34.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 960718816}
+  - {fileID: 1796190338}
+  - {fileID: 595477508}
+  - {fileID: 2143892356}
+  - {fileID: 452533500}
+  - {fileID: 1332799781}
+  - {fileID: 1525732219}
+  - {fileID: 496965967}
+  - {fileID: 874264578}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892836237
 GameObject:
   m_ObjectHideFlags: 0
@@ -151637,8 +152141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &902540608
@@ -156434,8 +156938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &931851327
@@ -160440,6 +160944,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &960718815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960718816}
+  m_Layer: 0
+  m_Name: Respawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960718816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960718815}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 56.21, y: 0, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &961377458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2895164592959735798, guid: 307be57867bda974da4381435752c849, type: 3}
@@ -163227,6 +163762,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &979161222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979161224}
+  - component: {fileID: 979161223}
+  m_Layer: 0
+  m_Name: SentinelsSpawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &979161223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979161222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a27b1a22a349d94da057451872ef469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sentinelPrefab: {fileID: 5276483571090806828, guid: 11aee034263557843af442233693d7d4, type: 3}
+  _sentinelCount: 6
+  _spawnAreaRadius: 100
+  _respawnDeadSentinelTime: 10
+  _deadSentinelRespawnPoints:
+  - {fileID: 1282718989}
+  - {fileID: 1356544601}
+  - {fileID: 340235702}
+  - {fileID: 769567245}
+  - {fileID: 1032074994}
+  - {fileID: 1668605313}
+--- !u!4 &979161224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979161222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -179.55, y: 4.75, z: 26.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1282718989}
+  - {fileID: 1356544601}
+  - {fileID: 340235702}
+  - {fileID: 769567245}
+  - {fileID: 1032074994}
+  - {fileID: 1668605313}
+  - {fileID: 1072749081}
+  - {fileID: 29499661}
+  - {fileID: 1377927663}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &979405185
 GameObject:
   m_ObjectHideFlags: 0
@@ -167497,9 +168096,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _expeditionProperties: {fileID: 11400000, guid: 1bb7f9d2f2763504788998ace50fd60a, type: 2}
-  _sentinelsTime: 10
+  _sentinelsTime: 90
   _robotEnemyPrefab: {fileID: 2518035666371764233, guid: 58f5aa9e33e6e684286058cf76b3f845, type: 3}
-  _sentinelSpawner: {fileID: 385516937}
+  _sentinelSpawner:
+  - {fileID: 385516937}
+  - {fileID: 979161223}
+  - {fileID: 262151776}
+  - {fileID: 892601381}
   _enemySpawnBases:
   - {fileID: 1908060120}
   - {fileID: 1829230186}
@@ -167515,6 +168118,7 @@ MonoBehaviour:
   - {fileID: 1802465601}
   - {fileID: 2085451867}
   - {fileID: 1972765091}
+  - {fileID: 1475074184}
   _scraps: []
   _musicManager: {fileID: 1553364193}
 --- !u!114 &1001869537
@@ -169710,6 +170314,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1011998356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1011998357}
+  m_Layer: 0
+  m_Name: Respawn (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1011998357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011998356}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.5, y: 0, z: 60.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 385516938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012385709
 GameObject:
   m_ObjectHideFlags: 0
@@ -172713,6 +173348,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1032074993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032074994}
+  m_Layer: 0
+  m_Name: Respawn (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1032074994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032074993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 108.6, y: 0, z: -4.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1033029609
 Mesh:
   m_ObjectHideFlags: 0
@@ -176150,8 +176816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1051512849
@@ -180125,6 +180791,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1072749080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1072749081}
+  m_Layer: 0
+  m_Name: Respawn (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1072749081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072749080}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 138.67, y: 0, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1073143212
 GameObject:
   m_ObjectHideFlags: 0
@@ -188268,6 +188965,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1129748037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129748038}
+  m_Layer: 0
+  m_Name: Respawn (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1129748038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129748037}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 108.6, y: 0, z: -80.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1129814577
 Mesh:
   m_ObjectHideFlags: 0
@@ -190220,8 +190948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1140067355
@@ -204118,8 +204846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1212741401
@@ -205414,6 +206142,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1219638536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219638537}
+  m_Layer: 0
+  m_Name: Respawn (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219638537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219638536}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 47.04, y: 0, z: 60.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1219947750
 GameObject:
   m_ObjectHideFlags: 0
@@ -206937,8 +207696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1227889877
@@ -210812,8 +211571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1250832571
@@ -212596,8 +213355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1261763813
@@ -214777,6 +215536,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1282718988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282718989}
+  m_Layer: 0
+  m_Name: Respawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282718989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282718988}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.9, y: 0, z: 25.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1282759485
 Mesh:
   m_ObjectHideFlags: 0
@@ -221396,8 +222186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1324744521
@@ -222422,6 +223212,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1332799780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332799781}
+  m_Layer: 0
+  m_Name: Respawn (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1332799781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332799780}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -59, y: -0.4, z: -35.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1333744555
 Mesh:
   m_ObjectHideFlags: 0
@@ -226359,6 +227180,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1356544600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1356544601}
+  m_Layer: 0
+  m_Name: Respawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1356544601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356544600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1358394717
 GameObject:
   m_ObjectHideFlags: 0
@@ -229506,6 +230358,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1377927662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377927663}
+  m_Layer: 0
+  m_Name: Respawn (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1377927663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377927662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -55.2, y: 0, z: 45.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379674239
 GameObject:
   m_ObjectHideFlags: 0
@@ -229604,8 +230487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1379674244
@@ -233836,8 +234719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1409970219
@@ -242560,8 +243443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1465275082
@@ -245317,6 +246200,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1475074183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1475074185}
+  - component: {fileID: 1475074184}
+  m_Layer: 0
+  m_Name: EnemyBase (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1475074184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475074183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1ece1adeb9d047439cd83622644396c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minEnemyLevel: 0.2
+  _maxEnemyLevel: 0.5
+  _enemyDensity: 0.5
+  _spawnAreaRadius: 20
+--- !u!4 &1475074185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475074183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -63.5, y: 0, z: 19.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 96228203}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1476634072
 Mesh:
   m_ObjectHideFlags: 0
@@ -245712,8 +246643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1479704565
@@ -251391,8 +252322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1514059295
@@ -252125,8 +253056,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1516877133
@@ -253784,6 +254715,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1525732218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1525732219}
+  m_Layer: 0
+  m_Name: Respawn (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1525732219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525732218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.3, y: 0, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525942567
 GameObject:
   m_ObjectHideFlags: 0
@@ -263241,6 +264203,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1580142068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1580142069}
+  m_Layer: 0
+  m_Name: Respawn (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1580142069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580142068}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -52.5, y: 0, z: 60.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581461202
 GameObject:
   m_ObjectHideFlags: 0
@@ -264313,8 +265306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1586787894
@@ -277690,6 +278683,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1668605312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668605313}
+  m_Layer: 0
+  m_Name: Respawn (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668605313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668605312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 155.7, y: 0, z: 15.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 979161224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671968791
 GameObject:
   m_ObjectHideFlags: 0
@@ -279405,8 +280429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1678500557
@@ -283941,6 +284965,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1697671098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1697671099}
+  m_Layer: 0
+  m_Name: Respawn (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1697671099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697671098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 180.81, y: 0, z: -49.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1700511384
 GameObject:
   m_ObjectHideFlags: 0
@@ -284395,7 +285450,7 @@ Transform:
   m_GameObject: {fileID: 1702015759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 0}
+  m_LocalPosition: {x: -17.38, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -284533,6 +285588,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1702889066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1702889067}
+  m_Layer: 0
+  m_Name: Respawn (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1702889067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702889066}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 108.6, y: 0, z: -100.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 385516938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703399361
 GameObject:
   m_ObjectHideFlags: 0
@@ -294733,8 +295819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1766981377
@@ -296391,8 +297477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1776101842
@@ -298953,6 +300039,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1793973854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793973855}
+  m_Layer: 0
+  m_Name: Respawn (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793973855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793973854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 172.91, y: 0, z: 0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1794686473
 Mesh:
   m_ObjectHideFlags: 0
@@ -299520,6 +300637,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1796190337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796190338}
+  m_Layer: 0
+  m_Name: Respawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1796190338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796190337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796466029
 GameObject:
   m_ObjectHideFlags: 0
@@ -299750,8 +300898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1796597026
@@ -301456,8 +302604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1805667309
@@ -312660,8 +313808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1882067729
@@ -315142,8 +316290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1891150796
@@ -321124,6 +322272,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1927729051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927729052}
+  m_Layer: 0
+  m_Name: Respawn (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1927729052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927729051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -151, y: 0, z: 60.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 385516938}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1929784882
 Mesh:
   m_ObjectHideFlags: 0
@@ -323439,8 +324618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1943000983
@@ -326191,8 +327370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1960223401
@@ -326793,8 +327972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1961822594
@@ -331127,8 +332306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &1988666322
@@ -335992,8 +337171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2017522073
@@ -337788,6 +338967,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 439716768}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2028300972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028300973}
+  m_Layer: 0
+  m_Name: Respawn (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2028300973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028300972}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262151777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2028479526
 GameObject:
@@ -339636,8 +340846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2039007917
@@ -342494,8 +343704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2061491137
@@ -349009,8 +350219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2096679271
@@ -352317,8 +353527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2113846052
@@ -357630,8 +358840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2138511806
@@ -357902,8 +359112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2139578950
@@ -358207,8 +359417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2140450628
@@ -358750,6 +359960,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143474742}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2143892355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143892356}
+  m_Layer: 0
+  m_Name: Respawn (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143892356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143892355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892601382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146583316
 GameObject:
   m_ObjectHideFlags: 0
@@ -358980,8 +360221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &2147107208
@@ -359473,9 +360714,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6421020367051435044, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
+      propertyPath: collider
+      value: 
+      objectReference: {fileID: 3578515387324418753}
     - target: {fileID: 8523985644277440224, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523985644277440224, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
+      propertyPath: m_TagString
+      value: Sentinel
       objectReference: {fileID: 0}
     - target: {fileID: 9109728819232005505, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
       propertyPath: m_LocalPosition.x
@@ -359533,6 +360782,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d489549244558d498b06c796977780d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3578515387324418753 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 4746581689183590478, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
+  m_PrefabInstance: {fileID: 3578515387324418750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3847718819838970972
 Transform:
   m_ObjectHideFlags: 0
@@ -359663,8 +360917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a958b6089f400541a954462dfbe21ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minGearsAmount: 2
-  _maxGearsAmount: 8
+  _minGearsAmount: 1
+  _maxGearsAmount: 3
   _activationProbability: 1
   gearPrefab: {fileID: 7193380701553432474, guid: ad720920c2943bd49849d0098f33359f, type: 3}
 --- !u!114 &4480526710712178408
@@ -359735,14 +360989,6 @@ PrefabInstance:
       propertyPath: m_Cam
       value: 
       objectReference: {fileID: 895873543}
-    - target: {fileID: 2088696918430425409, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
-      propertyPath: maxVelocity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088696918430425409, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
-      propertyPath: currentVelocity
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4313893450455141276, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.89
@@ -359915,6 +361161,9 @@ SceneRoots:
   - {fileID: 1414022565}
   - {fileID: 624782217}
   - {fileID: 385516938}
+  - {fileID: 979161224}
+  - {fileID: 262151777}
+  - {fileID: 892601382}
   - {fileID: 96228203}
   - {fileID: 1361261119236717970}
   - {fileID: 1126906043}

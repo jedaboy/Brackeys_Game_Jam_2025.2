@@ -24,6 +24,10 @@ namespace BGJ14
             if (enemyRobotController != null)
                 enemyRobotController.MoveTo(position);
         }
+        protected override void StopMovement()
+        {
+            enemyRobotController.Stop();
+        }
         protected override Transform FindTarget()
         {
             Transform closest = null;
@@ -39,6 +43,8 @@ namespace BGJ14
                     closest = player.transform;
                     minDist = dist;
                 }
+            
+                    
             }
 
             return closest;

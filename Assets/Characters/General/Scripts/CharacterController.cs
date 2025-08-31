@@ -13,7 +13,7 @@ namespace BGJ14
         public Collider collider;
         public Battery battery;
         public FSM_Manager fsmManager;
-        public float gearsAmount = 6f;
+        public float gearsAmount = 0f;
         [SerializeField] private Transform bulletProjectile;
         [SerializeField] private Transform gearSpawn;
         [SerializeField] public Transform spawnBulletPosition;
@@ -51,6 +51,7 @@ namespace BGJ14
         {
             for (int i = 0; i < gearsAmount; i++)
             {
+                Debug.Log("GEARS DROPADAS: " + gearsAmount);
                 Vector3 spawnPos;
                 if (collider.CompareTag("Player"))
                 {

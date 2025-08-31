@@ -33,7 +33,7 @@ namespace BGJ_14
             _totalGears = 0;
             _totalBattery = 100;
             _gunLevel = 1;
-            _lithiumFlaskCount = 0;
+            _lithiumFlaskCount = 3;
 
             _playerBag = new PlayerBag();
         }
@@ -45,13 +45,13 @@ namespace BGJ_14
 
         public void OnExpeditionEnd()
         {
-            AddTotalGears(_playerBag.RedeemGears());
+            AddTotalGears(_playerBag.GetGears());
             _playerBag.RestoreLithiumFlasks(_lithiumFlaskCount);
         }
 
         public void AddTotalGears(int gearAmount)
         {
-            _totalGears += gearAmount;
+            _totalGears = gearAmount;
         }
 
         public void UpgradeBattery(int gearCost, float batteryAmount)
@@ -61,7 +61,7 @@ namespace BGJ_14
 
             _totalGears -= gearCost;
             _totalBattery += batteryAmount;
-
+            _playerBag.DropGears(gearCost);
             _shopProgress.RegisterBatterySold();
 
             onUpgradeBattery?.Invoke(_totalBattery);
@@ -73,6 +73,7 @@ namespace BGJ_14
                 return;
 
             _totalGears -= gearCost;
+            _playerBag.DropGears(gearCost);
             _gunLevel++;
 
             _shopProgress.RegisterGunSold();
@@ -86,6 +87,7 @@ namespace BGJ_14
                 return;
 
             _totalGears -= gearCost;
+            _playerBag.DropGears(gearCost);
             _lithiumFlaskCount++;
 
             _shopProgress.RegisterLithiumFlaskSold();
@@ -98,6 +100,7 @@ namespace BGJ_14
                 return;
 
             _totalGears -= gearCost;
+            _playerBag.DropGears(gearCost);
 
             _playerBag.AddAmmo(ammoCount);
         }

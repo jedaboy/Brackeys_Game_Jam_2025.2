@@ -19,7 +19,7 @@ namespace BGJ_14
         [SerializeField] private float _sentinelsTime;
 
         [SerializeField] private GameObject _robotEnemyPrefab;
-        [SerializeField] private SentinelSpawner _sentinelSpawner;
+        [SerializeField] private SentinelSpawner[] _sentinelSpawner;
 
         [SerializeField] private EnemySpawnBase[] _enemySpawnBases;
         [SerializeField] private Scrap[] _scraps;
@@ -71,7 +71,11 @@ namespace BGJ_14
 
         private void ReleaseSentinels()
         {
-            _sentinelSpawner.SpawnSentinels();
+           
+            foreach (SentinelSpawner sentinelSpawner in _sentinelSpawner)
+            {
+                sentinelSpawner.SpawnSentinels();
+            }
             _musicManager.PlaySentinelMusic();
         }
 
@@ -91,7 +95,10 @@ namespace BGJ_14
             _expeditionRunning = false;
             DeleteRobotEnemies();
             DeleteScrap();
-            _sentinelSpawner.DeleteSentinels();
+            foreach (SentinelSpawner sentinelSpawner in _sentinelSpawner)
+            {
+                sentinelSpawner.DeleteSentinels();
+            }        
             _musicManager.PlayBaseMusic();
         }
 

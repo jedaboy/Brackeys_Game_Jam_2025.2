@@ -26,12 +26,12 @@ namespace BGJ14
         public Func<int, bool> OnAmmoUpdate;
         public Func<bool> OnLBUpdate;
         public Func<int>  OnGetGears;
-        public Action<int> OnDropGears;
+        public Func<int,bool> OnDropGears;
 
         [SerializeField] Transform vfxExplosion;
         [SerializeField] Transform vfxHeal;
 
-        [SerializeField] private float fireRate = 0.5f; // Tempo entre tiros (em segundos)
+        [SerializeField] public float fireRate = 0.75f; // Tempo entre tiros (em segundos)
         private float lastShootTime;
 
         [SerializeField] private float distance = 2f;
@@ -41,6 +41,8 @@ namespace BGJ14
 
         [HideInInspector]
         public bool IsStoreOpen = false;
+
+        private bool canDrop = true; // Controle de cooldown do drop
 
         private float yaw;
         private float pitch;
@@ -205,25 +207,30 @@ namespace BGJ14
             }
         }
 
+     
         private void DropInput()
         {
-            if(robotIC.dropUnitItens)
+            if (!canDrop) return; // Se está no cooldown, não faz nada
+
+            int halfGears = ((int)(weight / 1.5f)) / 2;
+            gearsAmount = halfGears;
+
+            if (robotIC.dropUnitItens && this.OnDropGears.Invoke(1))
             {
-                this.OnDropGears?.Invoke(1);
                 int Gears = (int)(weight / 1.5f);
                 gearsAmount = 1;
                 Gears -= (int)gearsAmount;
-                if(Gears > 0)
                 DropGears();
+
+                StartCoroutine(DropCooldown(0.7f)); // Cooldown de 0.7s para dropar
             }
-            else if (robotIC.dropHalfItens)
-            {
-                int halfGears = ((int)(weight / 1.5f))/2;
-                gearsAmount = halfGears;
-                this.OnDropGears?.Invoke(halfGears);
-                DropGears();
-            }
+            //else if (robotIC.dropHalfItens && this.OnDropGears.Invoke(1))
+            //{
+            //    DropGears();
+            //}
         }
+
+     
 
 
         private void handleWeight()
@@ -385,6 +392,14 @@ namespace BGJ14
             // Desenha a esfera
             Gizmos.DrawWireSphere(pos, radius);
         }
+
+        private IEnumerator DropCooldown(float time)
+        {
+            canDrop = false;
+            yield return new WaitForSeconds(time);
+            canDrop = true;
+        }
+
         private IEnumerator DisableAfterTime(float time)
         {
             yield return new WaitForSeconds(time);

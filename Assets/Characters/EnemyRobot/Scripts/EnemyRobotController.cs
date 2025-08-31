@@ -36,11 +36,13 @@ namespace BGJ14
         {
             if (agent != null)
             {
+                anim.SetFloat("Running", 0);
+                anim.SetFloat("MovingSpeed", 0);
                 agent.isStopped = true;
                 agent.ResetPath(); // evita pequenas correções de rotação baseadas no path
             }
         }
-
+       
 
 
         public void DestroyCharacter()

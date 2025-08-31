@@ -124,15 +124,15 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
 
     private void OnPlayerCollectGear(int gearAmount)
     {
-        _playerBag.AddGear(gearAmount);
-        _playerBag.AddGear(gearAmount);
+        _playerBag.AddGear(gearAmount);      
         _hud.UpdateGears();
     }
 
-    private void OnPlayerDropGear(int gearAmount)
+    private bool OnPlayerDropGear(int gearAmount)
     {
-        _playerBag.DropGears(gearAmount);
+        bool canDrop = _playerBag.DropGears(gearAmount);
         _hud.UpdateGears();
+        return canDrop;
     }
 
     private bool OnPlayerAmmoUpdate(int ammoAmount)

@@ -34,19 +34,25 @@ namespace BGJ_14
             _gears -= gearsToDrop;
             return gearsToDrop;
         }
-        public void DropGears(int amountToDrop)
+        public bool DropGears(int amountToDrop)
         {
             if (_gears - amountToDrop >= 0)
-            _gears -= amountToDrop;
-      
+            {
+                _gears -= amountToDrop;
+                return true;
+            }
+            else
+                return false;
+
+
         }
 
-        public int RedeemGears() 
-        {
-            int gearsToRedeem = _gears;
-            _gears = 0;
-            return gearsToRedeem;
-        }
+        //public int RedeemGears() 
+        //{
+        //    int gearsToRedeem = _gears;
+        //    _gears = 0;
+        //    return _gears;
+        //}
 
         public void AddAmmo(int ammoAmount) 
         {
