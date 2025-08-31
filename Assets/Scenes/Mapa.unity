@@ -359735,14 +359735,6 @@ PrefabInstance:
       propertyPath: m_Cam
       value: 
       objectReference: {fileID: 895873543}
-    - target: {fileID: 2088696918430425409, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
-      propertyPath: maxVelocity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088696918430425409, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
-      propertyPath: currentVelocity
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4313893450455141276, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.89
