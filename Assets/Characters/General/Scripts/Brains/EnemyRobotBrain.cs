@@ -87,7 +87,10 @@ namespace BGJ14
         protected override void Update()
         {
 
-            FaceTarget();
+            if ((bool)fsmManager.GetParameterValue("Dying") == false)
+            {
+                FaceTarget();
+            }
 
             if (battery.IsEmpty)
             {
