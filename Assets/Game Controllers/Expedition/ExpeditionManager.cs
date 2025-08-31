@@ -1,3 +1,4 @@
+using BGJ14;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace BGJ_14
         [SerializeField] private Scrap[] _scraps;
         [SerializeField] private MusicManager _musicManager;
 
-        private List<GameObject> _spawnedRobotEnemies = new List<GameObject>();
+        private List<EnemyRobotController> _spawnedRobotEnemies = new List<EnemyRobotController>();
 
         public bool expeditionRunning => _expeditionRunning;
 
@@ -93,7 +94,7 @@ namespace BGJ_14
         {
             foreach (EnemySpawnBase enemyBase in _enemySpawnBases)
             {
-                List<GameObject> instantiatedEnemies = enemyBase.SpawnEnemies(_robotEnemyPrefab,
+                List<EnemyRobotController> instantiatedEnemies = enemyBase.SpawnEnemies(_robotEnemyPrefab,
                     _expeditionProperties.GetEnemiesPerSpawnBase(_currentExpeditionNumber),
                     _expeditionProperties.GetEnemyMinLevel(_currentExpeditionNumber),
                     _expeditionProperties.GetEnemyMaxLevel(_currentExpeditionNumber));
@@ -112,8 +113,8 @@ namespace BGJ_14
 
         private void DeleteRobotEnemies()
         {
-            foreach (GameObject robot in _spawnedRobotEnemies)
-                robot.SetActive(false);
+            foreach (EnemyRobotController robot in _spawnedRobotEnemies)
+                robot.gameObject.SetActive(false);
 
             _spawnedRobotEnemies.Clear();
         }

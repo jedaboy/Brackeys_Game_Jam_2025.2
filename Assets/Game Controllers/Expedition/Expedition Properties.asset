@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Expedition Properties
   m_EditorClassIdentifier: 
   _enemiesPerSpawnBaseByExpedition: 02000000050000000800000014000000
-  _enemyMinLevelByExpedition: 00000000
-  _enemyMaxLevelByExpedition: 00000000
+  _enemyMinLevelByExpedition: 0100000001000000020000000300000004000000050000000600000007000000
+  _enemyMaxLevelByExpedition: 020000000300000005000000080000000a000000
