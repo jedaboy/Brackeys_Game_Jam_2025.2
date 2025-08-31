@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static BGJ_14.PlayerProgress;
 
@@ -21,6 +22,9 @@ namespace BGJ_14
         public int lithiumFlaskCount => _lithiumFlaskCount;
 
         public PlayerBag playerBag => _playerBag;
+
+        public Action<float> onUpgradeBattery;
+        public Action<int> onUpgradeGun;
 
         public PlayerProgress()
         {
@@ -59,6 +63,8 @@ namespace BGJ_14
             _totalBattery += batteryAmount;
 
             _shopProgress.RegisterBatterySold();
+
+            onUpgradeBattery?.Invoke(_totalBattery);
         }
 
         public void UpgradeGun(int gearCost)
@@ -70,6 +76,8 @@ namespace BGJ_14
             _gunLevel++;
 
             _shopProgress.RegisterGunSold();
+
+            onUpgradeGun?.Invoke(_gunLevel);
         }
 
         public void BuyLithiumFlask(int gearCost)
