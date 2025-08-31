@@ -64,6 +64,11 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
 
     }
 
+    public bool ExpeditionIsRunning()
+    {
+        return _expeditionManager.ExpeditionIsRunning();
+    }
+    
     public async void OpenShop()
     {
         _hud.HideHud();
