@@ -15,6 +15,8 @@ public class InteractionManager : MonoBehaviour
 
     private Interactable currentTarget;
 
+    [SerializeField] private ExpeditionSceneController _sceneController;
+    
     void Update()
     {
         CheckForInteractable();
@@ -27,6 +29,7 @@ public class InteractionManager : MonoBehaviour
 
     void CheckForInteractable()
     {
+        
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
@@ -36,6 +39,12 @@ public class InteractionManager : MonoBehaviour
 
             if (interactable != null)
             {
+                if (_sceneController.ExpeditionIsRunning() == true && interactable.InteractionTypeValue == Interactable.InteractionType.Shop)
+                {
+                    // Durante expedição não usa a loja
+                    return;
+                    
+                }
                 currentTarget = interactable;
                 interactionUI.SetActive(true);
                 interactionText.text = interactable.interactionMessage;

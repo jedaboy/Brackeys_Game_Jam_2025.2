@@ -16,6 +16,7 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
 
     [SerializeField] private ExpeditionManager _expeditionManager;
     [SerializeField] private RobotController _playerRobot;
+    [SerializeField] private Battery _bossBattery;
 
     public ExpeditionManager expeditionManager => _expeditionManager;
 
@@ -28,6 +29,8 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _playerProgress.onUpgradeBattery += OnPlayerUpgradeBattery;
         _playerProgress.onUpgradeGun += OnPlayerUpgradeGun;
 
+        GameManager.instance.GetService<CursorService>().AddCursorUser(this);
+
         return base.OnLoad();
     }
 
@@ -38,14 +41,26 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _playerRobot.OnAmmoUpdate += OnPlayerAmmoUpdate;
         _playerRobot.OnLBUpdate += OnPlayerLBUpdate;
         _playerRobot.OnCollectGear += OnPlayerCollectGear;
-        _playerRobot.OnGetGears = OnPlayerGetGears;
-        _playerRobot.OnDropGears = OnPlayerDropGear;
+        _playerRobot.OnGetGears += OnPlayerGetGears;
+        _playerRobot.OnDropGears += OnPlayerDropGear;
         await base.OnPostLoad();
+    }
+
+    public override Task OnUnload()
+    {
+        _playerRobot.battery.onBatteryUpdate -= _hud.UpdateBattery;
+        _playerRobot.OnAmmoUpdate -= OnPlayerAmmoUpdate;
+        _playerRobot.OnLBUpdate -= OnPlayerLBUpdate;
+        _playerRobot.OnCollectGear -= OnPlayerCollectGear;
+        _playerRobot.OnGetGears -= OnPlayerGetGears;
+        _playerRobot.OnDropGears -= OnPlayerDropGear;
+        return base.OnUnload();
     }
 
     private void Update()
     {
         DetectPlayerDied();
+        DetectBossDied();
     }
 
     public void StartExpedition()
@@ -64,6 +79,11 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
 
     }
 
+    public bool ExpeditionIsRunning()
+    {
+        return _expeditionManager.ExpeditionIsRunning();
+    }
+    
     public async void OpenShop()
     {
         _hud.HideHud();
@@ -87,6 +107,18 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         {
             _gameOverStarted = true;
             _gameOverMenu = await SceneOrchestrator.LoadSceneAdditive(new GameOverSceneData());
+        }
+    }
+
+    private async void DetectBossDied() 
+    {
+        if (_gameOverStarted)
+            return;
+
+        if (_bossBattery.currentCharge <= 0) 
+        {
+            _gameOverStarted = true;
+            SceneOrchestrator.LoadScene(new YouWinSceneData());
         }
     }
 

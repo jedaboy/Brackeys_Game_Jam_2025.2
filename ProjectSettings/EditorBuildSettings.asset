@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI Scenes/CreditsScene.unity
     guid: 6aabf6c35c79da44bbe9c4e8e581709d
+  - enabled: 1
+    path: Assets/Scenes/UI Scenes/YouWinScene.unity
+    guid: 27a0ef07c5fb43146a995604cfe95bfd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

@@ -75,6 +75,11 @@ namespace BGJ_14
             _musicManager.PlaySentinelMusic();
         }
 
+        public bool ExpeditionIsRunning()
+        {
+            return _expeditionRunning;
+        }
+
         [EButton]
         public void EndExpedition()
         {

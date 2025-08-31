@@ -138,14 +138,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5261460026980643617}
   rigidbody: {fileID: 389874649673669133}
-  Collider: {fileID: 0}
+  collider: {fileID: 0}
   battery: {fileID: 4226367979340226356}
   fsmManager: {fileID: 4835832947261741437}
   gearsAmount: 30
   bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
   gearSpawn: {fileID: 7538978558699261216, guid: ad720920c2943bd49849d0098f33359f, type: 3}
   spawnBulletPosition: {fileID: 5930851983771071443}
-  bulletPower: 0
+  bulletPower: 60
   soundManager: {fileID: 405108477256768583}
   vfxExplosion: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!114 &851496095633793848
@@ -191,7 +191,7 @@ MonoBehaviour:
   detectionRange: 100
   stopDistance: 5
   fireRate: 0.5
-  bulletDamage: 10
+  bulletDamage: 60
   bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
   spawnBulletPosition: {fileID: 5930851983771071443}
   targetPositionReference: {fileID: 4718216107560617909}

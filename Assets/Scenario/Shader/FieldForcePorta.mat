@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FieldForce
+  m_Name: FieldForcePorta
   m_Shader: {fileID: -6465566751694194690, guid: c0c0d85edca77a649a48c244c69501a1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -69,8 +69,8 @@ Material:
     - _Offset_max: 4.55
     - _Offset_min: 0.03
     - _Power: 2.1
-    - _Power_Max: 1
-    - _Power_Min: 0.28
+    - _Power_Max: 4
+    - _Power_Min: 4
     - _Power_max: 1
     - _QueueControl: 0
     - _QueueOffset: 0

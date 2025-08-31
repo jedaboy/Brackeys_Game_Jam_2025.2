@@ -10,7 +10,6 @@ namespace BGJ_14
         [SerializeField][Range(0, 1)] private float _activationProbability;
 
         [SerializeField] private GameObject gearPrefab; // Prefab do Gear
-        [SerializeField] private Transform dropPoint;   // Ponto central de onde dropar
 
         private int _currentGearAmount;
 
@@ -41,7 +40,7 @@ namespace BGJ_14
         {
             for (int i = 0; i < amount; i++)
             {
-                Vector3 spawnPos = dropPoint.position + new Vector3(
+                Vector3 spawnPos = transform.position + new Vector3(
                     Random.Range(-0.5f, 0.5f),
                     0.5f,
                     Random.Range(-0.5f, 0.5f)

@@ -10,35 +10,49 @@ public class SafeZoneGate_Interactable : Interactable
 
     private bool _open;
 
+   
     public override void Interact()
     {
-        if (_open)
+        if (_open){
+            CloseGate();
+            _sceneController.EndExpedition();
             return;
+        }
 
         base.Interact();
 
         //TODO: bloquear input do jogador
 
-        _sceneController.StartExpedition();
 
         OpenGate();
+        _sceneController.StartExpedition();
         //TODO: fazer jogador andar para fora da safe zone
         //TODO: reabilitar input do jogador
     }
 
-    private void OpenGate() 
+    private void Awake() {
+        InteractionTypeValue = InteractionType.Gate;
+
+        material.SetFloat("_Power_Min", 0.28f);
+        material.SetFloat("_Power_Max", 1f);
+    }
+
+    private void OpenGate()
     {
         //TODO: abrir port�o
         _open = true;
-        StartCoroutine(openGate(1f));   
+        StartCoroutine(openGate(1f));
     }
     public void CloseGate()
     {
         _open = false;
-        StartCoroutine(closeGate(0.28f, 1f, 1f));
+        StartCoroutine(closeGate(0.28f, 1f, 2f));
     }
     private IEnumerator openGate(float duration)
     {
+        material.SetFloat("_Power_Min", 0.28f);
+        material.SetFloat("_Power_Max", 0.28f);
+
         material.SetFloat("_Power_Max", 4f);
         yield return new WaitForSeconds(duration);
         _gate.SetActive(false);

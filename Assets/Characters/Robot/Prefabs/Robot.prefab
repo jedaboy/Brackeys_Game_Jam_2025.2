@@ -3103,8 +3103,8 @@ MonoBehaviour:
   soundManager: {fileID: 2774432173081999490}
   robotIC: {fileID: 2282143296687664596}
   weight: 0
-  currentVelocity: 2
-  maxVelocity: 2.5
+  currentVelocity: 4
+  maxVelocity: 4
   minVelocity: 1
   timeToCollect: 3
   isOverWeight: 0
@@ -3169,6 +3169,7 @@ MonoBehaviour:
   interactRange: 1.5
   interactionUI: {fileID: 0}
   interactionText: {fileID: 0}
+  _sceneController: {fileID: 0}
 --- !u!1 &7579393497691586565
 GameObject:
   m_ObjectHideFlags: 0
