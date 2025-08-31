@@ -108,8 +108,8 @@ namespace BGJ_14
             private int _gunUpgradesSold;
             private int _lithiumFlaskSold;
 
-            private const int _maxBatteryUpgradesToBuy = 3;
-            private const int _maxGunUpgradesToBuy = 10;
+            private const int _maxBatteryUpgradesToBuy = 10;
+            private const int _maxGunUpgradesToBuy = 14;
             private const int _maxLithiumFlaskToBuy = 5;
 
             internal void RegisterBatterySold() 
