@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 30 Ammo Item
   m_EditorClassIdentifier: 
   _itemName: Ammo x30
-  _itemImage: {fileID: 0}
+  _itemImage: {fileID: 21300000, guid: a09530665750d7547a9dc1cbebe508b7, type: 3}
   _itemDescription: 30 bullets for your gun.
   _ammoAmount: 30
   _discount: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 150 Ammo Item
   m_EditorClassIdentifier: 
   _itemName: Ammo x150
-  _itemImage: {fileID: 0}
+  _itemImage: {fileID: 21300000, guid: a09530665750d7547a9dc1cbebe508b7, type: 3}
   _itemDescription: 150 bullets for your gun.
   _ammoAmount: 150
   _discount: 7

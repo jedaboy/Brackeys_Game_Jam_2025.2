@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 80 Ammo Item
   m_EditorClassIdentifier: 
   _itemName: Ammo x90
-  _itemImage: {fileID: 0}
+  _itemImage: {fileID: 21300000, guid: a09530665750d7547a9dc1cbebe508b7, type: 3}
   _itemDescription: 80 bullets for your gun.
   _ammoAmount: 80
   _discount: 3

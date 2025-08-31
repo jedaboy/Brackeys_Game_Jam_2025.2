@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Battery Upgrade Item
   m_EditorClassIdentifier: 
   _itemName: Battery Upgrade
-  _itemImage: {fileID: 0}
+  _itemImage: {fileID: 21300000, guid: 58b0febd06f130a43bda51888f915eae, type: 3}
   _itemDescription: Increases your battery life.
   _batteryAmount: 20

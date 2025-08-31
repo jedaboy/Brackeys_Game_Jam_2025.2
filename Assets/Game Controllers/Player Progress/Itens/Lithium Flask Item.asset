@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Lithium Flask Item
   m_EditorClassIdentifier: 
   _itemName: Lithium Flask
-  _itemImage: {fileID: 0}
+  _itemImage: {fileID: 21300000, guid: 810a95c2316fe364aad42137fbfe7d6c, type: 3}
   _itemDescription: Restores part of your health. Refills upon returning to base.
