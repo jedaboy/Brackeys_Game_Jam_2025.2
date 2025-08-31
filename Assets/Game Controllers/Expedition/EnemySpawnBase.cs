@@ -43,7 +43,7 @@ namespace BGJ_14
                 int minLevel = Mathf.CeilToInt(Mathf.Lerp(minEnemyLevel, maxEnemyLevel, _minEnemyLevel));
                 int maxLevel = Mathf.CeilToInt(Mathf.Lerp(minEnemyLevel, maxEnemyLevel, _maxEnemyLevel));
                 int level = Mathf.CeilToInt(Mathf.Lerp(minLevel, maxLevel, Random.value));
-                instantiatedEnemy.Setup(20f);
+                instantiatedEnemy.Setup(15f);
 
                 instantiatedEnemies.Add(instantiatedEnemy);
             }
