@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -209463,6 +209463,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6430623568087375489, guid: 6d4a3eea6467e6a48a2187c2ecb06371, type: 3}
+--- !u!114 &1284411381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284411375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8795eb1c8baa5884ab165c863ca77c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionMessage: Press E to Interact
+  _sceneController: {fileID: 0}
+  _gateCollider: {fileID: 0}
 --- !u!43 &1284792765
 Mesh:
   m_ObjectHideFlags: 0
@@ -228853,7 +228868,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414022561}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1414022564
 Camera:
   m_ObjectHideFlags: 0
@@ -349960,6 +349975,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7793798347761168827, guid: 307be57867bda974da4381435752c849, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1284411380}
+    - targetCorrespondingSourceObject: {fileID: 7793798347761168827, guid: 307be57867bda974da4381435752c849, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1284411381}
     - targetCorrespondingSourceObject: {fileID: 2895164592959735798, guid: 307be57867bda974da4381435752c849, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1725190623}
@@ -350061,6 +350079,7 @@ GameObject:
   - component: {fileID: 2225084503872766150}
   - component: {fileID: 4108938556406297612}
   - component: {fileID: 4108938556406297613}
+  - component: {fileID: 4108938556406297614}
   m_Layer: 0
   m_Name: BOTAOPORTAL
   m_TagString: Untagged
@@ -350301,6 +350320,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8678823145569952518, guid: 56bd9243e99fcde44b90431ef10a0896, type: 3}
+--- !u!114 &4108938556406297614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2451398183393121753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8795eb1c8baa5884ab165c863ca77c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionMessage: Press E to Interact
+  _sceneController: {fileID: 1001869537}
+  _gateCollider: {fileID: 593997813}
 --- !u!1 &4480526710712178406
 GameObject:
   m_ObjectHideFlags: 0
