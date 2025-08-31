@@ -1,10 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class SafeZoneGate_Interactable : Interactable
 {
     [SerializeField] private ExpeditionSceneController _sceneController;
 
-    [SerializeField] private Collider _gateCollider;
+    [SerializeField] private GameObject _gate;
+    [SerializeField] private Material material;
+
     private bool _open;
 
     public override void Interact()
@@ -26,15 +29,31 @@ public class SafeZoneGate_Interactable : Interactable
     private void OpenGate() 
     {
         //TODO: abrir port�o
-
-        _gateCollider.enabled = false;
         _open = true;
+        StartCoroutine(openGate(1f));   
+    }
+    public void CloseGate()
+    {
+        _open = false;
+        StartCoroutine(closeGate(0.28f, 1f, 1f));
+    }
+    private IEnumerator openGate(float duration)
+    {
+        material.SetFloat("_Power_Max", 4f);
+        yield return new WaitForSeconds(duration);
+        _gate.SetActive(false);
+        material.SetFloat("_Power_Min", 4f);
     }
 
-    public void CloseGate() 
+    private IEnumerator closeGate(float startValue, float endValue, float duration)
     {
-        //TODO: fechar port�o
-        _gateCollider.enabled = true;
-        _open = false;
+
+        material.SetFloat("_Power_Min", startValue);
+        yield return new WaitForSeconds(duration);
+        _gate.SetActive(true);         
+        material.SetFloat("_Power_Max", endValue);
+
+
     }
+   
 }
