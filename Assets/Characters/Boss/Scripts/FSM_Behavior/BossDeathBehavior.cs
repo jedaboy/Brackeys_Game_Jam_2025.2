@@ -19,4 +19,12 @@ public class BossDeathBehavior : FSM_StateBehaviour
     {
         base.OnUpdate();
     }
+
+        public override void OnEnter()
+    {
+        bossController.anim.SetBool("Dead", true);
+        bossController.DestroyCharacter();
+        bossController.DropGears();
+        base.OnEnter();
+    }
 }

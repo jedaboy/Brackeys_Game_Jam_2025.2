@@ -19,4 +19,15 @@ public class BossIdleBehavior : FSM_StateBehaviour
     {
         base.OnUpdate();
     }
+
+    public override void OnEnter()
+    {
+        base.OnEnter();
+    }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+    }
+
 }

@@ -30,6 +30,17 @@ namespace BGJ14
                 bossController.MoveTo(position);
         }
 
+        private void FaceTarget()
+        {
+            if (target == null) return;
+
+            Vector3 dir = (target.position - transform.position).normalized;
+            Quaternion lookRot = Quaternion.LookRotation(new Vector3(dir.x, 0, dir.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime * 5f);
+
+            targetPositionReference.position = target.position;
+        }
+
         protected override Transform FindTarget()
         {
             Transform closest = null;
@@ -77,9 +88,12 @@ namespace BGJ14
 
         protected override void Update()
         {
+
+            FaceTarget();
+            
             if (battery.IsEmpty)
             {
-                fsmManager.SetBool("IsDead", true);
+                fsmManager.SetBool("isDead", true);
             }
             else
             {

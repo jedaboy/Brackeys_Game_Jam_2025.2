@@ -19,4 +19,15 @@ public class BossAttackBehavior : FSM_StateBehaviour
     {
         base.OnUpdate();
     }
+
+    public override void OnEnter()
+    {
+        bossController.anim.SetBool("Walk", true);
+        base.OnEnter();
+    }
+
+    public override void OnExit()
+    {
+        bossController.anim.SetBool("Walk", false);
+    }
 }
