@@ -33,7 +33,6 @@ namespace BGJ14
                 gearRb.useGravity = true;
             }
 
-            StartCoroutine(DisableAfterTime(20f));
         }
 
         private void Update()
@@ -82,10 +81,5 @@ namespace BGJ14
             this.gearOwner = bulletOwner;
         }
 
-        private IEnumerator DisableAfterTime(float time)
-        {
-            yield return new WaitForSeconds(time);
-            gameObject.SetActive(false); // Desativa o objeto
-        }
     }
 }
