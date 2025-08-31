@@ -1,17 +1,27 @@
 using UnityEngine;
+using BGJ_14;
 
 public class Barrel_Interactable : Interactable
 {
+    [SerializeField] private Scrap scrap;
+
     [SerializeField] private ExpeditionSceneController _sceneController;
 
     public void Awake() {
-        InteractionTypeValue = InteractionType.Barrel;
+        scrap = gameObject.GetComponent<Scrap>();
     }
 
     public override void Interact()
     {
         base.Interact();
 
-        /*Dropar engranagem*/
+
+
+        if (scrap != null)
+        {
+            scrap.Activate();
+        }
+
+        gameObject.SetActive(false);
     }
 }
