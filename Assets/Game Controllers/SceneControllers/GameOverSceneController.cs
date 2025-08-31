@@ -32,11 +32,18 @@ public class GameOverSceneController : AdditiveSceneController<GameOverSceneData
         _gameOverAnimationTcs = new TaskCompletionSource<bool>();
         await _gameOverAnimationTcs.Task;
 
+        GameManager.instance.GetService<CursorService>().AddCursorUser(this);
         _buttonsContainer.SetActive(true);
         _tryAgainButton.onClick.AddListener(OnClickTryAgain);
         _mainMenuButton.onClick.AddListener(OnClickMainMenu);
 
         await base.OnLoad();
+    }
+
+    public override Task OnUnload()
+    {
+        GameManager.instance.GetService<CursorService>().RemoveCursorUser(this);
+        return base.OnUnload();
     }
 
     private void Update()

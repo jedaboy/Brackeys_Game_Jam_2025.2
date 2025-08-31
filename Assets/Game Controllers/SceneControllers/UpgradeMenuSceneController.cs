@@ -41,6 +41,7 @@ namespace BGJ_14
         public override Task OnLoad()
         {
             _gameSessionService = GameManager.instance.GetService<GameSessionService>();
+            GameManager.instance.GetService<CursorService>().AddCursorUser(this);
 
             SetupItemList();
             UpdateGearsDisplay();
@@ -51,6 +52,12 @@ namespace BGJ_14
             _backButton.onClick.AddListener(CloseShop);
 
             return base.OnLoad();
+        }
+
+        public override Task OnUnload()
+        {
+            GameManager.instance.GetService<CursorService>().RemoveCursorUser(this);
+            return base.OnUnload();
         }
 
         private void SetupItemList() 
