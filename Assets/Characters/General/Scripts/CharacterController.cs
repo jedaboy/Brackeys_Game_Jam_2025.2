@@ -47,7 +47,6 @@ namespace BGJ14
 
         public virtual void DropGears()
         {
-            Debug.Log("Entrou nas gears");
             for (int i = 0; i < gearsAmount; i++)
             {
                 // Posição inicial com pequena variação (pra não cair tudo empilhado)
