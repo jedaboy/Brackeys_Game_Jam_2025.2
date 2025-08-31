@@ -18,7 +18,7 @@ namespace BGJ14
         }
         private void OnEnable()
         {
-            float speed = 50f;
+            float speed = 25f;
             bulletRb.velocity = transform.forward * speed;
             StartCoroutine(DisableAfterTime(4f));
         }

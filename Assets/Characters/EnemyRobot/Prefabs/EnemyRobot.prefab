@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d489549244558d498b06c796977780d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCharge: 100
+  maxCharge: 20
   currentCharge: 0
   soundManger: {fileID: 3422804022987616929}
   drainRate: 0
