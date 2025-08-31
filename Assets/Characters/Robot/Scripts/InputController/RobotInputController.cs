@@ -9,14 +9,12 @@ namespace BGJ14
     {
         public abstract Vector2 move { get; }
         public abstract Vector2 camMove { get; }
-
         public abstract bool jump { get; }
         public abstract bool sprint { get; }
-
-        public abstract bool dropItens { get; }
-
         public abstract bool shoot { get; }
-        //public abstract bool sprint { get; }
+        public abstract bool useLithiumBomb { get; }
+        public abstract bool dropUnitItens { get; }
+        public abstract bool dropHalfItens { get; }
 
 
     }

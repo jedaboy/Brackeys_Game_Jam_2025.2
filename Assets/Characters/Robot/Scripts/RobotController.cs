@@ -2,6 +2,7 @@ using GRD.FSM;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 
 namespace BGJ14
@@ -25,7 +26,9 @@ namespace BGJ14
         public GameObject robotArm;
         public Action<int> OnCollectGear;
         public Func<int, bool> OnAmmoUpdate;
+        public Func<bool> OnLBUpdate;
         [SerializeField] Transform vfxExplosion;
+        [SerializeField] Transform vfxHeal;
 
         [SerializeField] private float fireRate = 0.5f; // Tempo entre tiros (em segundos)
         private float lastShootTime;
@@ -47,6 +50,7 @@ namespace BGJ14
 
             CamMove();
             ShootInput();
+            HealInput();
         }
 
         public void FixedUpdate()
@@ -136,7 +140,11 @@ namespace BGJ14
         }
         public void DestroyCharacter()
         {
-            Instantiate(vfxExplosion, transform.position, Quaternion.identity);
+            ObjectPoolManager.instance.InstantiateInPool(
+                      vfxExplosion.gameObject,
+                      transform.position,
+                      Quaternion.identity
+                      );
             StartCoroutine(DisableAfterTime(0.2f));
         }
         private void Move()
@@ -170,6 +178,30 @@ namespace BGJ14
             else anim.SetBool("IsShooting", false);
 
         }
+
+        private void HealInput()
+        {
+           if( robotIC.useLithiumBomb)
+            {
+                if (Time.time >= lastShootTime + 2f)
+                {
+                    bool result = this.OnLBUpdate?.Invoke() ?? false;
+                    if (result)
+                    {
+                        anim.SetBool("IsHealing", true);
+                        GameObject vfxInstance =ObjectPoolManager.instance.InstantiateInPool(
+                        vfxHeal.gameObject,
+                        transform.position,
+                        Quaternion.identity
+                        );
+                        lastShootTime = Time.time; // Marca o tempo do último disparo
+                        vfxInstance.transform.SetParent(this.transform);
+                        battery.currentCharge = battery.currentCharge + 50f;
+                    }
+                }
+            }
+        }
+
         public void CamMove()
         {
             if (CanReceiveInput() == false)

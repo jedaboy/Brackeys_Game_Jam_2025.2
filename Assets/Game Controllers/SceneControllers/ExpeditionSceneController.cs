@@ -34,6 +34,7 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _hud = await SceneOrchestrator.LoadSceneAdditive(new HudSceneData(_playerBag, _playerRobot));
         _playerRobot.battery.onBatteryUpdate += _hud.UpdateBattery;
         _playerRobot.OnAmmoUpdate += OnPlayerAmmoUpdate;
+        _playerRobot.OnLBUpdate += OnPlayerLBUpdate;
         _playerRobot.OnCollectGear += OnPlayerCollectGear;
         await base.OnPostLoad();
     }
@@ -95,6 +96,12 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         bool canShoot = _playerBag.UseAmmo(ammoAmount);
         _hud.UpdateAmmo();
         return canShoot;
+    }
+    private bool OnPlayerLBUpdate()
+    {
+        bool canHeal = _playerBag.UseLithiumFlask();
+        _hud.UpdateLithiumFlasks();
+        return canHeal;
     }
 }
 
