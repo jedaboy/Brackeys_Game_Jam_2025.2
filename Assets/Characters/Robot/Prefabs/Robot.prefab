@@ -2749,6 +2749,7 @@ GameObject:
   - component: {fileID: 3535687092866376896}
   - component: {fileID: 7231680711461928885}
   - component: {fileID: 8359983284759266086}
+  - component: {fileID: 5481849921242710333}
   m_Layer: 3
   m_Name: Robot
   m_TagString: Player
@@ -2952,6 +2953,8 @@ MonoBehaviour:
   m_Cam: {fileID: 0}
   robotArm: {fileID: 3274573677917620491}
   vfxExplosion: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  vfxHeal: {fileID: 0}
+  fireRate: 0.5
   distance: 5
   sensitivity: 3
   minY: -20
@@ -2993,6 +2996,21 @@ MonoBehaviour:
     m_Active: 1
   m_Effectors: []
 --- !u!114 &8359983284759266086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7446568010237846802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1baae86550adaa4d9ff350de7705b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 1.5
+  interactionUI: {fileID: 0}
+  interactionText: {fileID: 0}
+--- !u!114 &5481849921242710333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
