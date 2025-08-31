@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Gun Upgrade Item
   m_EditorClassIdentifier: 
   _itemName: Upgrade Gun
-  _itemImage: {fileID: 21300000, guid: a09530665750d7547a9dc1cbebe508b7, type: 3}
+  _itemImage: {fileID: 21300000, guid: 7011b261be81b0e4da6c65fb3ad1676c, type: 3}
   _itemDescription: Increases the power of your weapon.
