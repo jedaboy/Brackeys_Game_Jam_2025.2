@@ -68,7 +68,7 @@ namespace BGJ14
             {
                 gameObject.SetActive(false);
                 if (fsmManager != null)
-                    fsmManager.SetBool("isDead", true);
+                    fsmManager.SetBool("IsDead", true);
                 
             }
         }

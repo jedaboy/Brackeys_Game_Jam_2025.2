@@ -110,8 +110,6 @@ namespace BGJ14
             target = FindTarget(); // usa a nossa lógica do SentinelBrain
         }
 
-
-
         private Vector3 GetRandomPointOnNavMesh(Vector3 center, float radius)
         {
             Vector3 randomDir = Random.insideUnitSphere * radius + center;

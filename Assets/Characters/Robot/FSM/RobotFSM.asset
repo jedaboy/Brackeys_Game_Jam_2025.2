@@ -21,10 +21,21 @@ MonoBehaviour:
       - _parameterIndex: 0
         _conditionOperator: 0
         _referenceValue: 0
+      - _parameterIndex: 2
+        _conditionOperator: 1
+        _referenceValue: 0
+    - _toStateIndex: 3
+      _conditions:
+      - _parameterIndex: 2
+        _conditionOperator: 0
+        _referenceValue: 0
+      - _parameterIndex: 0
+        _conditionOperator: 0
+        _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 560
-      y: 271
+      x: 699
+      y: 202
       width: 200
       height: 50
   - _name: jump
@@ -37,8 +48,8 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 560
-      y: 342
+      x: 790
+      y: 338
       width: 200
       height: 50
   - _name: death
@@ -46,8 +57,22 @@ MonoBehaviour:
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 231
-      y: 112
+      x: 403
+      y: 67
+      width: 200
+      height: 50
+  - _name: jump overweight
+    _behaviour: {fileID: 11400000, guid: 75396ad63ae9d52489c47f632f650424, type: 2}
+    _transitions:
+    - _toStateIndex: 0
+      _conditions:
+      - _parameterIndex: 0
+        _conditionOperator: 1
+        _referenceValue: 0
+    editorRect:
+      serializedVersion: 2
+      x: 564
+      y: 337
       width: 200
       height: 50
   _parameters:
@@ -61,6 +86,11 @@ MonoBehaviour:
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
+  - _name: IsOverWeight
+    _parameterType: 0
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
   _defaultState: 1
   _anyStateTransitions:
   - _toStateIndex: 2
@@ -70,8 +100,8 @@ MonoBehaviour:
       _referenceValue: 0
   anyStateEditorRect:
     serializedVersion: 2
-    x: 544
-    y: 113
+    x: 401
+    y: 186
     width: 200
     height: 50
   anyStateIsDragged: 0

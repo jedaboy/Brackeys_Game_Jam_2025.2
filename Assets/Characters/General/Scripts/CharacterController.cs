@@ -10,7 +10,7 @@ namespace BGJ14
 
         public Animator anim;
         public new Rigidbody rigidbody;
-        public Collider Collider;
+        public Collider collider;
         public Battery battery;
         public FSM_Manager fsmManager;
         public float gearsAmount = 6f;
@@ -39,7 +39,7 @@ namespace BGJ14
                 Quaternion.LookRotation(aimDir, Vector3.up)
             ).transform;
             bullet.GetComponent<BulletProjectile>().SetPower(bulletPower);
-            bullet.GetComponent<BulletProjectile>().SetCollider(Collider);
+            bullet.GetComponent<BulletProjectile>().SetCollider(collider);
 
             Collider bulletCol = bullet.GetComponent<Collider>();
             Collider playerCol = GetComponent<Collider>(); // ou pegue os colliders do corpo todo
@@ -51,18 +51,38 @@ namespace BGJ14
         {
             for (int i = 0; i < gearsAmount; i++)
             {
-                // Posição inicial com pequena variação (pra não cair tudo empilhado)
-                Vector3 spawnPos = spawnBulletPosition.position + new Vector3(
+                Vector3 spawnPos;
+                if (collider.CompareTag("Player"))
+                {
+                    // Posição inicial com pequena variação (pra não cair tudo empilhado)
+                    spawnPos = transform.position + new Vector3(
+                    Random.Range(0.5f, 1f),
+                    0.5f, // um pouco acima
+                    Random.Range(0.5f, 1f)
+                );
+                }else
+                {
+                    // Posição inicial com pequena variação (pra não cair tudo empilhado)
+                    spawnPos = spawnBulletPosition.position + new Vector3(
                     Random.Range(-0.5f, 0.5f),
                     0.5f, // um pouco acima
                     Random.Range(-0.5f, 0.5f)
-                );
+                    );
+                }
 
                 Transform gear = ObjectPoolManager.instance.InstantiateInPool(
                     gearSpawn.gameObject,
                     spawnPos,
                     Quaternion.identity
                 ).transform;
+                // Informa quem é o dono do collider (pra evitar bug de colisão instantânea)
+                if (collider.CompareTag("Player"))
+                {
+                    gear.GetComponent<Gears>().isLocked = true;
+                    gear.GetComponent<Gears>().WaitToCollect(3f);
+                }
+                else
+                    gear.GetComponent<Gears>().isLocked = false;
 
                 // Dá o pulo inicial
                 Rigidbody rb = gear.GetComponent<Rigidbody>();
@@ -72,8 +92,9 @@ namespace BGJ14
                     rb.AddForce(randomDir * 3f, ForceMode.Impulse);
                 }
 
-                // Informa quem é o dono do collider (pra evitar bug de colisão instantânea)
-                gear.GetComponent<Gears>().SetCollider(Collider);
+              
+
+                gear.GetComponent<Gears>().SetCollider(collider);
             }
         }
 

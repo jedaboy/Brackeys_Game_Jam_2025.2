@@ -36,6 +36,8 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _playerRobot.OnAmmoUpdate += OnPlayerAmmoUpdate;
         _playerRobot.OnLBUpdate += OnPlayerLBUpdate;
         _playerRobot.OnCollectGear += OnPlayerCollectGear;
+        _playerRobot.OnGetGears = OnPlayerGetGears;
+        _playerRobot.OnDropGears = OnPlayerDropGear;
         await base.OnPostLoad();
     }
 
@@ -93,6 +95,12 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _hud.UpdateGears();
     }
 
+    private void OnPlayerDropGear(int gearAmount)
+    {
+        _playerBag.DropGears(gearAmount);
+        _hud.UpdateGears();
+    }
+
     private bool OnPlayerAmmoUpdate(int ammoAmount)
     {
         bool canShoot = _playerBag.UseAmmo(ammoAmount);
@@ -104,6 +112,13 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         bool canHeal = _playerBag.UseLithiumFlask();
         _hud.UpdateLithiumFlasks();
         return canHeal;
+    }
+    
+    private int OnPlayerGetGears()
+    {
+        int numberOfGears = _playerBag.GetGears();
+        
+        return numberOfGears;
     }
 }
 
