@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 8826496320674182530}
   rigidbody: {fileID: 4055320860585309915}
-  Collider: {fileID: 0}
+  collider: {fileID: 799045124903320512}
   battery: {fileID: 174109044507080993}
   fsmManager: {fileID: 4208279385740000839}
   gearsAmount: 6

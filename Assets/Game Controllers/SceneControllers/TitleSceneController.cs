@@ -13,10 +13,18 @@ namespace BGJ_14
 
         public override Task OnLoad()
         {
+            GameManager.instance.GetService<CursorService>().AddCursorUser(this);
+
             _startGameButton.onClick.AddListener(OnClickStartGame);
             _creditsButton.onClick.AddListener(OnClickCredits);
             _exitGameButton.onClick.AddListener(OnClickExitGame);
             return base.OnLoad();
+        }
+
+        public override Task OnUnload()
+        {
+            GameManager.instance.GetService<CursorService>().RemoveCursorUser(this);
+            return base.OnUnload();
         }
 
         private void OnClickStartGame()
@@ -29,9 +37,9 @@ namespace BGJ_14
             SceneOrchestrator.LoadScene(new ExpeditionSceneData());
         }
 
-        private void OnClickCredits()
+        private async void OnClickCredits()
         {
-
+            await SceneOrchestrator.LoadSceneAdditive(new CreditsSceneData());
         }
 
         private void OnClickExitGame()

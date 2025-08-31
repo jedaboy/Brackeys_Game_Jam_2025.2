@@ -10,7 +10,7 @@ namespace BGJ14
         private Collider gearOwner;
         [SerializeField] private int gearValue = 1;
         private bool collected = false;
-
+        public bool isLocked;
         // Configurações do "hover"
         private float hoverHeight = 1f;
         private float floatAmplitude = 0.1f;
@@ -69,16 +69,30 @@ namespace BGJ14
 
             if (other.CompareTag("Player"))
             {
-                RobotController robot = other.GetComponent<RobotController>();
-                robot.OnCollectGear?.Invoke(gearValue);
-                collected = true;
-                gameObject.SetActive(false);
+                Debug.Log("isLocked:  " + isLocked);
+
+                if (!isLocked) { 
+                    RobotController robot = other.GetComponent<RobotController>();
+                    robot.OnCollectGear?.Invoke(gearValue);
+                    collected = true;
+                    gameObject.SetActive(false);
+                }
             }
         }
-
-        public void SetCollider(Collider bulletOwner)
+        public void WaitToCollect(float time)
         {
-            this.gearOwner = bulletOwner;
+            StartCoroutine(WaitingToCollect(time));
+        }
+
+        private IEnumerator WaitingToCollect(float time)
+        {
+            yield return new WaitForSeconds(time);
+            isLocked = false;
+            Debug.Log("destrancando isLocked:  " + isLocked);
+        }
+        public void SetCollider(Collider gearOwner)
+        {
+            this.gearOwner = gearOwner;
         }
 
     }

@@ -1,6 +1,7 @@
 using GRD.FSM;
 using System;
 using System.Collections;
+using UnityEditor.Animations.Rigging;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -16,7 +17,7 @@ namespace BGJ14
         public float currentVelocity;
         public float maxVelocity;
         public float minVelocity;
-
+        public float timeToCollect = 3f;
         public bool isOverWeight;
         private UnityEngine.Animations.Rigging.Rig armAimRig;
         private UnityEngine.Animations.Rigging.Rig headAimRig;
@@ -27,6 +28,9 @@ namespace BGJ14
         public Action<int> OnCollectGear;
         public Func<int, bool> OnAmmoUpdate;
         public Func<bool> OnLBUpdate;
+        public Func<int>  OnGetGears;
+        public Action<int> OnDropGears;
+
         [SerializeField] Transform vfxExplosion;
         [SerializeField] Transform vfxHeal;
 
@@ -51,6 +55,7 @@ namespace BGJ14
             CamMove();
             ShootInput();
             HealInput();
+            DropInput();
         }
 
         public void FixedUpdate()
@@ -58,6 +63,7 @@ namespace BGJ14
             if (ChecKGroundStatus())
                 Move();
             battery.DrainOverTime();
+            handleWeight();
 
         }
 
@@ -88,13 +94,13 @@ namespace BGJ14
             Vector3 moveDir = (robotIC.move.x * currentVelocity) * m_Cam.transform.right
                             + (robotIC.move.y * currentVelocity) * Vector3.ProjectOnPlane(m_Cam.transform.forward, Vector3.up).normalized;
 
-            if (robotIC.sprint)
+            if (robotIC.sprint && weight < 70f)
             {
-                moveDir *= 3f;
+                moveDir *= 2f;
                 battery.drainRate = 2f;
             }
             else
-                battery.drainRate = 0.1f;
+                battery.drainRate = 0.3f;
 
             float movementAmount = moveDir.magnitude; // Magnitude pega frente+lado
 
@@ -183,7 +189,7 @@ namespace BGJ14
         {
            if( robotIC.useLithiumBomb)
             {
-                if (Time.time >= lastShootTime + 2f)
+                if (Time.time >= lastShootTime + 0.5f)
                 {
                     bool result = this.OnLBUpdate?.Invoke() ?? false;
                     if (result)
@@ -202,6 +208,46 @@ namespace BGJ14
             }
         }
 
+        private void DropInput()
+        {
+            if(robotIC.dropUnitItens)
+            {
+                this.OnDropGears?.Invoke(1);
+                int Gears = (int)(weight / 1.5f);
+                gearsAmount = 1;
+                Gears -= (int)gearsAmount;
+                if(Gears > 0)
+                DropGears();
+            }
+            else if (robotIC.dropHalfItens)
+            {
+                int halfGears = ((int)(weight / 1.5f))/2;
+                gearsAmount = halfGears;
+                this.OnDropGears?.Invoke(halfGears);
+                DropGears();
+            }
+        }
+
+
+        private void handleWeight()
+        {
+            int gears = 0;
+            if ((this.OnGetGears?.Invoke()) != null)
+                gears = (int)this.OnGetGears?.Invoke();
+
+            if(gears != 0)
+            weight = gears * 1.5f;
+
+            // Normaliza peso para um valor de 0 a 1 (0 = peso 0, 1 = peso máximo 70)
+            float t = Mathf.InverseLerp(0f, 70f, weight);
+
+            // Faz o Lerp da velocidade máxima até mínima baseado em t
+            currentVelocity = Mathf.Lerp(maxVelocity, minVelocity, t);
+            if(weight > 70)
+            fsmManager.SetBool("IsOverWeight", true);
+            else
+            fsmManager.SetBool("IsOverWeight", false);
+        }
         public void CamMove()
         {
             if (CanReceiveInput() == false)

@@ -16,15 +16,17 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
 
     [SerializeField] private ExpeditionManager _expeditionManager;
     [SerializeField] private RobotController _playerRobot;
-   
+
     public ExpeditionManager expeditionManager => _expeditionManager;
 
     public override Task OnLoad()
     {
         _gameOverStarted = false;
-        
+
         _gameSessionService =
             GameManager.instance.GetService<GameSessionService>();
+        _playerProgress.onUpgradeBattery += OnPlayerUpgradeBattery;
+        _playerProgress.onUpgradeGun += OnPlayerUpgradeGun;
 
         return base.OnLoad();
     }
@@ -36,6 +38,8 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _playerRobot.OnAmmoUpdate += OnPlayerAmmoUpdate;
         _playerRobot.OnLBUpdate += OnPlayerLBUpdate;
         _playerRobot.OnCollectGear += OnPlayerCollectGear;
+        _playerRobot.OnGetGears = OnPlayerGetGears;
+        _playerRobot.OnDropGears = OnPlayerDropGear;
         await base.OnPostLoad();
     }
 
@@ -51,13 +55,13 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _hud.UpdateAmmo();
         _hud.UpdateGears();
         _hud.UpdateLithiumFlasks();
-        
+
     }
 
     public void EndExpedition()
     {
         _expeditionManager.EndExpedition();
-       
+
     }
 
     public async void OpenShop()
@@ -93,6 +97,12 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _hud.UpdateGears();
     }
 
+    private void OnPlayerDropGear(int gearAmount)
+    {
+        _playerBag.DropGears(gearAmount);
+        _hud.UpdateGears();
+    }
+
     private bool OnPlayerAmmoUpdate(int ammoAmount)
     {
         bool canShoot = _playerBag.UseAmmo(ammoAmount);
@@ -104,6 +114,23 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         bool canHeal = _playerBag.UseLithiumFlask();
         _hud.UpdateLithiumFlasks();
         return canHeal;
+    }
+    
+    private int OnPlayerGetGears()
+    {
+        int numberOfGears = _playerBag.GetGears();
+        
+        return numberOfGears;
+    }
+	  private void OnPlayerUpgradeBattery(float maxBatteryCharge) 
+    {
+        _playerRobot.battery.maxCharge = maxBatteryCharge;
+        _playerRobot.battery.currentCharge = maxBatteryCharge;
+    }
+
+    private void OnPlayerUpgradeGun(int gunLevel) 
+    {
+        _playerRobot.Setup(gunLevel);
     }
 }
 

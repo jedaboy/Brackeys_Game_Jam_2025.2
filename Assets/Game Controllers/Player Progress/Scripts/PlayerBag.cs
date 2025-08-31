@@ -19,9 +19,13 @@ namespace BGJ_14
             _lithiumFlask = 3;
         }
 
-        public void AddGear(int gearAmount) 
+        public  void AddGear(int gearAmount) 
         {
             _gears += gearAmount;
+        }
+        public int GetGears()
+        {
+            return _gears;
         }
 
         public int DropGear(int amountToDrop)
@@ -29,6 +33,12 @@ namespace BGJ_14
             int gearsToDrop = Mathf.Min(amountToDrop, _gears);
             _gears -= gearsToDrop;
             return gearsToDrop;
+        }
+        public void DropGears(int amountToDrop)
+        {
+            if (_gears - amountToDrop >= 0)
+            _gears -= amountToDrop;
+      
         }
 
         public int RedeemGears() 
