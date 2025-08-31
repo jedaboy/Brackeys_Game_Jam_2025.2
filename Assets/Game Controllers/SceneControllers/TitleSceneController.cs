@@ -29,9 +29,9 @@ namespace BGJ_14
             SceneOrchestrator.LoadScene(new ExpeditionSceneData());
         }
 
-        private void OnClickCredits()
+        private async void OnClickCredits()
         {
-
+            await SceneOrchestrator.LoadSceneAdditive(new CreditsSceneData());
         }
 
         private void OnClickExitGame()
