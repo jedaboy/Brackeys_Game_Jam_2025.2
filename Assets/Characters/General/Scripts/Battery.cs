@@ -15,6 +15,7 @@ namespace  BGJ14
         [SerializeField]
         public float currentCharge;
         public Action onBatteryUpdate;
+        [SerializeField] private CharacterSoundManager soundManger;
 
 
         public float CurrentCharge => currentCharge;
@@ -38,6 +39,8 @@ namespace  BGJ14
             currentCharge -= amount;
             currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
             onBatteryUpdate?.Invoke();
+            soundManger.PlaySound(soundManger.damageSound);
+
             if (IsEmpty)
             {
                 fsm_Manager.SetBool("IsDead", true);

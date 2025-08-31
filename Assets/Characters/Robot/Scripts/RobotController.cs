@@ -1,6 +1,8 @@
 using GRD.FSM;
 using System;
+using System.Collections;
 using UnityEngine;
+
 
 
 namespace BGJ14
@@ -20,6 +22,7 @@ namespace BGJ14
         private Vector3 moveInput;
         public GameObject robotArm;
         public Action<int> OnCollectGear;
+        
         [SerializeField] Transform vfxExplosion;
 
 
@@ -92,7 +95,12 @@ namespace BGJ14
         }
         public void DestroyCharacter()
         {
+            
             Instantiate(vfxExplosion, transform.position, Quaternion.identity);
+            
+            
+            
+            
             gameObject.SetActive(false);
         }
         private void Move()
@@ -105,6 +113,7 @@ namespace BGJ14
             if (robotIC.shoot && armAimRig.weight == 1)
             {
                 Shoot();
+                
             }
         }
         public void CamMove()
@@ -246,7 +255,7 @@ namespace BGJ14
             // Desenha a esfera
             Gizmos.DrawWireSphere(pos, radius);
         }
-        
-        
+
+      
     }
 }

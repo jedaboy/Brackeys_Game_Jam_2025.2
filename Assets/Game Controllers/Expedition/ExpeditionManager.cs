@@ -22,6 +22,7 @@ namespace BGJ_14
 
         [SerializeField] private EnemySpawnBase[] _enemySpawnBases;
         [SerializeField] private Scrap[] _scraps;
+        [SerializeField] private MusicManager _musicManager;
 
         private List<GameObject> _spawnedRobotEnemies = new List<GameObject>();
 
@@ -33,6 +34,7 @@ namespace BGJ_14
 
             _playerProgress = GameManager.instance.GetService<GameSessionService>().
                 playerProgress;
+            _musicManager.PlayBaseMusic();
         }
 
         private void Update()
@@ -57,18 +59,19 @@ namespace BGJ_14
                 return;
 
             _playerProgress.OnExpeditionStart();
-
             _currentExpeditionNumber++;
 
             SpawnRobotEnenies();
             SpawnScrap();
             _expeditionTimeCounter = 0;
             _expeditionRunning = true;
+            _musicManager.PlayExpeditionMusic();
         }
 
         private void ReleaseSentinels()
         {
             _sentinelSpawner.SpawnSentinels();
+            _musicManager.PlaySentinelMusic();
         }
 
         [EButton]
@@ -83,6 +86,7 @@ namespace BGJ_14
             DeleteRobotEnemies();
             DeleteScrap();
             _sentinelSpawner.DeleteSentinels();
+            _musicManager.PlayBaseMusic();
         }
 
         private void SpawnRobotEnenies()

@@ -18,6 +18,7 @@ namespace BGJ14
         [SerializeField] private Transform gearSpawn;
         [SerializeField] public Transform spawnBulletPosition;
         [SerializeField] float bulletPower;
+        [SerializeField] private CharacterSoundManager soundManager;
 
         public virtual void Setup(float? bulletPower = null)
         {
@@ -42,6 +43,7 @@ namespace BGJ14
 
             Collider bulletCol = bullet.GetComponent<Collider>();
             Collider playerCol = GetComponent<Collider>(); // ou pegue os colliders do corpo todo
+            soundManager.PlaySound(soundManager.shootSound);
 
         }
 
