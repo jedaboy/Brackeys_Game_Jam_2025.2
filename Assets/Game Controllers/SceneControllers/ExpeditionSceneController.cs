@@ -16,15 +16,17 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
 
     [SerializeField] private ExpeditionManager _expeditionManager;
     [SerializeField] private RobotController _playerRobot;
-   
+
     public ExpeditionManager expeditionManager => _expeditionManager;
 
     public override Task OnLoad()
     {
         _gameOverStarted = false;
-        
+
         _gameSessionService =
             GameManager.instance.GetService<GameSessionService>();
+        _playerProgress.onUpgradeBattery += OnPlayerUpgradeBattery;
+        _playerProgress.onUpgradeGun += OnPlayerUpgradeGun;
 
         return base.OnLoad();
     }
@@ -53,13 +55,13 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _hud.UpdateAmmo();
         _hud.UpdateGears();
         _hud.UpdateLithiumFlasks();
-        
+
     }
 
     public void EndExpedition()
     {
         _expeditionManager.EndExpedition();
-       
+
     }
 
     public async void OpenShop()
@@ -119,6 +121,16 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         int numberOfGears = _playerBag.GetGears();
         
         return numberOfGears;
+    }
+	  private void OnPlayerUpgradeBattery(float maxBatteryCharge) 
+    {
+        _playerRobot.battery.maxCharge = maxBatteryCharge;
+        _playerRobot.battery.currentCharge = maxBatteryCharge;
+    }
+
+    private void OnPlayerUpgradeGun(int gunLevel) 
+    {
+        _playerRobot.Setup(gunLevel);
     }
 }
 

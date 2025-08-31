@@ -1,3 +1,4 @@
+using BGJ14;
 using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -21,10 +22,10 @@ namespace BGJ_14
             _myTransform = transform;
         }
 
-        public List<GameObject> SpawnEnemies(GameObject enemyPrefab,
+        public List<EnemyRobotController> SpawnEnemies(GameObject enemyPrefab,
             int maxEnemyCount, int minEnemyLevel, int maxEnemyLevel)
         {
-            List<GameObject> instantiatedEnemies = new List<GameObject>();
+            List<EnemyRobotController> instantiatedEnemies = new List<EnemyRobotController>();
 
             int enemyCount = Mathf.CeilToInt(maxEnemyCount * _enemyDensity);
             for (int i = 0; i < enemyCount; i++)
@@ -32,11 +33,17 @@ namespace BGJ_14
                 Vector3 position = _myTransform.position +
                     (Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * Vector3.forward * Random.Range(0, _spawnAreaRadius));
 
-                GameObject instantiatedEnemy =
+                EnemyRobotController instantiatedEnemy =
                     ObjectPoolManager.instance.InstantiateInPool(
                         enemyPrefab,
                         position,
-                        Quaternion.Euler(0, Random.Range(0, 360), 0));
+                        Quaternion.Euler(0, Random.Range(0, 360), 0))
+                    .GetComponent<EnemyRobotController>();
+
+                int minLevel = Mathf.CeilToInt(Mathf.Lerp(minEnemyLevel, maxEnemyLevel, _minEnemyLevel));
+                int maxLevel = Mathf.CeilToInt(Mathf.Lerp(minEnemyLevel, maxEnemyLevel, _maxEnemyLevel));
+                int level = Mathf.CeilToInt(Mathf.Lerp(minLevel, maxLevel, Random.value));
+                instantiatedEnemy.Setup(level);
 
                 instantiatedEnemies.Add(instantiatedEnemy);
             }
