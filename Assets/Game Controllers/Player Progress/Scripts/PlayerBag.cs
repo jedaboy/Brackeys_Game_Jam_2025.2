@@ -15,8 +15,8 @@ namespace BGJ_14
         public PlayerBag() 
         {
             _gears = 0;
-            _ammo = 30;
-            _lithiumFlask = 0;
+            _ammo = 99;
+            _lithiumFlask = 3;
         }
 
         public void AddGear(int gearAmount) 

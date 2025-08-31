@@ -1,6 +1,7 @@
 using BGJ_14;
 using BGJ14;
 using GRD.SceneManagement;
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -32,6 +33,7 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
     {
         _hud = await SceneOrchestrator.LoadSceneAdditive(new HudSceneData(_playerBag, _playerRobot));
         _playerRobot.battery.onBatteryUpdate += _hud.UpdateBattery;
+        _playerRobot.OnAmmoUpdate += OnPlayerAmmoUpdate;
         _playerRobot.OnCollectGear += OnPlayerCollectGear;
         await base.OnPostLoad();
     }
@@ -84,7 +86,15 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
     private void OnPlayerCollectGear(int gearAmount)
     {
         _playerBag.AddGear(gearAmount);
+        _playerBag.AddGear(gearAmount);
         _hud.UpdateGears();
+    }
+
+    private bool OnPlayerAmmoUpdate(int ammoAmount)
+    {
+        bool canShoot = _playerBag.UseAmmo(ammoAmount);
+        _hud.UpdateAmmo();
+        return canShoot;
     }
 }
 

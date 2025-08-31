@@ -26,6 +26,8 @@ namespace BGJ14
             if (agent != null && agent.isOnNavMesh)
             {
                 agent.isStopped = false;   // reativa movimento/rotação do NavMeshAgent
+                anim.SetFloat("Running", 2);
+                anim.SetFloat("MovingSpeed", 2);               
                 agent.SetDestination(destination);
             }
         }

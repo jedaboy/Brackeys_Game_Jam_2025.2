@@ -1,5 +1,6 @@
 using GRD.FSM;
 using System;
+using System.Collections;
 using UnityEngine;
 
 
@@ -23,9 +24,11 @@ namespace BGJ14
         private Vector3 moveInput;
         public GameObject robotArm;
         public Action<int> OnCollectGear;
+        public Func<int, bool> OnAmmoUpdate;
         [SerializeField] Transform vfxExplosion;
 
-
+        [SerializeField] private float fireRate = 0.5f; // Tempo entre tiros (em segundos)
+        private float lastShootTime;
 
         [SerializeField] private float distance = 2f;
         [SerializeField] private float sensitivity = 3f;
@@ -134,7 +137,7 @@ namespace BGJ14
         public void DestroyCharacter()
         {
             Instantiate(vfxExplosion, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
+            StartCoroutine(DisableAfterTime(0.2f));
         }
         private void Move()
         {
@@ -150,8 +153,19 @@ namespace BGJ14
             }
             if (robotIC.shoot && armAimRig.weight == 1)
             {
+                
                 anim.SetBool("IsShooting", true);
-                Shoot();
+                // Só atira se já passou o tempo do fireRate
+                if (Time.time >= lastShootTime + fireRate)
+                {
+                    bool result = this.OnAmmoUpdate?.Invoke(1) ?? false;
+                    if (result)
+                    {
+                        anim.SetBool("IsShooting", true);
+                        Shoot();
+                        lastShootTime = Time.time; // Marca o tempo do último disparo
+                    }
+                }
             }
             else anim.SetBool("IsShooting", false);
 
@@ -295,6 +309,11 @@ namespace BGJ14
 
             // Desenha a esfera
             Gizmos.DrawWireSphere(pos, radius);
+        }
+        private IEnumerator DisableAfterTime(float time)
+        {
+            yield return new WaitForSeconds(time);
+            gameObject.SetActive(false); // Desativa o objeto
         }
     }
 }
