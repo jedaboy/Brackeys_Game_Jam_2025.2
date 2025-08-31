@@ -161,7 +161,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   fsmManager: {fileID: 8914281528952946627}
   sentinelController: {fileID: -515272637248359405}
-  patrolRadius: 20
+  patrolRadius: 100
 --- !u!114 &6736499467532196881
 MonoBehaviour:
   m_ObjectHideFlags: 0
