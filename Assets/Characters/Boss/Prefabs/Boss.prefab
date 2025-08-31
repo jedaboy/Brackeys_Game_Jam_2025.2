@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4746581689183590478}
   m_Layer: 3
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Sentinel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5261460026980643617}
   rigidbody: {fileID: 389874649673669133}
-  collider: {fileID: 0}
+  collider: {fileID: 4746581689183590478}
   battery: {fileID: 4226367979340226356}
   fsmManager: {fileID: 4835832947261741437}
   gearsAmount: 30
@@ -190,8 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 100
   stopDistance: 5
-  fireRate: 0.5
-  bulletDamage: 60
+  fireRate: 0.85
+  bulletDamage: 90
   bulletProjectile: {fileID: 9000920091478271554, guid: 35f7813d844fdea4b95fc5f12b1897fa, type: 3}
   spawnBulletPosition: {fileID: 5930851983771071443}
   targetPositionReference: {fileID: 4718216107560617909}

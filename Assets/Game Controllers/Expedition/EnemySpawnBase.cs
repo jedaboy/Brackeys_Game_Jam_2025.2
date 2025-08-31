@@ -11,8 +11,8 @@ namespace BGJ_14
     {
         private Transform _myTransform;
 
-        [SerializeField][Range(0, 1)] private float _minEnemyLevel;
-        [SerializeField][Range(0, 1)] private float _maxEnemyLevel;
+        [SerializeField][Range(0, 50)] private float _minEnemyLevel;
+        [SerializeField][Range(0, 50)] private float _maxEnemyLevel;
         [SerializeField][Range(0, 1)] private float _enemyDensity = 1;
 
         [SerializeField] private float _spawnAreaRadius = 1;
@@ -43,7 +43,7 @@ namespace BGJ_14
                 int minLevel = Mathf.CeilToInt(Mathf.Lerp(minEnemyLevel, maxEnemyLevel, _minEnemyLevel));
                 int maxLevel = Mathf.CeilToInt(Mathf.Lerp(minEnemyLevel, maxEnemyLevel, _maxEnemyLevel));
                 int level = Mathf.CeilToInt(Mathf.Lerp(minLevel, maxLevel, Random.value));
-                instantiatedEnemy.Setup(level);
+                instantiatedEnemy.Setup(20f);
 
                 instantiatedEnemies.Add(instantiatedEnemy);
             }

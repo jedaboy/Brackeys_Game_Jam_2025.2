@@ -69,8 +69,8 @@ Material:
     - _Offset_max: 4.55
     - _Offset_min: 0.03
     - _Power: 2.1
-    - _Power_Max: 1
-    - _Power_Min: 0.28
+    - _Power_Max: 4
+    - _Power_Min: 4
     - _Power_max: 1
     - _QueueControl: 0
     - _QueueOffset: 0
