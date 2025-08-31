@@ -25,7 +25,7 @@ public class SafeZoneGate_Interactable : Interactable
 
     private void OpenGate() 
     {
-        //TODO: abrir portão
+        //TODO: abrir portï¿½o
 
         _gateCollider.enabled = false;
         _open = true;
@@ -33,7 +33,7 @@ public class SafeZoneGate_Interactable : Interactable
 
     public void CloseGate() 
     {
-        //TODO: fechar portão
+        //TODO: fechar portï¿½o
         _gateCollider.enabled = true;
         _open = false;
     }
