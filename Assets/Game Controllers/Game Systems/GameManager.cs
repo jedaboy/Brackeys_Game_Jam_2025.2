@@ -58,6 +58,7 @@ namespace BGJ_14
             _services = new Dictionary<Type, IService>();
 
             _services.Add(typeof(GameSessionService), new GameSessionService());
+            _services.Add(typeof(CursorService), new CursorService());
         }
 
         public T GetService<T>()
