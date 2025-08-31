@@ -16,13 +16,13 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
 
     [SerializeField] private ExpeditionManager _expeditionManager;
     [SerializeField] private RobotController _playerRobot;
-
+   
     public ExpeditionManager expeditionManager => _expeditionManager;
 
     public override Task OnLoad()
     {
         _gameOverStarted = false;
-
+        
         _gameSessionService =
             GameManager.instance.GetService<GameSessionService>();
 
@@ -51,11 +51,13 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _hud.UpdateAmmo();
         _hud.UpdateGears();
         _hud.UpdateLithiumFlasks();
+        
     }
 
     public void EndExpedition()
     {
         _expeditionManager.EndExpedition();
+       
     }
 
     public async void OpenShop()
