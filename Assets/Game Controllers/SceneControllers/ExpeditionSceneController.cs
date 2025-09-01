@@ -29,8 +29,6 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
         _playerProgress.onUpgradeBattery += OnPlayerUpgradeBattery;
         _playerProgress.onUpgradeGun += OnPlayerUpgradeGun;
 
-        GameManager.instance.GetService<CursorService>().AddCursorUser(this);
-
         return base.OnLoad();
     }
 
@@ -125,6 +123,7 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
     private void OnPlayerCollectGear(int gearAmount)
     {
         _playerBag.AddGear(gearAmount);      
+        _playerRobot.soundManager.PlaySound(_playerRobot.soundManager.gearSound);
         _hud.UpdateGears();
     }
 

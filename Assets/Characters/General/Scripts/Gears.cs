@@ -69,9 +69,10 @@ namespace BGJ14
 
             if (other.CompareTag("Player"))
             {
-                
 
-                if (!isLocked) { 
+
+                if (!isLocked)
+                {
                     RobotController robot = other.GetComponent<RobotController>();
                     Debug.Log("gearValue:  " + gearValue);
                     robot.OnCollectGear?.Invoke(gearValue);

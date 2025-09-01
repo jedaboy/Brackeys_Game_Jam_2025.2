@@ -299720,7 +299720,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -359784,6 +359784,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 405108477256768583, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
+      propertyPath: _gear.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 405108477256768583, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
+      propertyPath: _gear.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b8fb74b11cbebdb4e9af4d881b0ed193, type: 3}
+    - target: {fileID: 6421020367051435044, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
+      propertyPath: bulletProjectile
+      value: 
+      objectReference: {fileID: 8747387899871882592, guid: d9f374331ac7e804e8d73951efdad42a, type: 3}
+    - target: {fileID: 8143483179993931893, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
+      propertyPath: fireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143483179993931893, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
+      propertyPath: bulletProjectile
+      value: 
+      objectReference: {fileID: 8747387899871882592, guid: d9f374331ac7e804e8d73951efdad42a, type: 3}
     - target: {fileID: 8523985644277440224, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -360046,6 +360066,14 @@ PrefabInstance:
       propertyPath: m_Cam
       value: 
       objectReference: {fileID: 895873543}
+    - target: {fileID: 2774432173081999490, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
+      propertyPath: _gear.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774432173081999490, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
+      propertyPath: _gear.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b8fb74b11cbebdb4e9af4d881b0ed193, type: 3}
     - target: {fileID: 4313893450455141276, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.89

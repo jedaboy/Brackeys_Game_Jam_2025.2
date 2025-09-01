@@ -10,6 +10,9 @@ public class CharacterSoundManager : SoundManager
     [SerializeField] private AudioClip[] _damage;
     public AudioClip damageSound => _damage[Random.Range(0, _damage.Length)];
 
+    [SerializeField] private AudioClip[] _gear;
+    public AudioClip gearSound => _gear[Random.Range(0, _gear.Length)];
+
     [SerializeField] private AudioClip[] _explosion;
     public AudioClip explosionSound => _explosion[Random.Range(0, _explosion.Length)];
 

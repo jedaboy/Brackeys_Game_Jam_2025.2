@@ -10,7 +10,7 @@ namespace BGJ14
 
         public Animator anim;
         public new Rigidbody rigidbody;
-        public Collider collider;
+        public new Collider collider;
         public Battery battery;
         public FSM_Manager fsmManager;
         public float gearsAmount = 0f;
@@ -18,7 +18,7 @@ namespace BGJ14
         [SerializeField] private Transform gearSpawn;
         [SerializeField] public Transform spawnBulletPosition;
         [SerializeField] float bulletPower;
-        [SerializeField] private CharacterSoundManager soundManager;
+        [SerializeField] public CharacterSoundManager soundManager;
 
         public virtual void Setup(float? bulletPower = null)
         {
@@ -31,6 +31,7 @@ namespace BGJ14
 
         public virtual void Shoot()
         {
+            // Sempre atira na frente do robô
             Vector3 aimDir = spawnBulletPosition.forward;
 
             Transform bullet = ObjectPoolManager.instance.InstantiateInPool(
@@ -38,14 +39,13 @@ namespace BGJ14
                 spawnBulletPosition.position,
                 Quaternion.LookRotation(aimDir, Vector3.up)
             ).transform;
+
             bullet.GetComponent<BulletProjectile>().SetPower(bulletPower);
             bullet.GetComponent<BulletProjectile>().SetCollider(collider);
 
-            Collider bulletCol = bullet.GetComponent<Collider>();
-            Collider playerCol = GetComponent<Collider>(); // ou pegue os colliders do corpo todo
             soundManager.PlaySound(soundManager.shootSound);
-
         }
+
 
         public virtual void DropGears()
         {
