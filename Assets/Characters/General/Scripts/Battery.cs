@@ -14,9 +14,10 @@ namespace  BGJ14
         private CharacterController characterController;
         [SerializeField]
         public float currentCharge;
+        public float initialCharge;
         public Action onBatteryUpdate;
         [SerializeField] private CharacterSoundManager soundManger;
-
+        public bool isSentinelShooting;
 
         public float CurrentCharge => currentCharge;
     	public float NormalizedCurrentCharge => currentCharge / maxCharge;
@@ -29,21 +30,31 @@ namespace  BGJ14
 
         void Awake()
         {
+          
             currentCharge = maxCharge;
-            characterController = this.GetComponent<CharacterController>();
+            
+            initialCharge = currentCharge;
+            if (this.gameObject.name == "Boss")
+                currentCharge = 350f;
+
+                characterController = this.GetComponent<CharacterController>();
             fsm_Manager = characterController.fsmManager;
         }
 
         public void Drain(float amount)
         {
             currentCharge -= amount;
+             if (this.gameObject.name == "Boss")
+            currentCharge = Mathf.Clamp(currentCharge, 0, 350f);
+             else
             currentCharge = Mathf.Clamp(currentCharge, 0, maxCharge);
+
             onBatteryUpdate?.Invoke();
             soundManger.PlaySound(soundManger.damageSound);
 
             if (IsEmpty)
             {
-                fsm_Manager.SetBool("IsDead", true);
+                fsm_Manager.SetTrigger("IsDeadT");
             }
         }
 
@@ -66,7 +77,7 @@ namespace  BGJ14
 
                 if (IsEmpty)
                 {
-                    fsm_Manager.SetBool("IsDead", true);
+                    fsm_Manager.SetTrigger("IsDeadT");
                 }
             }
         }

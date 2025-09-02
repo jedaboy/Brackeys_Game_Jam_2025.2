@@ -2753,6 +2753,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5efc83bc6ec7ce4c9ff7c2ab3915200, type: 3}
   - {fileID: 8300000, guid: fd989dd3b0a9df8408e923cb7b69c794, type: 3}
   - {fileID: 8300000, guid: 232e1c256b2c46f4892dd2fd3e7f54f8, type: 3}
+  _gear:
+  - {fileID: 8300000, guid: b8fb74b11cbebdb4e9af4d881b0ed193, type: 3}
   _explosion:
   - {fileID: 8300000, guid: 777a2b9ea0041ce488f53fc3d8726b95, type: 3}
   - {fileID: 8300000, guid: 959435e7f4a24e34585201e2556c8008, type: 3}
@@ -3118,6 +3120,7 @@ MonoBehaviour:
   sensitivity: 3
   minY: -20
   maxY: 20
+  aimBlendSpeed: 6
   IsStoreOpen: 0
 --- !u!114 &3535687092866376896
 MonoBehaviour:

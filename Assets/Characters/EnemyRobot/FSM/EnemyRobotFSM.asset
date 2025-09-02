@@ -90,11 +90,16 @@ MonoBehaviour:
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
+  - _name: IsDeadT
+    _parameterType: 3
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
   _defaultState: 0
   _anyStateTransitions:
   - _toStateIndex: 3
     _conditions:
-    - _parameterIndex: 3
+    - _parameterIndex: 4
       _conditionOperator: 0
       _referenceValue: 0
   anyStateEditorRect:
@@ -104,4 +109,4 @@ MonoBehaviour:
     width: 200
     height: 50
   anyStateIsDragged: 0
-  anyStateIsSelected: 0
+  anyStateIsSelected: 1

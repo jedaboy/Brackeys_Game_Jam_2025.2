@@ -18,7 +18,7 @@ namespace BGJ14
         }
         private void OnEnable()
         {
-            float speed = 100f;
+            float speed = 50f;
             bulletRb.velocity = transform.forward * speed;
             StartCoroutine(DisableAfterTime(4f));
         }
@@ -35,7 +35,17 @@ namespace BGJ14
                if (battery != null)
                {
                    battery.Drain(1f * power);
-               }
+                    if(bulletOwner.tag == "Sentinel" && other.tag == "Enemy")
+                    {
+                        battery.isSentinelShooting = true;
+                        Debug.Log("isSentinelShooting: " + battery.isSentinelShooting);
+                    }
+                    if (bulletOwner.tag == "Player" && other.tag == "Enemy")
+                    {
+                        battery.isSentinelShooting = false;
+                        Debug.Log("isSentinelShooting: " + battery.isSentinelShooting);
+                    }
+                }
        
                gameObject.SetActive(false);
             }

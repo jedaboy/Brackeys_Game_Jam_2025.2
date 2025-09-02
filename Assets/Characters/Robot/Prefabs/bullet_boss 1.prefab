@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4976921165588988972
+--- !u!1 &4022262560490358435
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8747387899871882592}
-  - component: {fileID: 4841220097886417297}
-  - component: {fileID: 2740509278729641820}
-  - component: {fileID: 8648536045696775525}
-  - component: {fileID: 6056212182766306032}
-  - component: {fileID: 2022937384868632874}
-  m_Layer: 6
-  m_Name: bullet_boss
+  - component: {fileID: 3764752998258668260}
+  - component: {fileID: 8120337039553920936}
+  - component: {fileID: 6289921196725489247}
+  - component: {fileID: 4436494782680716250}
+  - component: {fileID: 6093820688618799706}
+  - component: {fileID: 5743757759432545862}
+  m_Layer: 0
+  m_Name: bullet_boss 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8747387899871882592
+--- !u!4 &3764752998258668260
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976921165588988972}
+  m_GameObject: {fileID: 4022262560490358435}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -175.63345, y: 1.274, z: 141.92735}
-  m_LocalScale: {x: 3.1314037, y: 2.9604976, z: 6.236916}
+  m_LocalPosition: {x: -173.09447, y: 1.812093, z: 141.92647}
+  m_LocalScale: {x: 1.73724, y: 1.73724, z: 1.73724}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4841220097886417297
+--- !u!33 &8120337039553920936
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976921165588988972}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2740509278729641820
+  m_GameObject: {fileID: 4022262560490358435}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6289921196725489247
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976921165588988972}
+  m_GameObject: {fileID: 4022262560490358435}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8648536045696775525
-BoxCollider:
+--- !u!135 &4436494782680716250
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976921165588988972}
+  m_GameObject: {fileID: 4022262560490358435}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -105,28 +105,28 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6056212182766306032
+--- !u!114 &6093820688618799706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976921165588988972}
+  m_GameObject: {fileID: 4022262560490358435}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35b0344bc9e2cca46b2f2d70f89fbd3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 613433886817584985, guid: 9f5fbcfb6299c2b4c912f3ff44f14463, type: 3}
---- !u!54 &2022937384868632874
+--- !u!54 &5743757759432545862
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4976921165588988972}
+  m_GameObject: {fileID: 4022262560490358435}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -142,8 +142,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0

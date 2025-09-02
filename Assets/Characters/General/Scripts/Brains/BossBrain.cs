@@ -93,7 +93,7 @@ namespace BGJ14
             
             if (battery.IsEmpty)
             {
-                fsmManager.SetBool("isDead", true);
+                fsmManager.SetTrigger("IsDeadT");
             }
             else
             {

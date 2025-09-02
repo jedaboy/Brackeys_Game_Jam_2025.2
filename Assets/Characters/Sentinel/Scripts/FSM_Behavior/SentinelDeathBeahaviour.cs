@@ -17,6 +17,7 @@ public class SentinelDeathBeahaviour : FSM_StateBehaviour
     }
     public override void OnEnter()
     {
+        Debug.Log("SENTINELA VAI MORRE");
         sentinelController.anim.SetBool("Dead", true);
         sentinelController.DestroyCharacter();
         sentinelController.DropGears();

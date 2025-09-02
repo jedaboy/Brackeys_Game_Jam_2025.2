@@ -23,8 +23,8 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 366
-      y: 277.7998
+      x: 362
+      y: 285.7998
       width: 200
       height: 50
   - _name: Pursuit
@@ -37,8 +37,8 @@ MonoBehaviour:
         _referenceValue: 0
     editorRect:
       serializedVersion: 2
-      x: 365
-      y: 417.7998
+      x: 361
+      y: 425.7998
       width: 200
       height: 50
   - _name: Died
@@ -46,8 +46,8 @@ MonoBehaviour:
     _transitions: []
     editorRect:
       serializedVersion: 2
-      x: 716
-      y: 159.7998
+      x: 712
+      y: 167.7998
       width: 200
       height: 50
   _parameters:
@@ -61,18 +61,23 @@ MonoBehaviour:
     _boolValue: 0
     _intValue: 0
     _floatValue: 0
+  - _name: IsDeadT
+    _parameterType: 3
+    _boolValue: 0
+    _intValue: 0
+    _floatValue: 0
   _defaultState: 0
   _anyStateTransitions:
   - _toStateIndex: 2
     _conditions:
-    - _parameterIndex: 1
+    - _parameterIndex: 2
       _conditionOperator: 0
       _referenceValue: 0
   anyStateEditorRect:
     serializedVersion: 2
-    x: 359
-    y: 161
+    x: 355
+    y: 169
     width: 200
     height: 50
   anyStateIsDragged: 0
-  anyStateIsSelected: 0
+  anyStateIsSelected: 1

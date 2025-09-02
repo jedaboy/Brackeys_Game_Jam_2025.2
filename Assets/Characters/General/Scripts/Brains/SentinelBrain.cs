@@ -120,10 +120,15 @@ namespace BGJ14
 
         protected override void Update()
         {
-            base.Update();
-            
             if (battery.IsEmpty)
-            fsmManager.SetBool("IsDead", true);
+            {
+                Debug.Log("SENTINELA MORTA");
+                fsmManager.SetTrigger("IsDeadT");
+            }
+          
+
+            base.Update();
+           
             
         }
     }

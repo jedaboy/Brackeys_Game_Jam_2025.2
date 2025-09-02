@@ -21,8 +21,10 @@ public class SafeZoneGate_Interactable : Interactable
     public override void Interact()
     {
         // Impede interação rápida
-        if (!_canInteract) return;
-        StartCoroutine(InteractionCooldown(0.7f)); // Tempo de delay
+        if (!_canInteract) 
+            return;
+
+        StartCoroutine(InteractionCooldown(0.3f)); // Tempo de delay
 
         if (_open)
         {

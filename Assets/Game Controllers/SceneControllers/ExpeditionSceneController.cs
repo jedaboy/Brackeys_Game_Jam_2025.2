@@ -161,7 +161,7 @@ public class ExpeditionSceneController : SceneController<ExpeditionSceneData>
 
     private void OnPlayerUpgradeGun(int gunLevel) 
     {
-        _playerRobot.Setup(gunLevel);
+        _playerRobot.Setup(gunLevel*15f);
     }
 }
 

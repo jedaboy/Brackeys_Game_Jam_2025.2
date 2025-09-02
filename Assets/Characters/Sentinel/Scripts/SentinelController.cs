@@ -50,6 +50,7 @@ namespace BGJ14
 
         public void DestroyCharacter()
         {
+            Debug.Log("SENTILKENA MORTA");
             Instantiate(vfxExplosion, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
 

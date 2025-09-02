@@ -9,7 +9,8 @@ namespace BGJ14
     {
         public FSM_Manager fsmManager;
         public EnemyRobotController enemyRobotController;
-
+        public float radius = 5f;
+        public LayerMask layerMask; // opcional, para filtrar apenas certos objetos
         private Battery battery;
 
         protected override void Awake()
@@ -74,11 +75,24 @@ namespace BGJ14
             {
                 gameObject.SetActive(false);
                 if (fsmManager != null)
-                    fsmManager.SetBool("IsDead", true);
+                    fsmManager.SetTrigger("IsDeadT");
                 
             }
         }
+        private void CallHelp()
+        {
+            // Cria uma LayerMask para a layer 7
+            int layerMask = 1 << 7;
 
+            // Cria uma esfera de detecção ao redor do objeto
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius, layerMask);
+
+            foreach (Collider col in hitColliders)
+            {
+                GameObject enemy = col.gameObject;
+                enemy.GetComponent<EnemyRobotBrain>().detectionRange = 80;
+            }
+        }
         private void FaceTarget()
         {
             if (target == null) return;
@@ -93,6 +107,12 @@ namespace BGJ14
         protected override void Update()
         {
 
+            if (battery.CurrentCharge < battery.initialCharge && battery.isSentinelShooting == false)
+            {
+                Debug.Log("Estou levando tiro, me ajudem");
+                detectionRange = 80;
+                CallHelp();
+            }
             if ((bool)fsmManager.GetParameterValue("Dying") == false)
             {
                 FaceTarget();
@@ -100,7 +120,7 @@ namespace BGJ14
 
             if (battery.IsEmpty)
             {
-                fsmManager.SetBool("IsDead", true);
+                fsmManager.SetTrigger("IsDeadT");
             }
             else if (battery != null && battery.CurrentCharge / battery.maxCharge <= 0.25f)
             {
@@ -114,6 +134,12 @@ namespace BGJ14
             {
                 if (fsmManager != null)
                     fsmManager.SetBool("Dying", false);
+            }
+
+            if (battery.CurrentCharge < battery.initialCharge && battery.isSentinelShooting == false)
+            {
+                detectionRange = 80;
+                CallHelp();
             }
 
             base.Update();

@@ -106,12 +106,41 @@ namespace BGJ_14
         {
             foreach (EnemySpawnBase enemyBase in _enemySpawnBases)
             {
-                List<EnemyRobotController> instantiatedEnemies = enemyBase.SpawnEnemies(_robotEnemyPrefab,
-                    _expeditionProperties.GetEnemiesPerSpawnBase(_currentExpeditionNumber),
-                    _expeditionProperties.GetEnemyMinLevel(_currentExpeditionNumber),
-                    _expeditionProperties.GetEnemyMaxLevel(_currentExpeditionNumber));
+                if (_currentExpeditionNumber > 5)
+                {
+                    if (enemyBase.gameObject.name == "EnemyBase (1)" && enemyBase.gameObject.name == "EnemyBase (8)" 
+                        && enemyBase.gameObject.name == "EnemyBase" && enemyBase.gameObject.name == "EnemyBase (12)")
+                    {
+                        List<EnemyRobotController> instantiatedEnemies = enemyBase.SpawnEnemies(_robotEnemyPrefab,
+                       _expeditionProperties.GetEnemiesPerSpawnBase(_currentExpeditionNumber),
+                       _expeditionProperties.GetEnemyMinLevel(_currentExpeditionNumber),
+                       _expeditionProperties.GetEnemyMaxLevel(_currentExpeditionNumber));
 
-                _spawnedRobotEnemies.AddRange(instantiatedEnemies);
+                        _spawnedRobotEnemies.AddRange(instantiatedEnemies);
+                    }
+                }
+                else if (_currentExpeditionNumber > 3)
+                {   if (enemyBase.gameObject.name == "EnemyBase" && enemyBase.gameObject.name == "EnemyBase (12)")
+                    {
+                        List<EnemyRobotController> instantiatedEnemies = enemyBase.SpawnEnemies(_robotEnemyPrefab,
+                       _expeditionProperties.GetEnemiesPerSpawnBase(_currentExpeditionNumber),
+                       _expeditionProperties.GetEnemyMinLevel(_currentExpeditionNumber),
+                       _expeditionProperties.GetEnemyMaxLevel(_currentExpeditionNumber));
+
+                        _spawnedRobotEnemies.AddRange(instantiatedEnemies);
+                    }
+                }
+                else
+                {
+                  List<EnemyRobotController> instantiatedEnemies = enemyBase.SpawnEnemies(_robotEnemyPrefab,
+                 _expeditionProperties.GetEnemiesPerSpawnBase(_currentExpeditionNumber),
+                 _expeditionProperties.GetEnemyMinLevel(_currentExpeditionNumber),
+                 _expeditionProperties.GetEnemyMaxLevel(_currentExpeditionNumber));
+
+                    _spawnedRobotEnemies.AddRange(instantiatedEnemies);
+                }
+
+                 
             }
         }
 

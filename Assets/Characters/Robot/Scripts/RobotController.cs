@@ -39,6 +39,9 @@ namespace BGJ14
         [SerializeField] private float sensitivity = 3f;
         [SerializeField] private float minY = -10f;
         [SerializeField] private float maxY = 80f;
+        // campos da classe
+        [SerializeField] private float aimBlendSpeed = 0.05f; // quanto maior, mais rápido transita (tweak)
+        private float aimBlend = 0f; // 0 = livre, 1 = atirando
 
         [HideInInspector]
         public bool IsStoreOpen = false;
@@ -231,122 +234,132 @@ namespace BGJ14
             //}
         }
 
-     
+
 
 
         private void handleWeight()
         {
+            //
+
             int gears = 0;
             if ((this.OnGetGears?.Invoke()) != null)
                 gears = (int)this.OnGetGears?.Invoke();
 
-            if(gears != 0)
-            weight = gears * 1.5f;
+            if (gears != 0)
+                weight = gears * 1.5f;
 
             // Normaliza peso para um valor de 0 a 1 (0 = peso 0, 1 = peso máximo 70)
-            float t = Mathf.InverseLerp(0f, 70f, weight);
+            float t = Mathf.InverseLerp(0f, battery.maxCharge, weight);
 
             // Faz o Lerp da velocidade máxima até mínima baseado em t
             currentVelocity = Mathf.Lerp(maxVelocity, minVelocity, t);
-            if(weight > 70)
-            fsmManager.SetBool("IsOverWeight", true);
+            if (weight > (battery.maxCharge))
+                fsmManager.SetBool("IsOverWeight", true);
             else
-            fsmManager.SetBool("IsOverWeight", false);
+                fsmManager.SetBool("IsOverWeight", false);
         }
-            public void CamMove()
+
+
+        public void CamMove()
+        {
+            if (CanReceiveInput() == false)
+                return;
+
+            // --- Input da câmera ---
+            yaw += robotIC.camMove.x * sensitivity;
+            pitch -= robotIC.camMove.y * sensitivity;
+            pitch = Mathf.Clamp(pitch, minY, maxY);
+
+            Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
+
+            // --- Calcula alvo do modo LIVRE ---
+            Vector3 freeDesiredPosition = transform.position + Vector3.up * 0.5f + rotation * new Vector3(0f, 2f, -distance);
+            Vector3 freeFinalPosition = freeDesiredPosition;
+            RaycastHit hit;
+            if (Physics.Linecast(transform.position + Vector3.up * 0.5f, freeDesiredPosition, out hit))
             {
-                if (CanReceiveInput() == false)
-                    return;
+                freeFinalPosition = hit.point + hit.normal * 0.2f;
+            }
 
-                // --- Input da câmera ---
-                yaw += robotIC.camMove.x * sensitivity;
-                pitch -= robotIC.camMove.y * sensitivity;
-                pitch = Mathf.Clamp(pitch, minY, maxY);
+            // --- Calcula alvo do modo ATIRANDO ---
+            // distância dinâmica baseada no pitch (mesma lógica sua)
+            float dynamicDistance = distance;
+            float pitchFactor = Mathf.Abs(pitch) / maxY;
+            float distanceReduction = 1.0f;
+            if (Mathf.Abs(pitch) > 0f)
+            {
+                distanceReduction = 1.0f - (pitchFactor * 0.6f);
+                dynamicDistance = distance * distanceReduction;
+            }
 
-                // Calcula a distância dinâmica baseada no ângulo de pitch
-                float dynamicDistance = distance;
-                
-                // Quando mira para cima ou para baixo, reduz a distância da câmera
-                // Quanto mais extremo o ângulo, mais perto a câmera fica
-                float pitchFactor = Mathf.Abs(pitch) / maxY; // 0 a 1 baseado no ângulo
-                float distanceReduction = 1.0f;
-                
-                // Ajusta a redução baseado na direção da mira
-                if (Mathf.Abs(pitch) > 0f) // Só começa a reduzir após 20 graus
-                {
-                    distanceReduction = 1.0f - (pitchFactor * 0.6f); // Reduz até 60% da distância
-                    dynamicDistance = distance * distanceReduction;
-                }
+            Quaternion yawRotation = Quaternion.Euler(0f, yaw, 0f);
+            float sideOffset = 1f;
+            float height = 1f;
 
-                // cria uma rotação só de yaw (horizontal, usada para deslocamentos laterais e trás)
-                Quaternion yawRotation = Quaternion.Euler(0f, yaw, 0f);
+            Vector3 shootDesiredPosition =
+                transform.position
+                + Vector3.up * height
+                + yawRotation * (Vector3.right * sideOffset)
+                + yawRotation * (Vector3.back * dynamicDistance);
 
-                // offset configurável
-                float sideOffset = 1f;  // ombro: positivo = direita, negativo = esquerda
-                float height = 1f;      // altura da câmera
+            Vector3 shootFinalPosition = shootDesiredPosition;
+            Vector3 cameraTarget = transform.position + Vector3.up * height;
+            float castDist = (shootDesiredPosition - cameraTarget).magnitude;
+            if (castDist > 0.001f && Physics.SphereCast(cameraTarget, 0.3f, (shootDesiredPosition - cameraTarget).normalized, out hit, castDist))
+            {
+                shootFinalPosition = hit.point + hit.normal * 0.2f;
+            }
 
-                // calcula posição desejada
-                Vector3 desiredPosition =
-                    transform.position
-                    + Vector3.up * height
-                    + yawRotation * (Vector3.right * sideOffset)
-                    + yawRotation * (Vector3.back * dynamicDistance);
+            // --- Atualiza blend entre estados (0 = livre, 1 = atirando) ---
+            float targetBlend = robotIC.shoot ? 1f : 0f;
+            aimBlend = Mathf.MoveTowards(aimBlend, targetBlend, (aimBlendSpeed * Time.deltaTime)/7f);
 
-                // --- Colisão com paredes ---
-                RaycastHit hit;
-                Vector3 finalPosition = desiredPosition;
-                Vector3 cameraTarget = transform.position + Vector3.up * height;
-                
-                // Usa SphereCast para detecção de colisão mais suave
-                if (Physics.SphereCast(cameraTarget, 0.3f, 
-                    (desiredPosition - cameraTarget).normalized, 
-                    out hit, dynamicDistance))
-                {
-                    finalPosition = hit.point + hit.normal * 0.2f;
-                }
-                
-                m_Cam.transform.position = finalPosition;
+            // --- Posição final interpolada entre os dois modos ---
+            Vector3 finalPosition = Vector3.Lerp(freeFinalPosition, shootFinalPosition, aimBlend);
+            m_Cam.transform.position = finalPosition;
 
-                // --- Rotação da câmera (pitch + yaw) ---
-                Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
-                m_Cam.transform.rotation = rotation;
+            // --- Rotação alvo de cada modo ---
+            Quaternion freeRotation = Quaternion.LookRotation((transform.position + Vector3.up * 0.5f) - freeFinalPosition, Vector3.up);
+            Quaternion shootRotation = Quaternion.Euler(pitch, yaw, 0f);
 
-                float weightSpeed = 2f;
-                Transform armAimTransform = transform.Find("RobotRenderer/AnimationRiggings/ArmAim");
-                Transform headAimTransform = transform.Find("RobotRenderer/AnimationRiggings/BodyAim");
-                
-                if (armAimTransform != null)
-                {
-                    armAimRig = armAimTransform.GetComponent<UnityEngine.Animations.Rigging.Rig>();
-                    headAimRig = headAimTransform.GetComponent<UnityEngine.Animations.Rigging.Rig>();
-                }
-                
-                // --- Rotação do corpo só quando atirando ---
-                if (robotIC.shoot)
-                {
-                    armAimRig.weight = Mathf.MoveTowards(armAimRig.weight, 1f, weightSpeed * Time.deltaTime);
-                    headAimRig.weight = Mathf.MoveTowards(headAimRig.weight, 1f, weightSpeed * Time.deltaTime);
+            // blendedRotation faz a transição entre os dois (quando aimBlend==0 => freeRotation sem suavização)
+            Quaternion blendedRotation = Quaternion.Slerp(freeRotation, shootRotation, aimBlend);
+            m_Cam.transform.rotation = blendedRotation;
 
-                    // Direção de mira = frente da câmera
-                    Vector3 aimDir = m_Cam.transform.forward;
+            // --- Rigs (mantive sua suavização original) ---
+            float weightSpeed = 2f;
+            Transform armAimTransform = transform.Find("RobotRenderer/AnimationRiggings/ArmAim");
+            Transform headAimTransform = transform.Find("RobotRenderer/AnimationRiggings/BodyAim");
 
-                    // Rotaciona a arma/spawn na direção da câmera
-                    spawnBulletPosition.rotation = Quaternion.LookRotation(aimDir, Vector3.up);
+            if (armAimTransform != null)
+                armAimRig = armAimTransform.GetComponent<UnityEngine.Animations.Rigging.Rig>();
+            if (headAimTransform != null)
+                headAimRig = headAimTransform.GetComponent<UnityEngine.Animations.Rigging.Rig>();
 
-                    // Move o braço acompanhando a mira
-                    float reach = 5f;
-                    robotArm.transform.position = spawnBulletPosition.position + aimDir * reach;
-                }
-                else
-                {
-                    armAimRig.weight = Mathf.MoveTowards(armAimRig.weight, 0f, weightSpeed * Time.deltaTime);
-                    headAimRig.weight = Mathf.MoveTowards(headAimRig.weight, 0f, weightSpeed * Time.deltaTime);
-                }
+            if (armAimRig != null)
+                armAimRig.weight = Mathf.MoveTowards(armAimRig.weight, robotIC.shoot ? 1f : 0f, weightSpeed * Time.deltaTime);
+            if (headAimRig != null)
+                headAimRig.weight = Mathf.MoveTowards(headAimRig.weight, robotIC.shoot ? 1f : 0f, weightSpeed * Time.deltaTime);
+
+            // --- Comportamento extra do modo atirando (mantive seu código) ---
+            if (robotIC.shoot)
+            {
+                // Direção de mira = frente da câmera (já atualizada)
+                Vector3 aimDir = m_Cam.transform.forward;
+
+                // Rotaciona a arma/spawn na direção da câmera
+                spawnBulletPosition.rotation = Quaternion.LookRotation(aimDir, Vector3.up);
+
+                // Move o braço acompanhando a mira
+                float reach = 5f;
+                robotArm.transform.position = spawnBulletPosition.position + aimDir * reach;
 
                 // Gira o corpo do robô junto com a câmera (ignora pitch, só yaw)
                 Quaternion bodyRotation = Quaternion.Euler(0f, yaw, 0f);
                 transform.rotation = bodyRotation;
             }
+        }
+
         public bool ChecKGroundStatus()
         {
             float radius = 0.4f;

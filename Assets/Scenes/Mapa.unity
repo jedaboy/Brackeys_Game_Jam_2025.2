@@ -19099,7 +19099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!43 &121087791
 Mesh:
@@ -41955,7 +41955,7 @@ MonoBehaviour:
   _sentinelPrefab: {fileID: 5276483571090806828, guid: 11aee034263557843af442233693d7d4, type: 3}
   _sentinelCount: 4
   _spawnAreaRadius: 100
-  _respawnDeadSentinelTime: 10
+  _respawnDeadSentinelTime: 40
   _deadSentinelRespawnPoints:
   - {fileID: 259407692}
   - {fileID: 2028300973}
@@ -45213,7 +45213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!1 &277156814
 GameObject:
@@ -63709,7 +63709,7 @@ MonoBehaviour:
   _sentinelPrefab: {fileID: 5276483571090806828, guid: 11aee034263557843af442233693d7d4, type: 3}
   _sentinelCount: 6
   _spawnAreaRadius: 100
-  _respawnDeadSentinelTime: 10
+  _respawnDeadSentinelTime: 40
   _deadSentinelRespawnPoints:
   - {fileID: 50753288}
   - {fileID: 1091724393}
@@ -149446,7 +149446,7 @@ MonoBehaviour:
   _sentinelPrefab: {fileID: 5276483571090806828, guid: 11aee034263557843af442233693d7d4, type: 3}
   _sentinelCount: 4
   _spawnAreaRadius: 100
-  _respawnDeadSentinelTime: 10
+  _respawnDeadSentinelTime: 40
   _deadSentinelRespawnPoints:
   - {fileID: 960718816}
   - {fileID: 1796190338}
@@ -162629,7 +162629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!43 &975858737
 Mesh:
@@ -163389,7 +163389,7 @@ MonoBehaviour:
   _sentinelPrefab: {fileID: 5276483571090806828, guid: 11aee034263557843af442233693d7d4, type: 3}
   _sentinelCount: 6
   _spawnAreaRadius: 100
-  _respawnDeadSentinelTime: 10
+  _respawnDeadSentinelTime: 40
   _deadSentinelRespawnPoints:
   - {fileID: 1282718989}
   - {fileID: 1356544601}
@@ -167691,7 +167691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _expeditionProperties: {fileID: 11400000, guid: 1bb7f9d2f2763504788998ace50fd60a, type: 2}
-  _sentinelsTime: 90
+  _sentinelsTime: 80
   _robotEnemyPrefab: {fileID: 2518035666371764233, guid: 58f5aa9e33e6e684286058cf76b3f845, type: 3}
   _sentinelSpawner:
   - {fileID: 385516937}
@@ -185906,7 +185906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!1 &1115000057
 GameObject:
@@ -195362,7 +195362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!1 &1160664002
 GameObject:
@@ -235209,7 +235209,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414022561}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1414022564
 Camera:
   m_ObjectHideFlags: 0
@@ -237941,7 +237941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!43 &1433994052
 Mesh:
@@ -244152,7 +244152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!43 &1468406196
 Mesh:
@@ -245637,7 +245637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!4 &1475074185
 Transform:
@@ -301610,7 +301610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!43 &1805535691
 Mesh:
@@ -304186,7 +304186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!43 &1817502554
 Mesh:
@@ -305290,7 +305290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!43 &1829916942
 Mesh:
@@ -318616,7 +318616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 25
   _maxEnemyLevel: 50
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!1 &1908074234
 GameObject:
@@ -327277,7 +327277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!1 &1963439702
 GameObject:
@@ -328315,7 +328315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!1 &1972958275
 GameObject:
@@ -346609,7 +346609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minEnemyLevel: 0.75
   _maxEnemyLevel: 1
-  _enemyDensity: 1
+  _enemyDensity: 0.45
   _spawnAreaRadius: 10
 --- !u!1 &2085691647
 GameObject:
@@ -355496,8 +355496,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -355540,8 +355540,8 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
+  m_ColorTemperature: 9411
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -359784,26 +359784,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 405108477256768583, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
-      propertyPath: _gear.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 405108477256768583, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
-      propertyPath: _gear.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: b8fb74b11cbebdb4e9af4d881b0ed193, type: 3}
-    - target: {fileID: 6421020367051435044, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
-      propertyPath: bulletProjectile
-      value: 
-      objectReference: {fileID: 8747387899871882592, guid: d9f374331ac7e804e8d73951efdad42a, type: 3}
-    - target: {fileID: 8143483179993931893, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
-      propertyPath: fireRate
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143483179993931893, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
-      propertyPath: bulletProjectile
-      value: 
-      objectReference: {fileID: 8747387899871882592, guid: d9f374331ac7e804e8d73951efdad42a, type: 3}
     - target: {fileID: 8523985644277440224, guid: 34311ac58b1fff44ca2ec3d0d50dc837, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -360066,14 +360046,6 @@ PrefabInstance:
       propertyPath: m_Cam
       value: 
       objectReference: {fileID: 895873543}
-    - target: {fileID: 2774432173081999490, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
-      propertyPath: _gear.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2774432173081999490, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
-      propertyPath: _gear.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: b8fb74b11cbebdb4e9af4d881b0ed193, type: 3}
     - target: {fileID: 4313893450455141276, guid: 2730af6c220f54a419ceba8fa75b0227, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.89
